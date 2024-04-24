@@ -1,8 +1,8 @@
 import React from "react";
-import BleuButton from "../../ui/button/BleuButton";
-import OrangeButton from "../../ui/button/OrangeButton";
-import RedButton from "../../ui/button/RedButton";
-import GreenButton from "../../ui/button/GreenButton";
+import BleuButton from "../../../ui/button/BleuButton";
+import OrangeButton from "../../../ui/button/OrangeButton";
+import RedButton from "../../../ui/button/RedButton";
+import GreenButton from "../../../ui/button/GreenButton";
 
 function CanceledOrder() {
   return (

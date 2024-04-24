@@ -3,7 +3,7 @@
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import DatePickerOne from "@/components/FormElements/DatePicker/DatePickerOne";
 import SelectGroupTwo from "@/components/SelectGroup/SelectGroupTwo";
-import ICTable from "@/components/ciApp/ui/ICTable";
+import ICTable from "@/components/ui/ICTable";
 import CustomSearch from "@/components/ui/CustomSearch";
 import CustomSelect from "@/components/ui/CustomSelect";
 import { PaymentsData } from "@/constants/paymentData";

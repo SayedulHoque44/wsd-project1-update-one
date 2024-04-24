@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import { Button, Tag } from "antd";
 
-import ICTable from "@/components/ciApp/ui/ICTable";
+import ICTable from "@/components/ui/ICTable";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { IApi } from "@/types/api";
 import { ApiData } from "@/constants/apiData";

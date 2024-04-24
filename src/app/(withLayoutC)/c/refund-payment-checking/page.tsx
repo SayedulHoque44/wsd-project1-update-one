@@ -1,7 +1,7 @@
 "use client";
 
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import ICTable from "@/components/ciApp/ui/ICTable";
+import ICTable from "@/components/ui/ICTable";
 import CustomSearch from "@/components/ui/CustomSearch";
 import CustomSelect from "@/components/ui/CustomSelect";
 import { RefundData } from "@/constants/paymentData";

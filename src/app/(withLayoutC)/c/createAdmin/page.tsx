@@ -8,7 +8,7 @@ import { CiEdit } from "react-icons/ci";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { FaUserPlus } from "react-icons/fa";
 
-import ICTable from "@/components/ciApp/ui/ICTable";
+import ICTable from "@/components/ui/ICTable";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { AdminData } from "@/constants/adminData";
 import { IAdmin } from "@/types/admin";

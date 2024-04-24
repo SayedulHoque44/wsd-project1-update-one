@@ -3,8 +3,8 @@
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import DatePickerOne from "@/components/FormElements/DatePicker/DatePickerOne";
 import SelectGroupTwo from "@/components/SelectGroup/SelectGroupTwo";
-import ICTable from "@/components/ciApp/ui/ICTable";
-import BleuButton from "@/components/ciApp/ui/button/BleuButton";
+import ICTable from "@/components/ui/ICTable";
+import BleuButton from "@/components/ui/button/BleuButton";
 import CustomSearch from "@/components/ui/CustomSearch";
 import CustomSelect from "@/components/ui/CustomSelect";
 import { users } from "@/constants/userData";

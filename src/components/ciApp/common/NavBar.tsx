@@ -8,8 +8,8 @@ import { RxCrossCircled } from "react-icons/rx";
 import { FaBell } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import Image from "next/image";
-import DarkMoodButton from "../ui/DarkMoodContaxt";
-import OrderProduct from "../ui/Order/page";
+import DarkMoodButton from "../../ui/DarkMoodContaxt";
+import OrderProduct from "../../ui/Order/page";
 // import DarkMoodButton from "@/components/ui/DarkMoodContaxt";
 // import OrderProduct from "@/components/ui/Order/page";
 

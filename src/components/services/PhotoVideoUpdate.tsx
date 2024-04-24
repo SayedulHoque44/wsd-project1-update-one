@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { BiEdit, BiTrash } from "react-icons/bi";
 import PrimaryButton from "@/components/button/PrimaryButton";
-import SelectSingleOrMultiImgOrVideo from "../Upload/SelectSIngleOrMultiImgOrVideo";
+import SelectSingleOrMultiImgOrVideo from "../Upload/SelectSIngleOrMultiImgAll";
 import SelectSingleOrMultiImg from "../Upload/SelectSingleOrMultiImg";
 // import SelectSingleOrMultiImg from "../Upload/SelectSingleOrMultiImg";
 

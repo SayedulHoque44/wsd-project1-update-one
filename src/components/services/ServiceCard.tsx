@@ -56,7 +56,6 @@ const ServiceCard = ({
             height: 600,
           }}
           onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-          // onChange={(newContent) => {}}
         />
       </span>
     </div>

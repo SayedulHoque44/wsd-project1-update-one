@@ -4,10 +4,8 @@ import { IoIosContact } from "react-icons/io";
 import { RiDeleteBin6Line, RiDragDropFill } from "react-icons/ri";
 import { AiOutlineEdit } from "react-icons/ai";
 import { BiEdit, BiTrash } from "react-icons/bi";
-import CustomModal from "@/components/ui/CustomModal";
-import { message } from "antd";
-// import JoditReact from "jodit-react-ts";
-// import "jodit/build/jodit.min.css";
+
+import dynamic from "next/dynamic";
 const CreatePaymentIcon: React.FC = () => {
   const [ContentValue, setContentValue] = useState<string>("");
   const [isVisible, setIsVisible] = useState(false);
@@ -21,7 +19,7 @@ const CreatePaymentIcon: React.FC = () => {
   // delete recor hooks
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
   const [deleteIndexBlog, SetDeleteIndexBlog] = useState<any>(null);
-
+  const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
   const handleClosePopUp = () => {
     setIsVisible(false);
   };
@@ -221,15 +219,13 @@ const CreatePaymentIcon: React.FC = () => {
     }, 3000);
   };
   const handleUploadClick = () => {
-    setIsVisible(false);
-    message.success("Blog updated");
     //   setUploadedFiles([...uploadedFile, ...selectInputFilesBaner]);
     //   setSlectInputFileBaner([]);
     //   setUploadSuccess(true);
 
-    // setTimeout(() => {
-    //   setUploadSuccess(false);
-    // }, 1000);
+    setTimeout(() => {
+      setUploadSuccess(false);
+    }, 1000);
   };
 
   // for input taking file code
@@ -386,125 +382,7 @@ const CreatePaymentIcon: React.FC = () => {
           </ul>
         </div>
       )}
-
-      <CustomModal
-        title="Blog"
-        isOpen={isVisible}
-        closeModal={() => handleClosePopUp()}
-        handleOk={() => handleUploadClick()}
-        width={800}
-      >
-        <div>
-          {/* <PhotoVideoUpdate/> */}
-          <div className="mx-auto w-1/2 ">
-            <input
-              type="file"
-              name="banner"
-              className="  hidden"
-              onChange={handleFileChangeBaner}
-              ref={FileInputRef2}
-            />
-            <div className="flex items-center gap-2 space-x-4">
-              <button
-                className="rounded bg-blue-500 px-4 py-2 text-white"
-                onClick={() => FileInputRef2.current?.click()}
-              >
-                Select Service Icon{" "}
-              </button>
-              {selectInputFilesBaner.length > 0 && (
-                <div className="m-2 mt-4 flex w-[250px] items-center space-x-3">
-                  <div className="flex items-center space-x-2">
-                    <div>
-                      {selectInputFilesBaner.map((file: any, index: any) => (
-                        <div key={index} className="flex space-x-1">
-                          <Image
-                            src={URL.createObjectURL(file)}
-                            alt="Baner"
-                            className="mr-3 h-20 w-20 rounded"
-                            width={20}
-                            height={20}
-                          />
-                          <button
-                            className="h-fit rounded bg-green-500 px-2 py-2 text-white"
-                            onClick={handleEditClickBaner}
-                          >
-                            <BiEdit size={30} />
-                          </button>
-                          <button
-                            className="bg-red-500 h-fit rounded px-2 py-2 text-white"
-                            onClick={handleConfirmationPopUpBaner}
-                          >
-                            <BiTrash size={30} />
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* <div className="text-medium px-2 py-2 mr-3 w-40 ">
-                {selectInputFiles.name}
-              </div> */}
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* </div> */}
-          <form>
-            {/* {card2  && <form > */}
-            <div className="space-y-4 p-5">
-              <div className="mx-auto mb-5 max-w-lg space-y-4">
-                {/* <span>
-                    <label className="text-sm" htmlFor="">
-                      Upload card icon
-                    </label>{" "}
-                    <br />
-                    <input
-                      type="file"
-                      className={inputStyle}
-                      name="cardTwoIcon"
-                    />
-                  </span> */}
-                <span>
-                  <label className="text-sm" htmlFor="">
-                    Service Title
-                  </label>{" "}
-                  <br />
-                  <input
-                    type="text"
-                    className={inputStyle}
-                    name="cardTwoTitle"
-                  />
-                </span>
-                <span>
-                  <label className="text-sm" htmlFor="">
-                    Service Tag
-                  </label>{" "}
-                  <br />
-                  <textarea
-                    rows={3}
-                    className={inputStyle}
-                    name="cardTwoTag"
-                  ></textarea>
-                </span>
-              </div>
-
-              <span className=" mt-2 h-28 w-40">
-                <label className="text-md py-5">Service Description</label>
-
-                {/* <JoditReact  onChange={(content) => setContentValue(content)} defaultValue="Hi" /> */}
-              </span>
-            </div>
-          </form>
-          {/* <button
-            className={`${buttonStyle} ml-auto mr-3`}
-            onClick={handleUploadClick}
-          >
-            submit
-          </button> */}
-        </div>
-      </CustomModal>
-      {/* {isVisible && (
+      {isVisible && (
         <div className="fixed  right-16 top-0 m-3 mx-auto flex h-full w-fit items-start  justify-center overflow-scroll rounded-md bg-white pt-6 ">
           <div className="relative  -mt-7 h-[0px] w-fit   px-1">
             <div className="  ml-[990px] mt-3  ">
@@ -515,7 +393,7 @@ const CreatePaymentIcon: React.FC = () => {
                 <span className="text-center text-lg ">X</span>
               </button>
             </div>
-            {/* <PhotoVideoUpdate/> 
+            {/* <PhotoVideoUpdate/> */}
             <div className="mx-auto w-1/2 ">
               <input
                 type="file"
@@ -563,7 +441,7 @@ const CreatePaymentIcon: React.FC = () => {
 
                     {/* <div className="text-medium px-2 py-2 mr-3 w-40 ">
                 {selectInputFiles.name}
-              </div> 
+              </div> */}
                   </div>
                 )}
               </div>
@@ -574,9 +452,9 @@ const CreatePaymentIcon: React.FC = () => {
             >
               submit
             </button>
-             </div>
+            {/* </div> */}
             <form>
-              {/* {card2  && <form > 
+              {/* {card2  && <form > */}
               <div className="space-y-4 p-5">
                 <div className="mx-auto mb-5 max-w-lg space-y-4">
                   {/* <span>
@@ -589,7 +467,7 @@ const CreatePaymentIcon: React.FC = () => {
                       className={inputStyle}
                       name="cardTwoIcon"
                     />
-                  </span> 
+                  </span> */}
                   <span>
                     <label className="text-sm" htmlFor="">
                       Service Title
@@ -617,13 +495,20 @@ const CreatePaymentIcon: React.FC = () => {
                 <span className=" mt-2 h-28 w-40">
                   <label className="text-md py-5">Service Description</label>
 
-                  {/* <JoditReact  onChange={(content) => setContentValue(content)} defaultValue="Hi" />
+                  <JoditEditor
+                    ref={editor}
+                    value={content}
+                    config={{
+                      height: 600,
+                    }}
+                    onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+                  />
                 </span>
               </div>
             </form>
           </div>
         </div>
-      )} */}
+      )}
       {/* Confimattion toggle Pop-up */}
       {showConfirmation && (
         <div className="bg-gray-700 fixed left-0 top-0 flex h-full w-full items-center justify-center bg-opacity-75">
@@ -647,15 +532,7 @@ const CreatePaymentIcon: React.FC = () => {
         </div>
       )}
       {/* confirmation Delete Record  pop up  */}
-      <CustomModal
-        title="Remove record"
-        isOpen={showDeleteConfirmation}
-        closeModal={() => cancelDelete()}
-        handleOk={() => confirmDelete()}
-      >
-        <p className="my-5">Are you sure to Delte this Record?</p>
-      </CustomModal>
-      {/* {showDeleteConfirmation && (
+      {showDeleteConfirmation && (
         <div className="bg-gray-700 fixed left-0 top-0 flex h-full w-full items-center justify-center bg-opacity-75">
           <div className="rounded-md bg-white p-4">
             <p>Arue you sure Want to delete this record?</p>
@@ -675,7 +552,7 @@ const CreatePaymentIcon: React.FC = () => {
             </div>
           </div>
         </div>
-      )} */}
+      )}
 
       {/* Bannar  Confarmatin MOdal of delete uplod icon */}
       {confirmationPopUpIUplod && (
@@ -722,7 +599,6 @@ const CreatePaymentIcon: React.FC = () => {
         </div>
       )}
       {/*  LOgo Confarmatin MOdal */}
-
       {confirmationPopUp && (
         <div className="bg-gray-700 fixed left-0 top-0 flex h-full w-full items-center justify-center bg-opacity-75">
           <div className="rounded-md bg-white p-4">

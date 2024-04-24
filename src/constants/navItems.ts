@@ -55,13 +55,13 @@ export const CNavItem: navItem[] = [
   {
     id: 6,
     title: "APSLCCB",
-    url: "/c/pages/footers",
+    url: "/c/footers",
     icon: BiSolidBookContent,
   },
   {
     id: 7,
     title: "Live Chat",
-    url: "/c/pages/livechat",
+    url: "/c/livechat",
     icon: BsFillChatLeftTextFill,
   },
   {
@@ -114,13 +114,13 @@ export const INavItem: navItem[] = [
   {
     id: 6,
     title: "APSLCCB",
-    url: "/i/pages/footers",
+    url: "/i/footers",
     icon: BiSolidBookContent,
   },
   {
     id: 7,
     title: "Live Chat",
-    url: "/i/pages/livechat",
+    url: "/i/livechat",
     icon: BsFillChatLeftTextFill,
   },
   {

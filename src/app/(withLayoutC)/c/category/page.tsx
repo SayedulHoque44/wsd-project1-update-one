@@ -1,8 +1,9 @@
 "use client";
+import AddNewTechnology from "@/components/ui/MergedComponents/CategoryComponents/AddNewTechnology";
+import CreateCompanyPolicy from "@/components/ui/MergedComponents/CreateCompanyPolicy";
+import CreatePaymentIcon from "@/components/ui/MergedComponents/CreatePaymentIcon";
 import React, { useState } from "react";
-import AddNewTechnology from "@/components/ciApp/ui/MergedComponents/CategoryComponents/AddNewTechnology";
-import CreateCompanyPolicy from "@/components/ciApp/ui/MergedComponents/CreateCompanyPolicy";
-import CreatePaymentIcon from "@/components/ciApp/ui/MergedComponents/CreatePaymentIcon";
+
 const Category: React.FC = () => {
   const [navName, setNavName] = useState<string>("Create Technology");
   const [currentTab, setCurrentTab] = useState<string>("tab1");

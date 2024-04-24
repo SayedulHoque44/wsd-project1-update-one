@@ -5,7 +5,7 @@ import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { OrderData } from "@/types/orderData";
 import Link from "next/link";
 import { OrdersData } from "@/constants/orderData";
-import ICTable from "@/components/ciApp/ui/ICTable";
+import ICTable from "@/components/ui/ICTable";
 import DatePickerOne from "@/components/FormElements/DatePicker/DatePickerOne";
 import SelectGroupTwo from "@/components/SelectGroup/SelectGroupTwo";
 import CustomSelect from "@/components/ui/CustomSelect";

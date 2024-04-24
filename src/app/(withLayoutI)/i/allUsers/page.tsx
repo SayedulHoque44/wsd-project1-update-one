@@ -4,7 +4,7 @@ import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import DatePickerOne from "@/components/FormElements/DatePicker/DatePickerOne";
 import SelectGroupTwo from "@/components/SelectGroup/SelectGroupTwo";
 import Table from "@/components/Tables";
-import BleuButton from "@/components/ciApp/ui/button/BleuButton";
+import BleuButton from "@/components/ui/button/BleuButton";
 import { users } from "@/constants/userData";
 import { IUser } from "@/types/user";
 
