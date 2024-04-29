@@ -81,7 +81,7 @@ const CreateTopic: React.FC = () => {
             placeholder="Topic Name"
             className="px -4 border-2 py-1 "
           />{" "}
-          <button className="bg-gray-300 px-4 py-1" onClick={handleAddData}>
+          <button className="bg-slate-300 px-4 py-1" onClick={handleAddData}>
             Add
           </button>
         </div>
@@ -90,12 +90,12 @@ const CreateTopic: React.FC = () => {
           {dataList.map((item: any, index: number) => (
             <div
               key={index}
-              className="bg-gray-200 mb-2 flex justify-between rounded p-2"
+              className="mb-2 flex justify-between rounded bg-slate-200 p-2"
             >
               {item}
               <span className="flex gap-1">
                 <button
-                  className="bg-red-500 rounded p-1"
+                  className="rounded bg-rose-500 p-1"
                   onClick={() => handleDelete(index)}
                 >
                   <BiTrash size={25} />
@@ -110,7 +110,7 @@ const CreateTopic: React.FC = () => {
                     />
                     <div
                       className={`box block h-8 w-14 rounded-full ${
-                        isChecked ? "bg-green-500" : "bg-gray-300"
+                        isChecked ? "bg-green-500" : "bg-slate-300"
                       }`}
                     ></div>
                     <div
@@ -154,7 +154,7 @@ const CreateTopic: React.FC = () => {
         </div>
       </div>
       {showConfirmation && (
-        <div className="bg-gray-700 fixed left-0 top-0 flex h-full w-full items-center justify-center bg-opacity-75">
+        <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-slate-700 bg-opacity-75">
           <div className="rounded-md bg-white p-4">
             <p>Arue you sure to tooggle the checkbox?</p>
             <div className="mt-4 flex justify-end">
@@ -176,7 +176,7 @@ const CreateTopic: React.FC = () => {
       )}
 
       {deleteIndex !== null && (
-        <div className="bg-gray-700 fixed left-0 top-0 flex h-full w-full items-center justify-center bg-opacity-75">
+        <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-slate-700 bg-opacity-75">
           <div className="rounded-md bg-white p-4">
             <p>Arue you sure to delete this item?</p>
             <div className="mt-4 flex justify-end">
@@ -199,7 +199,7 @@ const CreateTopic: React.FC = () => {
 
       {/* succes pop */}
       {uploadSucces && (
-        <div className="bg-gray-700 fixed left-0 top-0 flex h-full w-full items-center justify-center bg-opacity-75">
+        <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-slate-700 bg-opacity-75">
           <div className="rounded-md bg-white p-4">
             <p className="px-20 py-20 text-green-500">Successfully Save</p>
           </div>

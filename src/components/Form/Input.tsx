@@ -7,10 +7,12 @@ const CustomInput = ({
   label,
   disabled,
   placeholder,
+  className,
 }: {
   type: string;
   name: string;
   label: string;
+  className?: string;
   placeholder?: string;
   disabled?: boolean;
 }) => {
@@ -40,6 +42,7 @@ const CustomInput = ({
                 size="large"
                 disabled={disabled}
                 placeholder={placeholder}
+                className={className}
               />
               {error && <small style={{ color: "red" }}>{error.message}</small>}
             </Form.Item>

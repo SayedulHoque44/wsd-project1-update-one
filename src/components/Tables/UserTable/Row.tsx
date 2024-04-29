@@ -3,13 +3,13 @@ import React from "react";
 
 const Row = () => {
   return (
-    <tr className="dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 border-b bg-white">
+    <tr className="dark:border-gray-700 border-b bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-600">
       <td className="w-4 p-4">
         <div className="flex items-center">
           <input
             id="checkbox-table-search-1"
             type="checkbox"
-            className="bg-gray-100 border-gray-300 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600 h-4 w-4 rounded text-blue-600 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600"
+            className="border-gray-300 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 dark:border-gray-600 h-4 w-4 rounded bg-slate-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:bg-slate-700 dark:focus:ring-blue-600"
           />
           <label htmlFor="checkbox-table-search-1" className="sr-only">
             checkbox

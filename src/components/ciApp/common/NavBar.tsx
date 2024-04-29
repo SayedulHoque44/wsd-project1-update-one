@@ -91,7 +91,7 @@ const NavBar: React.FC = () => {
       >
         <FaBell />
         {notificationCount > 0 && (
-          <div className="bg-red-500 absolute right-[-4px] top-[-8px] rounded-full border border-white px-1 py-[1px] text-xs  text-white  ">
+          <div className="absolute right-[-4px] top-[-8px] rounded-full border border-white bg-rose-500 px-1 py-[1px] text-xs  text-white  ">
             {notificationCount}
           </div>
         )}
@@ -100,7 +100,7 @@ const NavBar: React.FC = () => {
       <button onClick={handleOrderDropdown} className={`text-2xl text-white `}>
         <FaShoppingCart />
         {notificationCount > 0 && (
-          <div className="bg-red-500 absolute right-[-4px] top-[-8px] rounded-full border border-white px-1 py-[1px] text-xs  text-white  ">
+          <div className="absolute right-[-4px] top-[-8px] rounded-full border border-white bg-rose-500 px-1 py-[1px] text-xs  text-white  ">
             {notificationCount}
           </div>
         )}
@@ -109,7 +109,7 @@ const NavBar: React.FC = () => {
       <button className={`text-2xl text-white`} onClick={handleButtonClick}>
         <GoScreenFull />
         {notificationCount > 0 && (
-          <div className="bg-red-500 absolute right-[-4px] top-[-8px] rounded-full border border-white px-1 py-[1px] text-xs  text-white  ">
+          <div className="absolute right-[-4px] top-[-8px] rounded-full border border-white bg-rose-500 px-1 py-[1px] text-xs  text-white  ">
             {notificationCount}
           </div>
         )}
@@ -133,7 +133,7 @@ const NavBar: React.FC = () => {
 
       <div>
         {isDropdownOpen && (
-          <div className="dropdown-content  bg-gray-100 absolute  right-20 top-20 z-50 border-2  ">
+          <div className="dropdown-content  absolute right-20  top-20 z-50 border-2 bg-slate-100  ">
             <header className="w-ful  flex items-center justify-around bg-blue-700 p-2">
               <h2 className="text-nowrap text-lg font-bold  text-white">
                 Shopping Card
@@ -187,7 +187,7 @@ const NavBar: React.FC = () => {
       </div>
       <div>
         {isOrderDropdownOpen && (
-          <div className="dropdown-content bg-gray-100 absolute right-28 top-20 z-50 h-96 w-80 rounded-sm border-2">
+          <div className="dropdown-content absolute right-28 top-20 z-50 h-96 w-80 rounded-sm border-2 bg-slate-100">
             {/* {notifications.map((notification) => ( */}
             <div /* key={notification.id} */ className=" notification-item">
               <OrderProduct />

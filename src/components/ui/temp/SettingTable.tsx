@@ -22,7 +22,7 @@ const SettingTable: React.FC<ChildProps> = ({ data }) => {
     <div className="my-4">
       <table className="border-gray-300 w-full border-collapse border">
         <thead className="font-bold">
-          <tr className="bg-gray-200 text-black">
+          <tr className="bg-slate-200 text-black">
             <th className="border-gray-300 border p-2 text-sm">SL</th>
             <th className="border-gray-300 border p-2 text-sm">ID</th>
             <th className="border-gray-300 border p-2 text-sm">Admin Name</th>
@@ -39,7 +39,7 @@ const SettingTable: React.FC<ChildProps> = ({ data }) => {
             <tr
               key={index}
               className={`text-center ${
-                index % 2 === 0 ? "bg-gray-50" : "bg-white"
+                index % 2 === 0 ? "bg-slate-50" : "bg-white"
               }`}
             >
               <td className="border-gray-300 border">{item.sl}</td>
@@ -74,7 +74,7 @@ const SettingTable: React.FC<ChildProps> = ({ data }) => {
                 className={`${
                   currentPage === index + 1
                     ? "bg-blue-500 text-white"
-                    : "bg-gray-300 text-gray-700"
+                    : "text-gray-700 bg-slate-300"
                 } rounded-full px-3 py-1`}
                 onClick={() => paginate(index + 1)}
               >

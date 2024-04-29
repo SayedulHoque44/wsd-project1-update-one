@@ -7,15 +7,17 @@ export const metadata: Metadata = {
   description: "We provide proffesional services",
 };
 
-const page = () => {
+const ServicePage = () => {
   return (
     <div>
       <Breadcrumb pageName="Services" />
       <h1 className="text-center text-2xl">Our services and technologies</h1>
 
-      <div>{/* <ServiceTab /> */}</div>
+      <div>
+        <ServiceTab />
+      </div>
     </div>
   );
 };
 
-export default page;
+export default ServicePage;

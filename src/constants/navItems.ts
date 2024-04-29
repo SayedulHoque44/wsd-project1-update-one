@@ -55,13 +55,13 @@ export const CNavItem: navItem[] = [
   {
     id: 6,
     title: "APSLCCB",
-    url: "/c/footers",
+    url: "/c/company",
     icon: BiSolidBookContent,
   },
   {
     id: 7,
     title: "Live Chat",
-    url: "/c/livechat",
+    url: "/c/liveChat",
     icon: BsFillChatLeftTextFill,
   },
   {
@@ -71,7 +71,7 @@ export const CNavItem: navItem[] = [
     icon: RiAdminFill,
   },
   { id: 9, title: "Setting", url: "/c/setting", icon: AiTwotoneSetting },
-  { id: 10, title: "Logout", url: "/c/logout", icon: GoSignOut },
+  // { id: 10, title: "Logout", url: "/c/logout", icon: GoSignOut },
 ];
 export const INavItem: navItem[] = [
   { id: 1, title: "Dashboard", url: "/i/dashboard", icon: BiSolidDashboard },
@@ -114,13 +114,13 @@ export const INavItem: navItem[] = [
   {
     id: 6,
     title: "APSLCCB",
-    url: "/i/footers",
+    url: "/i/company",
     icon: BiSolidBookContent,
   },
   {
     id: 7,
     title: "Live Chat",
-    url: "/i/livechat",
+    url: "/i/liveChat",
     icon: BsFillChatLeftTextFill,
   },
   {
@@ -130,5 +130,4 @@ export const INavItem: navItem[] = [
     icon: RiAdminFill,
   },
   { id: 9, title: "Setting", url: "/i/setting", icon: AiTwotoneSetting },
-  { id: 10, title: "Logout", url: "/i/logout", icon: GoSignOut },
 ];

@@ -14,7 +14,7 @@ export const OrdersData: OrderData[] = [
     projectDeliveryDay: "30-06-2023",
     profit: 2500,
     status: "Pending",
-    view: "view",
+    // view: "view",
   },
   {
     sl: 2,
@@ -29,7 +29,7 @@ export const OrdersData: OrderData[] = [
     projectDeliveryDay: "15-07-2023",
     profit: 3750,
     status: "In Progress",
-    view: "view",
+    // view: "view",
   },
   {
     sl: 3,
@@ -44,7 +44,7 @@ export const OrdersData: OrderData[] = [
     projectDeliveryDay: "25-06-2023",
     profit: 3000,
     status: "Pending",
-    view: "view",
+    // view: "view",
   },
   {
     sl: 4,
@@ -59,7 +59,7 @@ export const OrdersData: OrderData[] = [
     projectDeliveryDay: "10-08-2023",
     profit: 4500,
     status: "In Progress",
-    view: "view",
+    // view: "view",
   },
   {
     sl: 5,
@@ -74,7 +74,7 @@ export const OrdersData: OrderData[] = [
     projectDeliveryDay: "20-07-2023",
     profit: 3500,
     status: "Pending",
-    view: "view",
+    // view: "view",
   },
   {
     sl: 6,
@@ -89,7 +89,7 @@ export const OrdersData: OrderData[] = [
     projectDeliveryDay: "05-09-2023",
     profit: 4000,
     status: "In Progress",
-    view: "view",
+    // view: "view",
   },
   {
     sl: 7,
@@ -104,7 +104,7 @@ export const OrdersData: OrderData[] = [
     projectDeliveryDay: "15-08-2023",
     profit: 2750,
     status: "Pending",
-    view: "view",
+    // view: "view",
   },
   {
     sl: 8,
@@ -119,7 +119,7 @@ export const OrdersData: OrderData[] = [
     projectDeliveryDay: "30-09-2023",
     profit: 4750,
     status: "In Progress",
-    view: "view",
+    // view: "view",
   },
   {
     sl: 9,
@@ -134,7 +134,7 @@ export const OrdersData: OrderData[] = [
     projectDeliveryDay: "10-10-2023",
     profit: 3250,
     status: "Pending",
-    view: "view",
+    // view: "view",
   },
   {
     sl: 10,
@@ -149,7 +149,7 @@ export const OrdersData: OrderData[] = [
     projectDeliveryDay: "25-11-2023",
     profit: 4250,
     status: "In Progress",
-    view: "view",
+    // view: "view",
   },
   {
     sl: 11,
@@ -164,6 +164,6 @@ export const OrdersData: OrderData[] = [
     projectDeliveryDay: "15-12-2023",
     profit: 3750,
     status: "Pending",
-    view: "view",
+    // view: "view",
   },
 ];

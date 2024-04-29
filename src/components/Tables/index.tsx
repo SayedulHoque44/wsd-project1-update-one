@@ -38,7 +38,7 @@ const Table = ({
             return (
               <tr
                 key={i}
-                className="dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 border-b bg-white"
+                className="dark:border-gray-700 border-b bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-600"
               >
                 {columns?.map((columnItem: any) => {
                   return (

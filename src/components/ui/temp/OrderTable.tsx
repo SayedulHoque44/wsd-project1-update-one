@@ -44,7 +44,6 @@
 //   setSoundStatus(!SoundStatus)
 // }
 
-
 // interface PopUpPosition{
 //     top:number;
 //     left:number;
@@ -162,21 +161,16 @@
 
 // }
 
-
-
-// // this for Currency Data Selection 
+// // this for Currency Data Selection
 
 // const [selectdItem, setSelectedItem]= useState<string>('')
 // const [amount, setAmount] = useState<string>('');
 // const [buttonText, setButtonText]= useState<string>('Set Amount')
 
-
 // const handleItemClick =(item:string)=>{
 //   setSelectedItem(item);
 //   setButtonText(`${item}, Amount: ${amount} `)
 // }
-
-
 
 // const handleAmountChange =(event:React.ChangeEvent<HTMLInputElement>)=>{
 //  setAmount(event.target.value)
@@ -187,7 +181,6 @@
 //   setButtonText(`${selectdItem} ${amount}`)
 // }
 
-
 //   return (
 //     <div className="my-4">
 //       <table
@@ -196,7 +189,7 @@
 //         }`}
 //       >
 //         <thead className="font-bold">
-//           <tr className="bg-gray-200 text-black">
+//           <tr className="bg-slate-200 text-black">
 //             <th className="border border-gray-300 p-2 text-left text-sm">NO</th>
 //             <th className="border border-gray-300 p-2 text-left text-sm">
 //               Order ID
@@ -235,7 +228,7 @@
 //             <tr
 //               key={index}
 //               className={`text-center ${
-//                 index % 2 === 0 ? "bg-gray-50" : "bg-white"
+//                 index % 2 === 0 ? "bg-slate-50" : "bg-white"
 //               }`}
 //             >
 //               <td className="border border-gray-300">
@@ -260,7 +253,7 @@
 //               <td className="border border-gray-300 p-2 flex items-center gap-2">
 //                 <button
 //                   onClick={() => setisOpenMessageModal(true)}
-//                   className="bg-gray-300 px-2 py-1"
+//                   className="bg-slate-300 px-2 py-1"
 //                 >
 //                   Update
 //                 </button>
@@ -303,7 +296,7 @@
 //                 className={`${
 //                   currentPage === index + 1
 //                     ? "bg-indigo-500 text-white"
-//                     : "bg-gray-300 text-gray-700"
+//                     : "bg-slate-300 text-gray-700"
 //                 } px-3 py-1 rounded-full`}
 //                 onClick={() => paginate(index + 1)}
 //               >
@@ -496,7 +489,7 @@
 //         hideCloseIcon={false}
 //         className="mt-6"
 //       >
-//         <div className="bg-gray-800 md:mt-3 gap-y-6 flex flex-col justify-between items-center text-white p-8 rounded shadow-md w-96 h-96">
+//         <div className="bg-slate-800 md:mt-3 gap-y-6 flex flex-col justify-between items-center text-white p-8 rounded shadow-md w-96 h-96">
 //           <div className="flex flex-col my-3 gap-y-3 items-center">
 //             <div className="rounded-full">
 //               <FaRegCircleUser size={34} className="text-pink-600" />
@@ -513,17 +506,17 @@
 //           <div className="flex justify-center space-x-4 mt-4 gap-5 my-6">
 //             <button className="bg-green-500 text-white px-3.5 py-3.5 rounded-full" onClick={handlemuteStatus}>
 //               {MuteStatus ? <IoMdMicOff size={20} /> : <IoMdMic size={20} />}
-              
+
 //             </button>
 //             <button
-//               className="bg-red-500 text-white px-3.5 py-3.5 rounded-full"
+//               className="bg-rose-500 text-white px-3.5 py-3.5 rounded-full"
 //               onClick={() => setIsDailed(false)}
 //             >
 //               <MdCallEnd size={20}/>
 //             </button>
 //             <button className="bg-yellow-500 rounded-full text-white px-3.5 py-3.5" onClick={handleSoundStatus}>
 //               {SoundStatus ? <HiMiniSpeakerWave  size={20}/>: <HiMiniSpeakerXMark size={20} /> }
-              
+
 //             </button>
 //           </div>
 //         </div>
@@ -538,7 +531,7 @@
 //                   className=" absolute right-2 -mt-14 z-10  cursor-pointer  "
 //                   onClick={handleCloseModal}
 //                 >
-//                   <div className="bg-red-500 rounded-full p-4 w-9 h-9  flex text-xl justify-center items-center">
+//                   <div className="bg-rose-500 rounded-full p-4 w-9 h-9  flex text-xl justify-center items-center">
 //                     x
 //                   </div>
 //                 </div>
@@ -546,14 +539,14 @@
 //                 <div className="flex gap-4 p-3 w-full  justify-self-end pr-12  flex-row-reverse ">
 //                 <select
 //                     className="bg-orange-600 font-bold  border border-lime-500 border-b-yellow-400 rounded-md text-black hover:bg-orange-400 p-4  px-4"
-                    
+
 //                     value={selectedStatus}
 //                       onChange={handleStatusChange}
-                    
+
 //                   >
 //                     <option
 //                       value=""
-//                       className="bg-gray-200 text-black   border border-gray-200 my-1 p-2"
+//                       className="bg-slate-200 text-black   border border-gray-200 my-1 p-2"
 //                     >
 //                       Status
 //                     </option>
@@ -617,7 +610,7 @@
 //                   >
 //                     Update
 //                   </button>
-                
+
 //                   <button
 //                     className="bg-orange-600 font-bold  border border-lime-500 border-b-yellow-400 rounded-md text-black hover:bg-orange-400 p-4 px-6  "
 //                     onClick={handleAmountPopUp}
@@ -739,11 +732,10 @@
 //                     </button>
 //                     < button className="bg-orange-600 font-bold  border border-lime-500 border-b-yellow-400 rounded-md text-black hover:bg-orange-400 p-4 px-6  ">Status</ button>
 
-
 //       </div>
 //     )
 //    }
-                 
+
 //                 </div>
 //                 <div className="flex items-center justify-between mb-6 gap-3">
 //                   <div className="flex flex-col gap-2">
@@ -754,13 +746,13 @@
 //                     />
 //                     <h4 className="text-medium text-md">John De</h4>
 //                   </div>
-                
+
 //                   <div>
 //                 </div>
 //                 <div className="grid ">
 //                   {isCompleteSelected && (
 //                     <div className="w-[450px]  ">
-//                       <form className="bg-gray-700 shadow-md rounded px-8 pt-6 pb-8 mb-2 mt-2">
+//                       <form className="bg-slate-700 shadow-md rounded px-8 pt-6 pb-8 mb-2 mt-2">
 //                         <div className="mb-2">
 //                           <label
 //                             className="block text-gray-100 text-sm font-bold mb-2"
@@ -806,7 +798,7 @@
 //                     <h1 className="text-2xl font-semibold my-4">
 //                       Personal Information
 //                     </h1>
-//                     <div className="grid grid-cols-2 gap-4 border-2 bg-gray-400 border-black p-6 rounded-md">
+//                     <div className="grid grid-cols-2 gap-4 border-2 bg-slate-400 border-black p-6 rounded-md">
 //                       <div className="font-lg flex gap-4">
 //                         <p className="">Title: </p>{" "}
 //                         <span className="text-white text-sm font-bold">
@@ -849,7 +841,7 @@
 //                     <h1 className="text-2xl font-semibold my-4">
 //                       Present Address
 //                     </h1>
-//                     <div className="grid grid-cols-2 gap-4 border-2 bg-gray-400 border-black p-6 rounded-md">
+//                     <div className="grid grid-cols-2 gap-4 border-2 bg-slate-400 border-black p-6 rounded-md">
 //                       <div className="font-lg flex gap-4">
 //                         <p className="">Country: </p>{" "}
 //                         <span className="text-white text-sm font-bold">
@@ -892,7 +884,7 @@
 //                     <h1 className="text-2xl font-semibold my-4">
 //                       Company details
 //                     </h1>
-//                     <div className="grid grid-cols-2 gap-4 border-2 bg-gray-400 border-black p-6 rounded-md">
+//                     <div className="grid grid-cols-2 gap-4 border-2 bg-slate-400 border-black p-6 rounded-md">
 //                       <div className="font-lg flex gap-4">
 //                         <p className="">Company Name: </p>{" "}
 //                         <span className="text-white text-sm font-bold">
@@ -947,7 +939,7 @@
 //                     <h1 className="text-2xl font-semibold my-4">
 //                       Contact Information
 //                     </h1>
-//                     <div className="grid grid-cols-2 gap-4 border-2 bg-gray-400 border-black p-6 rounded-md">
+//                     <div className="grid grid-cols-2 gap-4 border-2 bg-slate-400 border-black p-6 rounded-md">
 //                       <div className="font-lg flex gap-4">
 //                         <p className="">Contact No : </p>{" "}
 //                         <span className="text-white text-sm font-bold">
@@ -1008,7 +1000,7 @@
 //                     <h1 className="text-2xl font-semibold my-4">
 //                       Project Document
 //                     </h1>
-//                     <div className="grid grid-cols-2 gap-4 border-2 bg-gray-400 border-black p-6 rounded-md">
+//                     <div className="grid grid-cols-2 gap-4 border-2 bg-slate-400 border-black p-6 rounded-md">
 //                       <div className="font-lg flex gap-4">
 //                         <p className="">What currency will you pay in? : </p>{" "}
 //                         <span className="text-white text-sm font-bold">
@@ -1044,14 +1036,14 @@
 //                         data="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210101201653/PDF.pdf"
 //                         width={800}
 //                         height={700}
-//                         className="text-white text-sm font-bold flex justify-center rounded-sm bg-gray-400 p-1"
+//                         className="text-white text-sm font-bold flex justify-center rounded-sm bg-slate-400 p-1"
 //                       ></object>
 //                     </div>
 //                   </div>
 //                 </div>
 
 //                 <div className=" my-14 mr-5 px-6 font-bold flex w-full justify-end items-end ">
-//                   <button className="bg-black rounded-md p-3 font-bold px-8 border-yellow-500 border-l-8 text-gray-50 hover:bg-gray-900">
+//                   <button className="bg-black rounded-md p-3 font-bold px-8 border-yellow-500 border-l-8 text-gray-50 hover:bg-slate-900">
 //                     Update
 //                   </button>
 //                 </div>
@@ -1072,16 +1064,15 @@
 //               <div className="w-full">
 //                          <div className=" my-2 w-full flex  flex-col justify-end items-end ">
 
-//                 <div className="flex justify-self-end text-white my-1 bg-gray-600 w-fit p-1 rounded">Panding Order</div>
-//                 <div className="flex justify-self-end text-white bg-gray-500 p-1 w-56 text-sm  rounded ">Lorem ipsum dolor sit amet consectetur adipisicin ipsum nam saepe eveniet dolores provident.</div>
+//                 <div className="flex justify-self-end text-white my-1 bg-slate-600 w-fit p-1 rounded">Panding Order</div>
+//                 <div className="flex justify-self-end text-white bg-slate-500 p-1 w-56 text-sm  rounded ">Lorem ipsum dolor sit amet consectetur adipisicin ipsum nam saepe eveniet dolores provident.</div>
 //                          </div>
-//                 <div className="flex justify-start text-white bg-gray-600 my-1 w-fit p-1 rounded">Working Order</div>
-//                 <div className="flex justify-start text-white bg-gray-500 p-1 w-56 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repsum nam saepe eveniident.</div>
+//                 <div className="flex justify-start text-white bg-slate-600 my-1 w-fit p-1 rounded">Working Order</div>
+//                 <div className="flex justify-start text-white bg-slate-500 p-1 w-56 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repsum nam saepe eveniident.</div>
 
 //               </div>
 //               <div className="p-4 space-x-1 flex items-center bg-blue-200">
 
-                       
 //                 {/* <IoMdAttach  */}
 //                 <IoCloudUpload
 //                   onClick={() => fileInputRef.current.click()}
@@ -1121,7 +1112,7 @@
 //           <div className=" absolute p-4   right-6 ">
 //             <div className="bg-orange-600 w-14 h-14 right-8  -mt-9 rounded-br-[300px]   rotate-45"></div>
 //           </div>
-//           <div className="bg-gray-200 rounded-sm p-4  relative h-full  m-4">
+//           <div className="bg-slate-200 rounded-sm p-4  relative h-full  m-4">
 //             <div className="max-w-md top-0 border shadow-md rounded  relative bg-gradient-to-tr to-red-400 from-slate-400">
 //               <div className="bg-gradient-to-r from-blue-500 to-purple-500 py-4 text-white px-3 gap-2 rounded flex items-center justify-between">
 //                 <div className="flex items-center gap-3 ">
@@ -1178,14 +1169,14 @@
 //                             <div>delete</div>
 //                           </Popup>
 //                         </div>
-//                         <div className="mt-7 -mr-3  bg-gray-400 text-black rounded-lg p-2 flex items-center">
+//                         <div className="mt-7 -mr-3  bg-slate-400 text-black rounded-lg p-2 flex items-center">
 //                           <p>
 //                             This is a receiver message. Are you recied Payment?
 //                           </p>
 //                         </div>
 //                       </div>
 //                       <div>
-//                         <div className="h-9 w-9 rounded-full bg-gray-600 flex items-center justify-center">
+//                         <div className="h-9 w-9 rounded-full bg-slate-600 flex items-center justify-center">
 //                           <MdAccountCircle size={28} color="white" />{" "}
 //                         </div>
 //                       </div>
@@ -1193,13 +1184,13 @@
 //                     <div className="flex flex-row gap-2 -ml-2">
 //                       <div>
 //                         {" "}
-//                         <div className="h-9 w-9 rounded-full bg-gray-600 flex items-center justify-center">
+//                         <div className="h-9 w-9 rounded-full bg-slate-600 flex items-center justify-center">
 //                           <MdAccountCircle size={28} color="white" />{" "}
 //                         </div>
 //                       </div>
 
 //                       <div className="pt-8 -ml-3 flex gap-1">
-//                         <div className=" bg-gray-400 text-black rounded-lg p-2 flex items-center">
+//                         <div className=" bg-slate-400 text-black rounded-lg p-2 flex items-center">
 //                           {/* <span className="material-icons mr-2">person</span> */}
 //                           <p className="text-black text-start">
 //                             This is a sender message. Payment is Not recived
@@ -1259,7 +1250,7 @@
 //           <div className=" absolute p-4   right-6 ">
 //             <div className="bg-orange-600 w-14 h-14 right-8  -mt-9 rounded-br-[300px]   rotate-45"></div>
 //           </div>
-//           <div className="bg-gray-200 rounded-sm p-4  relative h-full  m-4">
+//           <div className="bg-slate-200 rounded-sm p-4  relative h-full  m-4">
 //             <div className="max-w-md top-0 border shadow-md rounded  relative bg-gradient-to-tr to-red-400 from-slate-400">
 //               <div className="p-4 space-x-1 flex items-center bg-blue-200">
 //                 {/* <IoMdAttach  */}
@@ -1290,33 +1281,32 @@
 
 //       {/* Amount Set po up  */}
 //       {showPopUpAmount && (
-        
+
 //         <div className="z-10 w-[560px]  ml-56   absolute top-3 mt-36 bg-orange-600  bg-orage-600 ">
 
-        
 //           <div className=" absolute p-4   right-6 ">
 //             <div className="bg-orange-600 w-14 h-14 right-20  -mt-9 rounded-br-[300px]   rotate-45"></div>
 //           </div>
 //           <div className=" flex ">
-         
-//           <div className="bg-gray-200 rounded-sm p-4  relative h-full  m-4">
+
+//           <div className="bg-slate-200 rounded-sm p-4  relative h-full  m-4">
 //             <div className="max-w-md top-0 border shadow-md rounded  relative bg-gradient-to-tr to-red-400 from-slate-400">
-          
+
 //               <div className="p-2 space-x-1 flex items-center bg-blue-200">
 //           <form onSubmit={handleSubmit}>
 //               <select className="bg-orage-300 font-bold  border border-lime-500 border-b-yellow-400 rounded-md text-black bg-orange-400 p-2 px-6   overflow-y-scroll" value={selectdItem} onChange={(e)=> setSelectedItem(e.target.value)} >
-//                   <option value="" className="bg-gray-300 p-2 h-5 ">Currency Name</option>
+//                   <option value="" className="bg-slate-300 p-2 h-5 ">Currency Name</option>
 
 //                   {
 //                     CurrencyData.map((item:any, index:number)=>(
-                
-//                       <option key={index} value={item} className="bg-gray-300 p-1">{item.isoCode} </option>
-             
+
+//                       <option key={index} value={item} className="bg-slate-300 p-1">{item.isoCode} </option>
+
 //                     ))
 //                   }
 
 //                     </select>
-               
+
 //                 <input
 //                   type="text"
 //                   placeholder="Set Amount..."
@@ -1328,7 +1318,7 @@
 //                  onClick={()=> setShowPopUPCurrancy(false)}>
 //                   Save
 //                 </button>
-               
+
 //             </form>
 //               </div>
 //             </div>

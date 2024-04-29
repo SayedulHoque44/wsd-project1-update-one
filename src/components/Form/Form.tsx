@@ -49,7 +49,7 @@ const CustomForm = ({
       <Form
         layout="vertical"
         onFinish={methods.handleSubmit(submit)}
-        className={className ?? "w-full md:w-2/3 xl:w-1/3"}
+        className={className}
       >
         {children}
       </Form>

@@ -4,6 +4,13 @@ import DropdownMessage from "./DropdownMessage";
 import DropdownNotification from "./DropdownNotification";
 import DropdownUser from "./DropdownUser";
 import Image from "next/image";
+import {
+  Cart,
+  Cash,
+  FullScreen,
+  GmailIcon,
+  Refresh,
+} from "./NavbarFuntionality";
 
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;
@@ -119,6 +126,11 @@ const Header = (props: {
             {/* <!-- Dark Mode Toggler --> */}
             <DarkModeSwitcher />
             {/* <!-- Dark Mode Toggler --> */}
+            <Refresh />
+            <FullScreen />
+            <GmailIcon />
+            <Cart />
+            <Cash />
 
             {/* <!-- Notification Menu Area --> */}
             <DropdownNotification />

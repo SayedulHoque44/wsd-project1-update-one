@@ -5,8 +5,8 @@ import { MdDelete } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
 import TecnologeyIcons from "./technologiesIcons";
 
-const CustomDropdown:React.FC = () => {
-    // Drop down manu
+const CustomDropdown: React.FC = () => {
+  // Drop down manu
   const [isOpen, setIsOpen] = useState(false);
   // payment btn optoin of dropdown manu
   const CategoryOptions = ["Design"];
@@ -26,19 +26,18 @@ const CustomDropdown:React.FC = () => {
     }
   };
 
-  const [selectedOption, setSelectedOption] = useState<string>("Design Technology");
+  const [selectedOption, setSelectedOption] =
+    useState<string>("Design Technology");
   const [isEditing, setIsEditing] = useState(false);
   const [editedTechnology, setEditedTechnology] = useState(selectedOption);
   const [showDropDown, setDropDown] = useState(false);
   const [showDropDownIcon, setDropDownIcon] = useState(false);
   const [showTechonologyDropDown, setTechonologyGropDown] = useState(false);
-  const handleOptionClick = (option:string) => {
+  const handleOptionClick = (option: string) => {
     setSelectedOption(option);
     setEditedTechnology(option);
     setIsOpen(false);
   };
-
-
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -47,8 +46,8 @@ const CustomDropdown:React.FC = () => {
   const handleEditSubmit = () => {
     setTechnologies(
       technologies.map((tech) =>
-        tech === selectedOption ? editedTechnology : tech
-      )
+        tech === selectedOption ? editedTechnology : tech,
+      ),
     );
     setSelectedOption(editedTechnology);
     setIsEditing(false);
@@ -58,11 +57,11 @@ const CustomDropdown:React.FC = () => {
     setTechnologies(technologies.filter((tech) => tech !== selectedOption));
     setSelectedOption(technologies[0]); // Select the first remaining technology
   };
-    return (
-        <div>
-      <div className="flex flex-col sm:flex-row sm:space-x-5 h-64 mt-10 mb-5">
+  return (
+    <div>
+      <div className="mb-5 mt-10 flex h-64 flex-col sm:flex-row sm:space-x-5">
         <div className=" ">
-          <div className="flex flex-col sm:flex-row sm:space-x-5  mb-5 w-[400px]">
+          <div className="mb-5 flex w-[400px] flex-col  sm:flex-row sm:space-x-5">
             <div className="  sm:w-1/2">
               {/* DropDoown Manu */}
               <div className="relative inline-block text-left ">
@@ -70,7 +69,7 @@ const CustomDropdown:React.FC = () => {
                   <span className="rounded-md shadow-sm">
                     <button
                       type="button"
-                      className="inline-flex w-[250px] justify-between  z-50 px-4 py-2 text-sm font-medium outline-none  hover:text-gray-700 hover:bg-white border border-gray-300 rounded-md bg-blue-600 text-white focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:bg-blue-600"
+                      className="hover:text-gray-700 border-gray-300 z-50  inline-flex w-[250px] justify-between rounded-md border bg-blue-600  px-4  py-2 text-sm font-medium text-white outline-none focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-200 active:bg-blue-600"
                       id="options-menu"
                       aria-haspopup="true"
                       aria-expanded="true"
@@ -114,21 +113,21 @@ const CustomDropdown:React.FC = () => {
               {/* createa and delete items  */}
 
               {showDropDown && (
-                <div className="md:w-full  py-3 w-[360px] relative">
+                <div className="relative  w-[360px] py-3 md:w-full">
                   {technologies.map((option) => (
                     <div
                       key={option}
                       onClick={() => handleOptionClick(option)}
-                    //   class={`option ${
-                    //     selectedOption === option ? "selected" : ""
-                    //   }`}
-                      className="flex flex-row w-[250px]   items-center border text-sm font-bold mb-2  border-gray-400  p-1"
+                      //   class={`option ${
+                      //     selectedOption === option ? "selected" : ""
+                      //   }`}
+                      className="border-gray-400 mb-2 flex   w-[250px] flex-row items-center border p-1  text-sm  font-bold"
                     >
                       <>
                         {isEditing && option === selectedOption ? (
                           <input
                             type="text"
-                            className="h-7 w-[250px] rounded-md border-gray-900 border "
+                            className="border-gray-900 mr-1 h-7 w-[250px] rounded-md border p-2"
                             value={editedTechnology}
                             onChange={(e) =>
                               setEditedTechnology(e.target.value)
@@ -140,25 +139,25 @@ const CustomDropdown:React.FC = () => {
                       </>
                       {isEditing && option === selectedOption ? (
                         <button
-                          className=" w-[250px] rounded-full flex items-center justify-center bg-orange-400 py-1 my-1 px-1"
+                          className=" my-1 flex w-[250px] items-center justify-center rounded-full bg-orange-400 px-1 py-1"
                           onClick={handleEditSubmit}
                         >
                           Save
                         </button>
                       ) : (
-                        <div className="ml-2 flex gap-1 absolute -right-10">
-                          <div className="bg-blue-300 h-7 w-7 rounded-full  flex items-center justify-center">
+                        <div className="absolute -right-10 ml-2 flex gap-1">
+                          <div className="flex h-7 w-7 items-center  justify-center rounded-full bg-blue-300">
                             <MdEdit
                               onClick={handleEdit}
-                              className="text-white"
-                              size={24}
+                              className="text-blue-400"
+                              size={15}
                             />
                           </div>
-                          <div className="bg-red-600 h-7 w-7 rounded  flex items-center justify-center">
+                          <div className="flex h-7 w-7 items-center  justify-center rounded bg-rose-600">
                             <MdDelete
                               onClick={handleDelete}
-                              className="text-white"
-                              size={24}
+                              className="text-rose-500"
+                              size={20}
                             />
                           </div>
                         </div>
@@ -171,20 +170,20 @@ const CustomDropdown:React.FC = () => {
           </div>
         </div>
 
-        <div className="w-full  flex">
-          <h2 className="font-mdium h-[42px] text-center flex items-center justify-center  whitespace-normal w-[350px]  bg-blue-900 text-white rounded-l-lg">
-            Techenology Category name 
+        <div className="flex  w-full">
+          <h2 className="font-mdium flex h-[42px] w-[350px] items-center justify-center  whitespace-normal rounded-l-lg  bg-blue-900 text-center text-white">
+            Techenology Category name
           </h2>
           <form>
             <input
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              className="w-full rounded-l-none py-2 px-3 border border-gray-900  rounded-lg"
+              className="border-gray-900 w-full rounded-lg rounded-l-none border px-3  py-2"
             />
           </form>
           <button
-            className="bg-orange-700 h-fit hover:bg-orange-500 hover:text-black px-6 py-2 text-white text-lg font-bold rounded flex items-center"
+            className="flex h-fit items-center rounded bg-orange-700 px-6 py-2 text-lg font-bold text-white hover:bg-orange-500 hover:text-black"
             onClick={handdleAddData}
           >
             ADD <BiPlusCircle size={28} className="pl-1" />
@@ -193,28 +192,22 @@ const CustomDropdown:React.FC = () => {
       </div>
       <div>
         <div className="w-full">
-          <h1 className="text-2xl text-center font-bold py-2 px-2 ">
-             Category Technology Icon
+          <h1 className="px-2 py-2 text-center text-2xl font-bold ">
+            Category Technology Icon
           </h1>
         </div>
         {/* To start the second section of add category icons */}
 
-                
-        <div className="flex  sm:flex-row sm:space-x-5 mt-10 mb-5">
-       
-         <div className="flex flex-col justify-center   ">
-            
-           
-        <div>
-        <TecnologeyIcons />
-
-        </div>
+        <div className="mb-5  mt-10 flex sm:flex-row sm:space-x-5">
+          <div className="flex flex-col justify-center   ">
+            <div>
+              <TecnologeyIcons />
             </div>
+          </div>
         </div>
-             
       </div>
     </div>
-    );
+  );
 };
 
 export default CustomDropdown;
