@@ -3,56 +3,74 @@ import { IUser } from "@/types/user";
 export const chatData: any = [
   {
     img: "https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-elvis-presley-on-milton-berle-michael-ochs-archives.jpg",
-    name: "john",
+    name: "John Smith",
     day: "Tue",
-    lastMesg: "Emma send 6 Photos",
+    lastMesg: "hello",
+    status: "request",
     messages: [
-      { sender: "John Doe", text: "Hi, how are you?" },
-      // { sender: "John Doe", text: "Hi, how are you? this is log text to check width of text"  },
+      { sender: "John Doe", text: "Hey, how's it going?" },
+      { sender: "You", text: "Hi! I'm doing well, thanks. How about you?" },
+      {
+        sender: "John Doe",
+        text: "I'm good too. What have you been up to lately?",
+      },
       {
         sender: "You",
-        text: "I'm good, thanks! this is also demo ext to chceck",
+        text: "Just been busy with work and some personal projects.",
       },
       {
         sender: "John Doe",
-        text: "Hi, how are you?  this is log text to check width of text",
+        text: "Sounds productive! Any exciting plans for the weekend?",
+      },
+      {
+        sender: "You",
+        text: "Not really, just planning to relax at home. How about you?",
+      },
+      {
+        sender: "John Doe",
+        text: "I might go see a movie with friends. Do you have any movie recommendations?",
       },
     ],
   },
   {
     img: "https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-elvis-presley-on-milton-berle-michael-ochs-archives.jpg",
-    name: "jane",
+    name: "Micel Smith",
     day: "Tue",
+    lastMesg: "Emma send 6 Photos",
+  },
+  {
+    img: "https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-elvis-presley-on-milton-berle-michael-ochs-archives.jpg",
+    name: "Emma",
+    day: "Tue",
+    status: "request",
+    lastMesg: "How are you",
+  },
+  {
+    img: "https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-elvis-presley-on-milton-berle-michael-ochs-archives.jpg",
+    name: "john",
+    day: "Tue",
+    status: "block",
     lastMesg: "Emma send 6 Photos",
   },
   {
     img: "https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-elvis-presley-on-milton-berle-michael-ochs-archives.jpg",
     name: "john",
     day: "Tue",
+    status: "cancel",
     lastMesg: "Emma send 6 Photos",
   },
   {
     img: "https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-elvis-presley-on-milton-berle-michael-ochs-archives.jpg",
     name: "john",
     day: "Tue",
+    status: "forward-request",
     lastMesg: "Emma send 6 Photos",
   },
   {
     img: "https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-elvis-presley-on-milton-berle-michael-ochs-archives.jpg",
     name: "john",
     day: "Tue",
-    lastMesg: "Emma send 6 Photos",
-  },
-  {
-    img: "https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-elvis-presley-on-milton-berle-michael-ochs-archives.jpg",
-    name: "john",
-    day: "Tue",
-    lastMesg: "Emma send 6 Photos",
-  },
-  {
-    img: "https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-elvis-presley-on-milton-berle-michael-ochs-archives.jpg",
-    name: "john",
-    day: "Tue",
+    status: "cancel",
     lastMesg: "Emma send 6 Photos",
   },
 ];

@@ -60,7 +60,7 @@ const Footers = () => {
   //     }));
   //   };
   return (
-    <section>
+    <section className="w-full p-4 md:p-6 2xl:p-10">
       <div className="flex items-center justify-center gap-2 py-4 ">
         <button
           className={`${"tab1"} ${

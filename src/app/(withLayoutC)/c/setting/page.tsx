@@ -17,7 +17,7 @@ type Admin = {
 
 const SettingPage = () => {
   return (
-    <div>
+    <div className="w-full p-4 md:p-6 2xl:p-10">
       <Breadcrumb pageName="Settings" />
       <div className="mx-auto p-2 md:p-10 xl:w-[70%] xl:p-20">
         <div className="flex justify-between gap-1">

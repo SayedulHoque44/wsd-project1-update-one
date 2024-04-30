@@ -82,7 +82,7 @@ const OnlinePaymentChecking = () => {
     console.log(value);
   };
   return (
-    <div>
+    <div className="w-full p-4 md:p-6 2xl:p-10">
       <Breadcrumb pageName="Online Refund Checking" />
       <div className="grid w-full  grid-cols-1 items-center justify-between gap-3 py-4 md:grid-cols-3 xl:grid-cols-4">
         <CustomSearch onSearch={onSearch} />

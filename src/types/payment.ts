@@ -9,6 +9,7 @@ export type IPayment = {
   status: string;
 };
 
+
 export type IOnlinePayment = {
   no: number;
   paymentId: string;
