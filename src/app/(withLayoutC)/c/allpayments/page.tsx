@@ -82,7 +82,7 @@ const ALLPayments = () => {
   };
 
   return (
-    <div>
+    <div className="w-full p-4 md:p-6 2xl:p-10">
       <Breadcrumb pageName="All Payments" />
 
       <div className="grid w-full  grid-cols-1 items-center justify-between gap-3 py-4 md:grid-cols-3">

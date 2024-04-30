@@ -15,7 +15,7 @@ export default function OrderDetailsPage({
   const router = useRouter();
   const onSubmitForm = (value: FieldValues) => {};
   return (
-    <div className="flex min-h-[80vh] flex-col items-center justify-center  md:min-h-[60vh]">
+    <div className="w-full p-4 md:p-6 2xl:p-10 flex min-h-[80vh] flex-col items-center justify-center  md:min-h-[60vh] ">
       <div className="mb-4 flex w-full items-center justify-end">
         <button
           onClick={() => router.back()}

@@ -2,7 +2,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { FaCog } from "react-icons/fa";
-import Link from "next/link";
 import { BiTrash } from "react-icons/bi";
 interface ChatCardProps {
   item: any;
@@ -43,15 +42,22 @@ const ChatsCard: React.FC<ChatCardProps> = ({
     <div
       onMouseEnter={() => setSettingIcon(true)}
       onMouseLeave={() => setSettingIcon(false)}
-      className="relative m-2 flex grid cursor-pointer grid-cols-5 items-center gap-1 rounded-lg bg-white p-2 "
+      className="relative z-50  m-2 grid cursor-pointer grid-cols-5 items-center gap-1 rounded-lg bg-[#4ed0e7] p-2 dark:bg-slate-600 "
       onClick={() => onClick(index)}
     >
-      <div className="relative col-span-1 h-9 w-9 rounded-[50%] bg-[#39b7ea]">
+      <div className="relative  col-span-1 h-9 w-9 rounded-[50%]">
         <Image src={item.img} alt="" fill className="rounded-[50%]" />
+        <div className={`absolute -top-1 right-0 size-3 rounded-full  ${item.status === 'request' ?  'bg-green-500' : item.status === 'cancel' ? 'bg-rose-600' : item.status ==='block' ? 'bg-yellow-500' : 'bg-purple-500'}`}>
+
+        </div>
       </div>
       <div className=" col-span-3">
-        <h1>{item.name}</h1>
-        <h1 className="text-gray-500 text-[14px]">{item.lastMesg}</h1>
+        <h1 className="text-slate-950">{item.name}</h1>
+        <h1 className="text-white text-sm">
+          {item.lastMesg?.length > 15
+            ? `${item.lastMesg?.slice(0, 15)}...`
+            : item.lastMesg}
+        </h1>
       </div>
       <div className=" col-span-1 flex justify-end">
         <h3 className="text-gray-400 text-[12px]">{item.day}</h3>
@@ -66,9 +72,9 @@ const ChatsCard: React.FC<ChatCardProps> = ({
 
         <div
           ref={boxRef}
-          className={`border-gray-300 absolute bottom-5 right-6 z-50 flex w-40 flex-col items-start justify-center rounded-md rounded-ee-none rounded-es-2xl rounded-se-2xl border border-solid p-2   text-left shadow ${
+          className={`border-gray-300 absolute  bottom-5 right-6 z-50 flex w-40 flex-col items-start justify-center rounded-md rounded-ee-none rounded-es-2xl rounded-se-2xl border border-solid p-2  text-left shadow ${
             showSetting ? "flex" : "hidden"
-          } bg-white`}
+          } bg-white `}
         >
           <div key="text" className="  z-50">
             <span className="dark:text-gray-300 mr-5 ms-3 pr-3 font-medium text-black">

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const ServicePage = () => {
   return (
-    <div>
+    <div className="w-full p-4 md:p-6 2xl:p-10">
       <Breadcrumb pageName="Services" />
       <h1 className="text-center text-2xl">Our services and technologies</h1>
 

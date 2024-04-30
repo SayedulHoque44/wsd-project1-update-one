@@ -18,8 +18,13 @@ export const CNavItem: navItem[] = [
   { id: 1, title: "Dashboard", url: "/c/dashboard", icon: BiSolidDashboard },
   { id: 3, title: "All users", url: "/c/allUsers", icon: GiReceiveMoney },
   { id: 2, title: "All Orders", url: "/c/orders", icon: BsBorderStyle },
+  {
+    id: 4,
+    title: " Transactions List",
+    url: "/c/transactions",
+    icon: BsBorderStyle,
+  },
   { id: 15, title: "All Payments", url: "/c/allpayments", icon: BsBorderStyle },
-
   {
     id: 14,
     title: " Online Payment C",

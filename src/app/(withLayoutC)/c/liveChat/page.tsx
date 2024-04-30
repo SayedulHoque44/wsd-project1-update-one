@@ -1,13 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { chatData } from "../../../../lib/data/mokeData";
 // import ChatsCard from "../../components/ChatComponents/ChatsCard";
 // import TopChatBar from "../../components/ChatComponents/TopChatBar";
 import { FaPhone, FaRegSmileBeam } from "react-icons/fa";
-import { IoSendSharp } from "react-icons/io5";
-import { FaInfoCircle } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";
-import { GrAttachment } from "react-icons/gr";
 import { BiCheckDouble, BiTrash } from "react-icons/bi";
 import { FaClock } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
@@ -21,13 +18,15 @@ import { IoMdMic, IoMdMicOff } from "react-icons/io";
 import { FaRegCircleUser } from "react-icons/fa6";
 import CallDaillingModal from "@/components/ui/modal/CallDaillingModal";
 import { chatData } from "@/constants/userData";
-import TopChatBar from "@/components/ui/ChatComponents/TopChatBar";
 import ChatsCard from "@/components/ui/ChatComponents/ChatsCard";
+import SendMessage from "@/components/Chat/SendMessage";
 
 export default function Chat() {
   const [isManuOpen, setIsManuOpen] = useState(false);
   const [userModal, setUserModal] = useState(false);
-
+  //data fatching
+  const [usersData, setUsersData] = useState(chatData);
+  const [statusUser, setStatusUser] = useState("");
   const [deleted, setIsDeleted] = useState(false);
   const [deletedme, setIsDeletedme] = useState(false);
 
@@ -41,6 +40,37 @@ export default function Chat() {
 
   const [MuteStatus, setMuteStatus] = useState(false);
   const [SoundStatus, setSoundStatus] = useState(false);
+
+  //status categorices user filtering
+  const requestedUser = chatData.filter(
+    (user: any) => user?.status === "request",
+  );
+  const forwardRequest = chatData.filter(
+    (user: any) => user?.status === "forward-request",
+  );
+  const cancelUser = chatData.filter((user: any) => user?.status === "cancel");
+  const blockUser = chatData.filter((user: any) => user?.status === "block");
+
+  useEffect(() => {
+    if (statusUser === "request") {
+      setUsersData(requestedUser);
+    } else if (statusUser === "cancel") {
+      setUsersData(cancelUser);
+    } else if (statusUser === "block") {
+      setUsersData(blockUser);
+    } else if (statusUser === "forward-request") {
+      setUsersData(forwardRequest);
+    } else if (statusUser === "all") {
+      setUsersData(chatData);
+    }
+  }, [
+    usersData,
+    statusUser,
+    requestedUser,
+    cancelUser,
+    blockUser,
+    forwardRequest,
+  ]);
 
   const handleShowDropManuCall = () => {
     setShowDropManuCall(!showDropManuCall);
@@ -92,7 +122,6 @@ export default function Chat() {
     }
     // setIsMenuOpen(!isMenuOpen);
   };
-
   const toggoleManu2 = () => {
     setIsManuOpen2(!isManuOpen2);
   };
@@ -110,149 +139,164 @@ export default function Chat() {
     setActiveChat(index);
   };
   return (
-    <div className="-pb-2 -ml-1 -mr-3 -mt-5 grid h-[87vh] grid-cols-[25%_1fr] gap-x-5 bg-[#187D8B] pb-4">
-      <div className="border-r border-solid border-slate-300 p-3 ">
-        <span className="flex">
-          <form className="mt-2">
-            <label
-              htmlFor="default-search"
-              className="sr-only mb-2 text-sm font-medium text-slate-900 dark:text-white"
-            >
-              Search
-            </label>
-            <div className="relative">
-              <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
-                <svg
-                  className="h-4 w-4 text-slate-500 dark:text-slate-400"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+    <div className="grid w-full grid-cols-12">
+      <div className="col-span-full h-[calc(100vh-88px)] w-full bg-cyan-500 dark:bg-black md:col-span-3 ">
+        <div className="p-3">
+          <span className="flex">
+            <form className="mt-2 w-full">
+              <label
+                htmlFor="default-search"
+                className="sr-only mb-2 text-sm font-medium text-slate-900 dark:text-white"
+              >
+                Search
+              </label>
+              <div className="relative">
+                <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
+                  <svg
+                    className="h-4 w-4 text-slate-500 dark:text-slate-400"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                    />
+                  </svg>
+                </div>
+                <div className="flex items-end justify-between">
+                  <input
+                    type="search"
+                    id="default-search"
+                    className="placeholdeer-slate-300 block h-8 w-full rounded-lg border border-slate-300 bg-slate-50 p-4 ps-10 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                    placeholder="Search messages or users"
                   />
-                </svg>
-              </div>
-              <div className="flex items-end justify-between">
-                <input
-                  type="search"
-                  id="default-search"
-                  className="placeholdeer-slate-300 block h-8 w-full rounded-lg border border-slate-300 bg-slate-50 p-4 ps-10 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-                  placeholder="Search messages or users"
-                />
-              </div>
+                </div>
 
-              {/* <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button> */}
+                {/* <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button> */}
+              </div>
+            </form>
+            <div className="relative mt-2">
+              <button className="mx-1 cursor-pointer rounded-lg border border-solid  border-slate-300 bg-slate-200 px-4 py-2 text-blue-500 shadow-lg dark:bg-black dark:text-white">
+                <FiSettings onClick={handleShowDropManuCall} />
+              </button>
+              {showDropManuCall && (
+                <div className="absolute left-0 top-10 z-99  flex  items-start ">
+                  <div className="w-[300px] space-y-1 rounded-lg bg-[#4ED0E7] dark:bg-slate-900 p-3 text-white">
+                    <div key="" className="flex  justify-between ">
+                      <span className="mr-5 font-medium text-white dark:text-slate-300">
+                        OutComming Call
+                      </span>
+                      <label className="relative inline-flex cursor-pointer items-center">
+                        <input
+                          type="checkbox"
+                          value=""
+                          className="peer sr-only"
+                        />
+                        <div className="peer h-6 w-11 rounded-full bg-slate-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-slate-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 dark:border-slate-600 dark:bg-slate-700 dark:peer-focus:ring-green-800 rtl:peer-checked:after:-translate-x-full"></div>
+                      </label>
+                    </div>
+                    <div key="" className="flex  justify-between ">
+                      <span className=" mr-5 font-medium text-white dark:text-slate-300">
+                        Incoming Call
+                      </span>
+                      <label className="relative inline-flex cursor-pointer items-center">
+                        <input
+                          type="checkbox"
+                          value=""
+                          className="peer sr-only"
+                        />
+                        <div className="peer h-6 w-11 rounded-full bg-slate-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-slate-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 dark:border-slate-600 dark:bg-slate-700 dark:peer-focus:ring-green-800 rtl:peer-checked:after:-translate-x-full"></div>
+                      </label>
+                    </div>
+                    <div key="" className="flex  justify-between ">
+                      <span className=" mr-5 font-medium text-white dark:text-slate-300">
+                        Notification
+                      </span>
+                      <label className="relative inline-flex cursor-pointer items-center">
+                        <input
+                          type="checkbox"
+                          value=""
+                          className="peer sr-only"
+                        />
+                        <div className="peer h-6 w-11 rounded-full bg-slate-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-slate-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 dark:border-slate-600 dark:bg-slate-700 dark:peer-focus:ring-green-800 rtl:peer-checked:after:-translate-x-full"></div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
-          </form>
-          <div className="relative mt-2">
-            <button className="mx-1 cursor-pointer rounded-lg border border-solid  border-slate-300 bg-slate-200 px-4 py-2 text-blue-500 shadow-lg dark:bg-black dark:text-white">
-              <FiSettings onClick={handleShowDropManuCall} />
-            </button>
-            {showDropManuCall && (
-              <div className="absolute left-0 top-10 z-99  flex  items-start ">
-                <div className="w-[300px] space-y-1 rounded-lg bg-blue-900 p-3 text-white">
-                  <div key="" className="flex  justify-between ">
-                    <span className="mr-5 font-medium text-white dark:text-slate-300">
-                      OutComming Call
-                    </span>
-                    <label className="relative inline-flex cursor-pointer items-center">
-                      <input
-                        type="checkbox"
-                        value=""
-                        className="peer sr-only"
-                      />
-                      <div className="peer h-6 w-11 rounded-full bg-slate-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-slate-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 dark:border-slate-600 dark:bg-slate-700 dark:peer-focus:ring-green-800 rtl:peer-checked:after:-translate-x-full"></div>
-                    </label>
-                  </div>
-                  <div key="" className="flex  justify-between ">
-                    <span className=" mr-5 font-medium text-white dark:text-slate-300">
-                      Incoming Call
-                    </span>
-                    <label className="relative inline-flex cursor-pointer items-center">
-                      <input
-                        type="checkbox"
-                        value=""
-                        className="peer sr-only"
-                      />
-                      <div className="peer h-6 w-11 rounded-full bg-slate-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-slate-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 dark:border-slate-600 dark:bg-slate-700 dark:peer-focus:ring-green-800 rtl:peer-checked:after:-translate-x-full"></div>
-                    </label>
-                  </div>
-                  <div key="" className="flex  justify-between ">
-                    <span className=" mr-5 font-medium text-white dark:text-slate-300">
-                      Notification
-                    </span>
-                    <label className="relative inline-flex cursor-pointer items-center">
-                      <input
-                        type="checkbox"
-                        value=""
-                        className="peer sr-only"
-                      />
-                      <div className="peer h-6 w-11 rounded-full bg-slate-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-slate-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 dark:border-slate-600 dark:bg-slate-700 dark:peer-focus:ring-green-800 rtl:peer-checked:after:-translate-x-full"></div>
-                    </label>
-                  </div>
+          </span>
+          <div className=" relative text-white">
+            <div
+              className=" relative my-2 w-full cursor-pointer rounded-xl bg-slate-900 bg-opacity-60 p-2"
+              onClick={() => setUserModal(!userModal)}
+            >
+              All people
+            </div>
+            {userModal && (
+              <div className=" absolute -right-56 top-0 z-50  flex size-56 cursor-pointer flex-col gap-2 rounded-xl bg-[#0B576E] p-2 dark:bg-[#141C2E]">
+                <div
+                  onClick={() => [
+                    setStatusUser("request"),
+                    setUserModal(false),
+                  ]}
+                  className=" w-full rounded-xl bg-cyan-500 bg-opacity-90 p-2 dark:bg-[#475569]"
+                >
+                  Request help {requestedUser?.length}
+                </div>
+                <div
+                  onClick={() => [
+                    setStatusUser("forward-request"),
+                    setUserModal(false),
+                  ]}
+                  className=" w-full rounded-xl bg-cyan-500 bg-opacity-90 p-2 dark:bg-[#475569]"
+                >
+                  Forward Request {forwardRequest?.length}
+                </div>
+                <div
+                  onClick={() => [setStatusUser("cancel"), setUserModal(false)]}
+                  className=" w-full rounded-xl bg-cyan-500 bg-opacity-90 p-2 dark:bg-[#475569]"
+                >
+                  Cancel users {cancelUser?.length}
+                </div>
+                <div
+                  onClick={() => [setStatusUser("block"), setUserModal(false)]}
+                  className=" w-full rounded-xl bg-cyan-500 bg-opacity-90 p-2 dark:bg-[#475569]"
+                >
+                  Blocked users {blockUser?.length}
                 </div>
               </div>
             )}
-          </div>
-        </span>
-        <div className=" relative text-white">
-          <div
-            className=" relative my-2 w-full cursor-pointer rounded-xl bg-slate-900 bg-opacity-60 p-2"
-            onClick={() => setUserModal(!userModal)}
-          >
-            All people
-          </div>
-          {userModal && (
-            <div className=" absolute -right-56 top-0 z-50  flex size-56 cursor-pointer flex-col gap-2 rounded-xl bg-slate-900 bg-opacity-80 p-2">
-              <div className=" w-full rounded-xl bg-slate-900 bg-opacity-90 p-2">
-                Request help 10
-              </div>{" "}
-              <div className=" w-full rounded-xl bg-slate-900 bg-opacity-90 p-2">
-                Forward Request 5
-              </div>{" "}
-              <div className=" w-full rounded-xl bg-slate-900 bg-opacity-90 p-2">
-                Cancel users 6
-              </div>{" "}
-              <div className=" w-full rounded-xl bg-slate-900 bg-opacity-90 p-2">
-                Blocked users 8
-              </div>
+            <div
+              onClick={() => [setStatusUser("all"), setUserModal(false)]}
+              className=" w-full rounded-xl bg-slate-900 bg-opacity-60 p-2"
+            >
+              All users
             </div>
-          )}
-          <div className=" w-full rounded-xl bg-slate-900 bg-opacity-60 p-2">
-            All users
           </div>
         </div>
-        <div className="mr-5 mt-4 flex  flex-row ">
-          {chatData.slice(0, 3).map((item: any, index: number) => (
-            <TopChatBar
-              key={index}
-              item={item}
-              index={index}
-              onClick={chatChange}
-            />
-          ))}
-        </div>
-        <div className="h-[430px] overflow-y-scroll ">
-          {chatData.map((item: any, index: number) => (
-            <ChatsCard
-              key={index}
-              item={item}
-              index={index}
-              onClick={chatChange}
-            />
-          ))}
+        <div className=" h-[calc(100vh-250px)] w-full overflow-y-scroll ">
+          {usersData.map((item: any, index: number) => {
+            return (
+              <ChatsCard
+                key={index}
+                item={item}
+                index={index}
+                onClick={chatChange}
+              />
+            );
+          })}
         </div>
       </div>
-      <div className="-ml-4 w-full ">
+      <div className="col-span-full h-[calc(100vh-88px)] w-full overflow-hidden md:col-span-9">
         {/* [#3949ac]  */}
         {/* bg-[#39b7ea] */}
-        <div className="-mr-4 flex  items-center   justify-between border-b border-solid  border-slate-300 bg-[#39b7ea] px-6 py-1 dark:bg-slate-500 dark:text-white ">
+        <div className="flex items-center justify-between overflow-hidden border-b  border-solid  border-slate-300 px-6 py-2 dark:bg-slate-500 dark:text-white">
           <div className="item-center flex justify-between ">
             <div className=" relative mr-3 size-12">
               <Image
@@ -281,14 +325,14 @@ export default function Chat() {
             </button>
             <div className="relative flex  gap-x-2">
               <button
-                className="cursor-pointer rounded-lg border border-solid border-slate-300  bg-slate-300 px-4 py-2 text-blue-500 shadow-lg dark:bg-black dark:text-white"
+                className="cursor-pointer rounded-lg border border-solid border-slate-300  bg-slate-300 px-4 py-2 text-blue-500 shadow-lg dark:bg-slate-800 dark:text-white"
                 onClick={handleShowDropManu}
               >
                 <FiSettings />
               </button>
 
               {showDropManu && (
-                <div className="absolute -left-60 top-10 z-99 flex items-start justify-end  ">
+                <div className="absolute -left-60 top-10 flex items-start justify-end  ">
                   <div className="w-[300px] space-y-1 rounded-lg bg-blue-900 p-3 text-white">
                     <div key={""}>
                       <div
@@ -306,7 +350,6 @@ export default function Chat() {
                                 <li className="my-1 flex cursor-pointer items-center  justify-between gap-1">
                                   <div className="flex items-center">
                                     <span className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-950 p-1 text-white">
-                                      {" "}
                                       <CgProfile size={28} />
                                     </span>
                                     <p className="px-2">Mr Jack</p>
@@ -386,8 +429,7 @@ export default function Chat() {
             </div>
           </div>
         </div>
-
-        <div className=" -mr-4 h-[79%] rounded-b-md   bg-[#a6c0c7] p-4 dark:bg-slate-500   dark:text-white">
+        <div className="h-[77%] w-full  overflow-y-scroll bg-[#9AC4CD] p-4   dark:bg-slate-500 dark:text-white ">
           {chatData[activeChat].messages?.map((item: any, index: number) => {
             return item.sender === "You" ? (
               <div
@@ -526,22 +568,7 @@ export default function Chat() {
             );
           })}
         </div>
-        <div className="flex  w-full items-center gap-2 px-6 py-2 outline-none ">
-          <div className=" flex w-full items-center rounded-full border-2 border-slate-500 bg-slate-100  p-3 pe-2 ps-1">
-            <button className="rounded-full border-slate-300 px-4  py-2   text-yellow-800">
-              <GrAttachment size={20} />
-            </button>
-            <input
-              type="text"
-              placeholder="type your message"
-              className="w-full rounded-full bg-slate-100 px-3 py-2 text-black outline-none "
-            />
-            <FaRegSmileBeam size={30} className="cursor-pointer" />
-          </div>
-          <div className="flex h-12 w-12  cursor-pointer items-center justify-center rounded-full border-black p-1 text-white">
-            <IoSendSharp color="yellow" size={30} />
-          </div>
-        </div>
+        <SendMessage />
       </div>
       {/* call dailing modal */}
       <CallDaillingModal

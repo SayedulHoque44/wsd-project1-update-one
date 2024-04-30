@@ -1,18 +1,14 @@
 "use client";
-
 import React, { useState } from "react";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { OrderData } from "@/types/orderData";
 import Link from "next/link";
 import { OrdersData } from "@/constants/orderData";
 import ICTable from "@/components/ui/ICTable";
-import DatePickerOne from "@/components/FormElements/DatePicker/DatePickerOne";
-import SelectGroupTwo from "@/components/SelectGroup/SelectGroupTwo";
 import CustomSelect from "@/components/ui/CustomSelect";
 import { DatePicker, Input } from "antd";
 import Image from "next/image";
-import { IoClose } from "react-icons/io5";
-import { FaEdit, FaRegWindowMinimize } from "react-icons/fa";
+import { IoClose, IoSearch } from "react-icons/io5";
 import { VscChromeMinimize } from "react-icons/vsc";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { MdDelete } from "react-icons/md";
@@ -195,11 +191,20 @@ const AllOrders: React.FC = () => {
     enterButton: true,
   };
   return (
-    <div>
+    <div className="z-0 w-full p-4 md:p-6 2xl:p-10 ">
       <Breadcrumb pageName="All Orders" />
       <div className="grid w-full grid-cols-1  items-center  justify-between  gap-3 py-4 md:grid-cols-3 xl:grid-cols-6">
         <CustomSelect options={status} placeholder="Status" />
-        <Search {...props} />
+        <div className="flex w-full items-center rounded-md border border-[#ced0d4] bg-white py-1.5 ">
+          <input
+            className="w-full px-2 text-[#DDDDDD] outline-none "
+            type="text"
+            name=""
+            id=""
+            placeholder="Search"
+          />
+          <IoSearch className="h-6 w-6" />
+        </div>
         <div className="flex items-center gap-1">
           <DatePicker onChange={onStartDate} />
           <span>To</span>
@@ -242,17 +247,17 @@ const UpdateConversation = () => {
         Update
       </button>
       {isShowChats && (
-        <div className="max:h-[500px] absolute right-0 top-0 z-9999 w-[300px] rounded-xl bg-blue-400 p-2">
+        <div className="max:h-[500px] absolute right-0 top-0 z-9999 w-[300px] rounded-xl bg-[#9AC4CD] p-2">
           <div className="relative">
             {/* close */}
-            <div className="absolute -right-25 top-0 flex items-center gap-2 text-xl font-bold">
-              <span className="rounded-full bg-white p-2">
+            <div className="absolute -right-7 -top-7 flex flex-col items-center gap-2 text-xl font-bold">
+              <span className="rounded-full bg-slate-200 p-1">
                 <IoClose
                   className="cursor-pointer text-meta-1"
                   onClick={() => setIsShowChats(false)}
                 />
               </span>
-              <span className="rounded-full bg-white p-2">
+              <span className="rounded-full bg-slate-200 p-1">
                 <VscChromeMinimize className="cursor-pointer text-meta-5" />
               </span>
             </div>
@@ -408,6 +413,7 @@ const CallPopUp = ({
   isCallPopUp: boolean;
   setICallPopUp: any;
 }) => {
+  const [minimise, setMinimise] = useState(false);
   return (
     <div className="absolute -left-70 top-0  rounded-xl bg-blue-300 p-5">
       <div className="relative flex min-h-[250px] min-w-[200px] flex-col items-center justify-between">
@@ -428,12 +434,20 @@ const CallPopUp = ({
           <Image src={speakerImg} height={40} width={40} alt="user" />
         </div>
         <span
-          onClick={() => setICallPopUp(false)}
+          onClick={() => [setMinimise(true)]}
           className="absolute right-0 top-0 rounded-full bg-white p-2"
         >
           <VscChromeMinimize className="cursor-pointer text-meta-5" />
         </span>
       </div>
+      {minimise && (
+        <div
+          onClick={() => [setICallPopUp(true),setMinimise(false)]}
+          className="fixed bottom-5 right-2 z-40 cursor-pointer"
+        >
+          <Image src={UserImg} height={70} width={70} alt="user" />
+        </div>
+      )}
     </div>
   );
 };
@@ -441,7 +455,7 @@ const CallPopUp = ({
 const ChatSettings = () => {
   const [isDeletePopUp, setIsDeletePopUp] = useState(false);
   return (
-    <div className="absolute right-0 top-10 z-9999 rounded-xl bg-slate-800 px-5 py-2 text-slate-400">
+    <div className="absolute right-0 top-10 z-9999 rounded-xl bg-white px-5 py-2 text-slate-400 dark:bg-black">
       <div className="flex items-center justify-between gap-4">
         <span>Can&apos;t Message</span>
         <label className="relative inline-flex cursor-pointer items-center">

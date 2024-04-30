@@ -4,6 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   body {
     @apply relative z-1 bg-whiten font-satoshi text-base font-normal text-body;
@@ -21,7 +22,7 @@
 
   .no-scrollbar {
     -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    /* scrollbar-width: none; Firefox */
   }
 
   .chat-height {

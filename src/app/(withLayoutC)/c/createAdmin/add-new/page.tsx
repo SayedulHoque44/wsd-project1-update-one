@@ -105,7 +105,7 @@ const AddNewAdminPage = () => {
   ];
 
   return (
-    <div>
+    <div className="w-full p-4 md:p-6 2xl:p-10">
       <Breadcrumb pageName="Create Sub-Admin" />
 
       <div className="-mt-2 mb-4 flex items-center justify-end gap-3">
