@@ -1,14 +1,15 @@
 "use client";
-
 import React, { useState } from "react";
 import Link from "next/link";
-
-import { Button, Tag } from "antd";
-
+import { Button, Col, Modal, Row, Tag } from "antd";
 import ICTable from "@/components/ui/ICTable";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import { IApi } from "@/types/api";
-import { ApiData } from "@/constants/apiData";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks/hooks";
+import CustomForm from "@/components/Form/Form";
+import CustomInput from "@/components/Form/Input";
+import { FaUserPlus } from "react-icons/fa";
+import { addApi } from "@/redux/fetures/api/apiSlice";
 
 const ApiListPage = () => {
   const [page, setPage] = useState<number>(1);
@@ -16,6 +17,7 @@ const ApiListPage = () => {
   const [sortBy, setSortBy] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
 
+  const apiData = useAppSelector((state) => state.api);
   let columns = [
     { title: "SL", dataIndex: "id" },
     { title: "Company Name", dataIndex: "companyName" },
@@ -52,10 +54,6 @@ const ApiListPage = () => {
     },
   ];
 
-  const onActiveChange = (id: string) => {
-    console.log(`switch to ${id}`);
-  };
-
   const onPaginationChange = (page: number, pageSize: number) => {
     // console.log("Page:", page, "PageSize:", pageSize);
     setPage(page);
@@ -72,7 +70,8 @@ const ApiListPage = () => {
     <div className="w-full p-4 md:p-6 2xl:p-10">
       <Breadcrumb pageName="API List" />
 
-      <div className="-mt-2 mb-4 flex items-center justify-end gap-3">
+      <div className="-mt-2 mb-4 flex items-center justify-between gap-3">
+        <AadminAddModal />
         <Link href={"/c/createAdmin"}>
           <Button
             style={{ background: "#1677ff" }}
@@ -87,13 +86,122 @@ const ApiListPage = () => {
       <ICTable
         loading={false}
         columns={columns}
-        dataSource={ApiData}
+        dataSource={apiData}
         pageSize={size}
-        totalPages={ApiData?.length}
+        totalPages={apiData?.length}
         onPaginationChange={onPaginationChange}
         onTableChange={onTableChange}
         showPagination={true}
       />
+    </div>
+  );
+};
+
+const AadminAddModal = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useAppDispatch();
+  const onSubmit = async (data: any) => {
+    const addApiData = {
+      id: "1a",
+      ...data,
+      status: true,
+    };
+    dispatch(addApi(addApiData));
+    closeModal();
+  };
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+  return (
+    <div>
+      <Button
+        onClick={showModal}
+        style={{ background: "#1677ff" }}
+        type="primary"
+        icon={<FaUserPlus className="-mb-[2px]" />}
+        size={"middle"}
+      >
+        Api
+      </Button>
+      <Modal
+        open={isModalOpen}
+        onCancel={closeModal}
+        footer={null}
+        width={600}
+        centered
+      >
+        <CustomForm className="w-full" onSubmit={onSubmit}>
+          <div
+            style={{
+              border: "1px solid #d9d9d9",
+              borderRadius: "5px",
+              padding: "15px",
+              marginBottom: "10px",
+            }}
+          >
+            <p className="mb-5 text-center text-xl font-semibold">Add api</p>
+            <Row gutter={{ xl: 24 }}>
+              <Col
+                className="gutter-row"
+                span={12}
+                style={{
+                  marginBottom: "10px",
+                }}
+              >
+                <CustomInput
+                  type="text"
+                  name="companyName"
+                  label="Company Name	"
+                />
+              </Col>
+              <Col
+                className="gutter-row"
+                span={12}
+                style={{
+                  marginBottom: "10px",
+                }}
+              >
+                <CustomInput type="text" name="apiName" label="API Name	" />
+              </Col>
+              <Col
+                className="gutter-row"
+                span={12}
+                style={{
+                  marginBottom: "10px",
+                }}
+              >
+                <CustomInput
+                  type="text"
+                  name="publishableKey"
+                  label="Publishable Key"
+                />
+              </Col>
+              <Col
+                className="gutter-row"
+                span={12}
+                style={{
+                  marginBottom: "10px",
+                }}
+              >
+                <CustomInput
+                  type="password"
+                  name="secretKey"
+                  label="Secret Key	"
+                />
+              </Col>
+              <Col className="gutter-row justify-end " span={24}>
+                <Button htmlType="submit" type="primary">
+                  Create
+                </Button>
+              </Col>
+            </Row>
+          </div>
+        </CustomForm>
+      </Modal>
     </div>
   );
 };

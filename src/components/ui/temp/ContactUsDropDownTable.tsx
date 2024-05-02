@@ -1,5 +1,6 @@
 import React from "react";
 import CustomSearch from "../CustomSearch";
+import { BiTrash } from "react-icons/bi";
 
 const ContactUsDropDownTable: React.FC = () => {
   const onSearch = () => {};
@@ -22,6 +23,7 @@ const ContactUsDropDownTable: React.FC = () => {
             <th className="border-2 px-1   py-2">Contact Details</th>
             <th className="w-fit border-2 px-20  py-2">Subject Name</th>
             <th className="border-2   px-44 py-2">Message</th>
+            <th className="border-2 px-5 py-2">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -38,9 +40,9 @@ const ContactUsDropDownTable: React.FC = () => {
             <td className="border-gray-100 border-2 px-4 py-2">
               Can you help me
             </td>
-            {/* <td class="px-6 py-4 text-center border-2 border-gray-100">
-         
-        </td> */}
+            <td className="border-gray-100 border-2 px-6 py-4 text-center">
+              <BiTrash className="h-6 w-6 cursor-pointer text-rose-500" />
+            </td>
           </tr>
 
           {/* Just for Demo  Displaying  Remove Follwing Code  */}
@@ -55,7 +57,9 @@ const ContactUsDropDownTable: React.FC = () => {
             <td className="border-gray-100 border-2 px-4 py-2">
               Can you help me....
             </td>
-            {/* <td className="py-2 px-4 border-2 border-gray-100">Can you help me....</td> */}
+            <td className="border-gray-100 border-2 px-6 py-4 text-center">
+              <BiTrash className="h-6 w-6 cursor-pointer text-rose-500" />
+            </td>
           </tr>
           {/* Just for Demo  Displaying  Remove Upper Code  */}
         </tbody>

@@ -2,9 +2,12 @@
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import CustomForm from "@/components/Form/Form";
 import CustomInput from "@/components/Form/Input";
+import { Button, Input, Select } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { FieldValues } from "react-hook-form";
+import { BsCheck } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
 
 export default function OrderDetailsPage({
@@ -12,10 +15,17 @@ export default function OrderDetailsPage({
 }: {
   params: { orderId: string };
 }) {
+  const [status, setStatus] = useState("");
+  const [isOpen, setIsOpen] = useState(true);
   const router = useRouter();
+
   const onSubmitForm = (value: FieldValues) => {};
+
+  const handleChange = (value: string) => {
+    setStatus(value);
+  };
   return (
-    <div className="w-full p-4 md:p-6 2xl:p-10 flex min-h-[80vh] flex-col items-center justify-center  md:min-h-[60vh] ">
+    <div className="flex min-h-[80vh] w-full flex-col items-center justify-center p-4 md:min-h-[60vh] md:p-6  2xl:p-10 ">
       <div className="mb-4 flex w-full items-center justify-end">
         <button
           onClick={() => router.back()}
@@ -25,9 +35,103 @@ export default function OrderDetailsPage({
         </button>
       </div>
       <div className="space-y-4">
-        <h1 className="text-center text-2xl  font-semibold uppercase">
-          Pending Order Page View
+        <h1 className="text-center text-2xl font-semibold underline">
+          {status === "pending"
+            ? "Pending Order Page View"
+            : status === "payment"
+              ? "Payment Order Page View"
+              : status === "wating"
+                ? " Wating Order Page View"
+                : status === "working"
+                  ? " Working Order Page View"
+                  : status === "complete"
+                    ? " Complete Order Page View"
+                    : status === "delivery"
+                      ? " Delivery Order Page View"
+                      : status === "cancelled"
+                        ? " Cancelled Order Page View"
+                        : "Pending Order Page View"}
         </h1>
+        <div className="mx-auto flex w-full max-w-4xl items-center gap-10">
+          <div className="flex flex-col gap-2">
+            <div
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex items-center justify-center"
+            >
+              <button className="bg-green-500 px-2 py-2 font-semibold text-slate-900">
+                {status === "pending" ? "All sub admin" : "Only me"}
+              </button>
+              <div className="bg-rose-500 p-2 text-white">
+                <BsCheck className="h-6 w-6" />
+              </div>
+            </div>
+            <button
+              className={`bg-cyan-500 font-semibold text-slate-900 ${isOpen ? "block" : "hidden"}`}
+            >
+              {status === "pending" ? "Only me" : "All sub admin"}
+            </button>
+          </div>
+          <div className="flex gap-10">
+            {status === "pending" ? (
+              <>
+                <button className="rounded-md bg-violet-500 px-5 py-1.5 text-white">
+                  Set Project Amount
+                </button>
+                <button className="rounded-md bg-violet-500 px-5 py-1.5 text-white">
+                  minimum pay
+                </button>
+              </>
+            ) : status === "payment" ? (
+              ""
+            ) : status === "wating" ? (
+              <button className="rounded-md bg-violet-500 px-5 py-1.5 text-white">
+                profit set
+              </button>
+            ) : status === "working" ? (
+              <div className="flex flex-col gap-2">
+                <button className="p-2 rounded-lg bg-orange-500 text-white">Project documentation upload</button>
+                <div className="flex items-center gap-2 bg-lime-100 p-2">
+                  <h1 className="text-sm">Url</h1>
+                  <Input type="text" placeholder="Enter documentaion url"/>
+                  <button className="bg-green-500 text-white px-2 py-1">Save</button>
+                </div>
+              </div>
+            ) : status === "complete" ? (
+              ""
+            ) : status === "delivery" ? (
+              ""
+            ) : status === "cancelled" ? (
+              ""
+            ) : (
+              <>
+                <button className="rounded-md bg-violet-500 px-5 py-1.5 text-white">
+                  Set Project Amount
+                </button>
+                <button className="rounded-md bg-violet-500 px-5 py-1.5 text-white">
+                  minimum pay
+                </button>
+              </>
+            )}
+            <Select
+              className="py-2"
+              style={{ width: 120 }}
+              onChange={handleChange}
+              placeholder={"Select Status"}
+              options={[
+                { value: "pending", label: "Pending" },
+                { value: "payment", label: "Payment" },
+                { value: "wating", label: "Wating" },
+                { value: "working", label: "Working" },
+                { value: "complete", label: "Complete" },
+                { value: "delivery", label: "Delivery" },
+                { value: "cancelled", label: "Cancelled" },
+              ]}
+            />
+            <button className="w-24 h-10 rounded-md bg-slate-800 px-5 py-1.5 text-white">
+              Save
+            </button>
+          </div>
+        </div>
         <div className=" flex">
           <div className="flex flex-1 flex-col justify-center gap-5">
             <h1 className="text-center font-semibold uppercase">

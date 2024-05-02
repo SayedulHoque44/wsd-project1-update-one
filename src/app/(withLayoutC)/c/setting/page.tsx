@@ -291,20 +291,6 @@ const AccountChangeModal = () => {
                 </div>
               ))}
             </div>
-            {/* <CustomForm onSubmit={onSubmitForm}>
-              <CustomInput type="password" name="password" label="Password" />
-              <CustomInput
-                type="password"
-                name="ConfirmPassword"
-                label="Confirm Password"
-              />
-              <button
-                onClick={() => setDirection("success")}
-                className="w-full bg-blue-500 px-3 py-2 text-white"
-              >
-                Submit
-              </button>
-            </CustomForm> */}
           </div>
         )}
         {direction === "success" && (
