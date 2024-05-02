@@ -1,8 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-// import { chatData } from "../../../../lib/data/mokeData";
-// import ChatsCard from "../../components/ChatComponents/ChatsCard";
-// import TopChatBar from "../../components/ChatComponents/TopChatBar";
 import { FaPhone, FaRegSmileBeam } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";
 import { BiCheckDouble, BiTrash } from "react-icons/bi";
@@ -186,7 +183,7 @@ export default function Chat() {
               </button>
               {showDropManuCall && (
                 <div className="absolute left-0 top-10 z-99  flex  items-start ">
-                  <div className="w-[300px] space-y-1 rounded-lg bg-[#4ED0E7] dark:bg-slate-900 p-3 text-white">
+                  <div className="w-[300px] space-y-1 rounded-lg bg-[#4ED0E7] p-3 text-white dark:bg-slate-900">
                     <div key="" className="flex  justify-between ">
                       <span className="mr-5 font-medium text-white dark:text-slate-300">
                         OutComming Call
@@ -296,7 +293,7 @@ export default function Chat() {
       <div className="col-span-full h-[calc(100vh-88px)] w-full overflow-hidden md:col-span-9">
         {/* [#3949ac]  */}
         {/* bg-[#39b7ea] */}
-        <div className="flex items-center justify-between overflow-hidden border-b  border-solid  border-slate-300 px-6 py-2 dark:bg-slate-500 dark:text-white">
+        <div className="flex items-center justify-between  border-b  border-solid  border-slate-300 px-6 py-2 dark:bg-slate-500 dark:text-white">
           <div className="item-center flex justify-between ">
             <div className=" relative mr-3 size-12">
               <Image
@@ -333,7 +330,7 @@ export default function Chat() {
 
               {showDropManu && (
                 <div className="absolute -left-60 top-10 flex items-start justify-end  ">
-                  <div className="w-[300px] space-y-1 rounded-lg bg-blue-900 p-3 text-white">
+                  <div className="w-[300px] space-y-1 rounded-lg bg-[#4ED0E7] p-3 text-white">
                     <div key={""}>
                       <div
                         className="relative mb-1 flex justify-between"

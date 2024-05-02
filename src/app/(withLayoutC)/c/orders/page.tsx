@@ -238,6 +238,7 @@ const UpdateConversation = () => {
   const [isShowChats, setIsShowChats] = useState(false);
   const [isCallPopUp, setICallPopUp] = useState(false);
   const [isSettingOn, setIsSettingOn] = useState(false);
+  const [minimise, setMinimise] = useState(false);
   return (
     <div className="relative">
       <button
@@ -343,10 +344,19 @@ const UpdateConversation = () => {
               <CallPopUp
                 isCallPopUp={isCallPopUp}
                 setICallPopUp={setICallPopUp}
+                setMinimise={setMinimise}
               />
             )}
             {isSettingOn && <ChatSettings />}
           </div>
+        </div>
+      )}
+      {minimise && (
+        <div
+          onClick={() => [setICallPopUp(true), setMinimise(false)]}
+          className="fixed bottom-5 right-2 z-40 cursor-pointer"
+        >
+          <Image src={UserImg} height={70} width={70} alt="user" />
         </div>
       )}
     </div>
@@ -409,11 +419,12 @@ const ChatLineSender = ({
 const CallPopUp = ({
   isCallPopUp,
   setICallPopUp,
+  setMinimise,
 }: {
   isCallPopUp: boolean;
   setICallPopUp: any;
+  setMinimise: any;
 }) => {
-  const [minimise, setMinimise] = useState(false);
   return (
     <div className="absolute -left-70 top-0  rounded-xl bg-blue-300 p-5">
       <div className="relative flex min-h-[250px] min-w-[200px] flex-col items-center justify-between">
@@ -434,20 +445,12 @@ const CallPopUp = ({
           <Image src={speakerImg} height={40} width={40} alt="user" />
         </div>
         <span
-          onClick={() => [setMinimise(true)]}
+          onClick={() => [setICallPopUp(false), setMinimise(true)]}
           className="absolute right-0 top-0 rounded-full bg-white p-2"
         >
           <VscChromeMinimize className="cursor-pointer text-meta-5" />
         </span>
       </div>
-      {minimise && (
-        <div
-          onClick={() => [setICallPopUp(true),setMinimise(false)]}
-          className="fixed bottom-5 right-2 z-40 cursor-pointer"
-        >
-          <Image src={UserImg} height={70} width={70} alt="user" />
-        </div>
-      )}
     </div>
   );
 };
