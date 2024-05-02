@@ -20,6 +20,55 @@ export const chatData: any = [
       },
       {
         sender: "John Doe",
+        text: "I might go see a movie with friends. Do you have any movie recommendations?",
+      },
+    ],
+  },
+  {
+    img: "https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-elvis-presley-on-milton-berle-michael-ochs-archives.jpg",
+    name: "Micel Smith",
+    day: "Tue",
+    lastMesg: "Emma send 6 Photos",
+    messages: [
+      { sender: "John Doe", text: "Hey, how's it going?" },
+      { sender: "You", text: "Hi! I'm doing well, thanks. How about you?" },
+      {
+        sender: "John Doe",
+        text: "I'm good too. What have you been up to lately?",
+      },
+      {
+        sender: "You",
+        text: "Just been busy with work and some personal projects.",
+      },
+      {
+        sender: "John Doe",
+        text: "Sounds productive! Any exciting plans for the weekend?",
+      },
+      {
+        sender: "John Doe",
+        text: "I might go see a movie with friends. Do you have any movie recommendations?",
+      },
+    ],
+  },
+  {
+    img: "https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-elvis-presley-on-milton-berle-michael-ochs-archives.jpg",
+    name: "Emma",
+    day: "Tue",
+    status: "request",
+    lastMesg: "How are you",
+    messages: [
+      { sender: "John Doe", text: "Hey, how's it going?" },
+      { sender: "You", text: "Hi! I'm doing well, thanks. How about you?" },
+      {
+        sender: "John Doe",
+        text: "I'm good too. What have you been up to lately?",
+      },
+      {
+        sender: "You",
+        text: "Just been busy with work and some personal projects.",
+      },
+      {
+        sender: "John Doe",
         text: "Sounds productive! Any exciting plans for the weekend?",
       },
       {
@@ -34,23 +83,26 @@ export const chatData: any = [
   },
   {
     img: "https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-elvis-presley-on-milton-berle-michael-ochs-archives.jpg",
-    name: "Micel Smith",
-    day: "Tue",
-    lastMesg: "Emma send 6 Photos",
-  },
-  {
-    img: "https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-elvis-presley-on-milton-berle-michael-ochs-archives.jpg",
-    name: "Emma",
-    day: "Tue",
-    status: "request",
-    lastMesg: "How are you",
-  },
-  {
-    img: "https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-elvis-presley-on-milton-berle-michael-ochs-archives.jpg",
     name: "john",
     day: "Tue",
     status: "block",
     lastMesg: "Emma send 6 Photos",
+    messages: [
+      { sender: "John Doe", text: "Hey, how's it going?" },
+      { sender: "You", text: "Hi! I'm doing well, thanks. How about you?" },
+      {
+        sender: "John Doe",
+        text: "I'm good too. What have you been up to lately?",
+      },
+      {
+        sender: "You",
+        text: "Just been busy with work and some personal projects.",
+      },
+      {
+        sender: "John Doe",
+        text: "Sounds productive! Any exciting plans for the weekend?",
+      },
+    ],
   },
   {
     img: "https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-elvis-presley-on-milton-berle-michael-ochs-archives.jpg",
@@ -58,6 +110,18 @@ export const chatData: any = [
     day: "Tue",
     status: "cancel",
     lastMesg: "Emma send 6 Photos",
+    messages: [
+      { sender: "John Doe", text: "Hey, how's it going?" },
+      { sender: "You", text: "Hi! I'm doing well, thanks. How about you?" },
+      {
+        sender: "John Doe",
+        text: "I'm good too. What have you been up to lately?",
+      },
+      {
+        sender: "You",
+        text: "Just been busy with work and some personal projects.",
+      },
+    ],
   },
   {
     img: "https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-elvis-presley-on-milton-berle-michael-ochs-archives.jpg",
@@ -65,6 +129,30 @@ export const chatData: any = [
     day: "Tue",
     status: "forward-request",
     lastMesg: "Emma send 6 Photos",
+    messages: [
+      { sender: "John Doe", text: "Hey, how's it going?" },
+      { sender: "You", text: "Hi! I'm doing well, thanks. How about you?" },
+      {
+        sender: "John Doe",
+        text: "I'm good too. What have you been up to lately?",
+      },
+      {
+        sender: "You",
+        text: "Just been busy with work and some personal projects.",
+      },
+      {
+        sender: "John Doe",
+        text: "Sounds productive! Any exciting plans for the weekend?",
+      },
+      {
+        sender: "You",
+        text: "Not really, just planning to relax at home. How about you?",
+      },
+      {
+        sender: "John Doe",
+        text: "I might go see a movie with friends. Do you have any movie recommendations?",
+      },
+    ],
   },
   {
     img: "https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/1-elvis-presley-on-milton-berle-michael-ochs-archives.jpg",
@@ -72,6 +160,18 @@ export const chatData: any = [
     day: "Tue",
     status: "cancel",
     lastMesg: "Emma send 6 Photos",
+    messages: [
+      { sender: "John Doe", text: "Hey, how's it going?" },
+      { sender: "You", text: "Hi! I'm doing well, thanks. How about you?" },
+      {
+        sender: "John Doe",
+        text: "I'm good too. What have you been up to lately?",
+      },
+      {
+        sender: "You",
+        text: "Just been busy with work and some personal projects.",
+      },
+    ],
   },
 ];
 
