@@ -11,7 +11,7 @@ const PhotoVideoUpdate = () => {
   const [logoFile, setLogoFile] = useState("");
 
   return (
-    <div className="container mx-auto border-slate-300 shadow-4 ">
+    <div className="container mx-auto border-slate-300 py-10 shadow-4">
       <MapPhotoVideoUplod file={file} setFile={setFile} />
       <CompanySupportLogo file={logoFile} setFile={setLogoFile} />
     </div>

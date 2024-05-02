@@ -16,29 +16,29 @@ import { BsBorderStyle, BsFillChatLeftTextFill } from "react-icons/bs";
 
 export const CNavItem: navItem[] = [
   { id: 1, title: "Dashboard", url: "/c/dashboard", icon: BiSolidDashboard },
-  { id: 3, title: "All users", url: "/c/allUsers", icon: GiReceiveMoney },
-  { id: 2, title: "All Orders", url: "/c/orders", icon: BsBorderStyle },
+  { id: 2, title: "All users", url: "/c/allUsers", icon: GiReceiveMoney },
+  { id: 3, title: "All Orders", url: "/c/orders", icon: BsBorderStyle },
   {
     id: 4,
     title: " Transactions List",
     url: "/c/transactions",
     icon: BsBorderStyle,
   },
-  { id: 15, title: "All Payments", url: "/c/allpayments", icon: BsBorderStyle },
+  { id: 5, title: "All Payments", url: "/c/allpayments", icon: BsBorderStyle },
   {
-    id: 14,
+    id: 6,
     title: " Online Payment C",
     url: "/c/onlinepayment-checking",
     icon: MdOutlinePayment,
   },
   {
-    id: 13,
+    id: 7,
     title: " Offline Payment C",
     url: "/c/offlinepayment-checking",
     icon: MdOutlinePayment,
   },
   {
-    id: 12,
+    id: 8,
     title: "Online Refund P",
     url: "/c/refund-payment-checking",
     icon: MdOutlinePayment,
@@ -46,36 +46,36 @@ export const CNavItem: navItem[] = [
 
   // { id: 9, title: "Offline Refund P", url: "/pages/notice", icon: BiNotepad },
   {
-    id: 4,
+    id: 9,
     title: "LB342BLI",
     url: "/c/services",
     icon: GrTechnology,
   },
   {
-    id: 5,
+    id: 10,
     title: "TSTBSNOC",
     url: "/c/category",
     icon: BiCategoryAlt,
   },
   {
-    id: 6,
+    id: 11,
     title: "APSLCCB",
     url: "/c/company",
     icon: BiSolidBookContent,
   },
   {
-    id: 7,
+    id: 12,
     title: "Live Chat",
     url: "/c/liveChat",
     icon: BsFillChatLeftTextFill,
   },
   {
-    id: 8,
+    id: 13,
     title: "Create Admin",
     url: "/c/createAdmin",
     icon: RiAdminFill,
   },
-  { id: 9, title: "Setting", url: "/c/setting", icon: AiTwotoneSetting },
+  { id: 14, title: "Setting", url: "/c/setting", icon: AiTwotoneSetting },
   // { id: 10, title: "Logout", url: "/c/logout", icon: GoSignOut },
 ];
 export const INavItem: navItem[] = [

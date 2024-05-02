@@ -9,6 +9,7 @@ import CardFourUpdate from "../CardFourUpdate";
 import PhotoVideoUpdate from "../PhotoVideoUpdate";
 import BannerLogoPage from "../BannerLogoPage ";
 import Tab from "../Tab";
+import PaymentIcon from "../PaymentIcon";
 
 const Tabs = [
   {
@@ -30,6 +31,10 @@ const Tabs = [
   {
     name: `Banner/Company_logo`,
     state: "photoVideo",
+  },
+  {
+    name: `Payment Icon`,
+    state: "paymentIcon",
   },
 ];
 
@@ -55,6 +60,7 @@ const ServiceTab = () => {
       <div>{isVisible === "4 Card" && <CardFourUpdate />}</div>
       <div>{isVisible === "2 Card" && <CardTwoUpdate />}</div>
       <div>{isVisible === "Banner/Company_logo" && <PhotoVideoUpdate />}</div>
+      <div>{isVisible === "Payment Icon" && <PaymentIcon />}</div>
     </>
   );
 };

@@ -39,7 +39,7 @@ const AllUsers = () => {
     { title: "No", dataIndex: "no" },
     { title: "User Id", dataIndex: "userId" },
     { title: "userName", dataIndex: "userName" },
-    { title: "Email", dataIndex: "email" },
+    // { title: "Email", dataIndex: "email" },
     { title: "Total Order", dataIndex: "totalOrder" },
     { title: "Total Amount", dataIndex: "totalAmount" },
     { title: "Total Paid", dataIndex: "totalPaid" },
