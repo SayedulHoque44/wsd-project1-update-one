@@ -8,6 +8,7 @@ const CustomInput = ({
   disabled,
   placeholder,
   className,
+  defaultValue,
 }: {
   type: string;
   name: string;
@@ -15,6 +16,7 @@ const CustomInput = ({
   className?: string;
   placeholder?: string;
   disabled?: boolean;
+  defaultValue?: any;
 }) => {
   return (
     <div style={{ marginBottom: "20px" }}>
@@ -43,6 +45,7 @@ const CustomInput = ({
                 disabled={disabled}
                 placeholder={placeholder}
                 className={className}
+                defaultValue={defaultValue}
               />
               {error && <small style={{ color: "red" }}>{error.message}</small>}
             </Form.Item>

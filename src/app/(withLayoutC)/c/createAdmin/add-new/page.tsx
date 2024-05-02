@@ -6,103 +6,12 @@ import { Button, Col, Row, message } from "antd";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import CustomForm from "@/components/Form/Form";
 import CustomInput from "@/components/Form/Input";
-import CustomTreeSelect from "@/components/Form/TreeSelect";
 
 const AddNewAdminPage = () => {
   const onSubmit = async (values: any) => {
-    // message.loading("Creating...");
+    const { password, rePassword, ...remainingData } = values;
     message.success("User created successfully!");
-    console.log(values);
   };
-
-  const treeData = [
-    {
-      title: "Order Access",
-      value: "orders",
-      key: "orders",
-      children: [
-        {
-          title: "Pending",
-          value: "orders-pending",
-          key: "orders-pending",
-        },
-        {
-          title: "Payment",
-          value: "orders-payment",
-          key: "orders-payment",
-        },
-        {
-          title: "Waiting",
-          value: "orders-waiting",
-          key: "orders-waiting",
-        },
-        {
-          title: "Working",
-          value: "orders-working",
-          key: "orders-working",
-        },
-        {
-          title: "Complete",
-          value: "orders-complete",
-          key: "orders-complete",
-        },
-        {
-          title: "Canceled",
-          value: "orders-canceled",
-          key: "orders-canceled",
-        },
-      ],
-    },
-    {
-      title: "Contact Us",
-      value: "contactUs",
-      key: "0-1",
-      children: [
-        {
-          title: "All",
-          value: "all",
-          key: "all",
-        },
-      ],
-    },
-    {
-      title: "Live Chat",
-      value: "liveChat",
-      key: "liveChat",
-      children: [
-        {
-          title: "Offline Payment Issue",
-          value: "liveChat-oflinePaymentIssue",
-          key: "liveChat-oflinePaymentIssue",
-        },
-        {
-          title: "Online Payment Issue",
-          value: "liveChat-onlinePaymentIssue",
-          key: "liveChat-onlinePaymentIssue",
-        },
-        {
-          title: "Order Problems",
-          value: "liveChat-orderProblems",
-          key: "liveChat-orderProblems",
-        },
-        {
-          title: "Account Problems",
-          value: "liveChat-accountProblems",
-          key: "liveChat-accountProblems",
-        },
-        {
-          title: "Work Problem",
-          value: "liveChat-workProblems",
-          key: "liveChat-workProblems",
-        },
-        {
-          title: "Others",
-          value: "liveChat-others",
-          key: "liveChat-others",
-        },
-      ],
-    },
-  ];
 
   return (
     <div className="w-full p-4 md:p-6 2xl:p-10">
@@ -154,38 +63,11 @@ const AddNewAdminPage = () => {
                   marginBottom: "10px",
                 }}
               >
-                <CustomInput type="text" name="userName" label="User Name" />
-              </Col>
-              <Col
-                className="gutter-row"
-                span={8}
-                style={{
-                  marginBottom: "10px",
-                }}
-              >
-                <CustomInput type="text" name="email" label="Email" />
-              </Col>
-
-              <Col
-                className="gutter-row"
-                span={8}
-                style={{
-                  marginBottom: "10px",
-                }}
-              >
-                <CustomInput type="password" name="password" label="Password" />
-              </Col>
-              <Col
-                className="gutter-row"
-                span={8}
-                style={{
-                  marginBottom: "10px",
-                }}
-              >
                 <CustomInput
-                  type="password"
-                  name="rePassword"
-                  label="Re Password"
+                  type="text"
+                  name="userName"
+                  label="User Name"
+                  placeholder="Enter your name"
                 />
               </Col>
               <Col
@@ -195,10 +77,26 @@ const AddNewAdminPage = () => {
                   marginBottom: "10px",
                 }}
               >
-                <CustomTreeSelect
-                  name="access"
-                  label="Access"
-                  treeData={treeData}
+                <CustomInput
+                  type="text"
+                  name="email"
+                  label="Email"
+                  placeholder="Enter your email"
+                />
+              </Col>
+
+              <Col
+                className="gutter-row"
+                span={8}
+                style={{
+                  marginBottom: "10px",
+                }}
+              >
+                <CustomInput
+                  type="password"
+                  name="password"
+                  label="Password"
+                  placeholder="Enter your password"
                 />
               </Col>
               <Col

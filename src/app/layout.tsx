@@ -6,6 +6,7 @@ import "@/css/style.css";
 import React, { useEffect, useState } from "react";
 import Loader from "@/components/common/Loader";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
+import StoreProvider from "@/providers/StoreProvider";
 
 export default function RootLayout({
   children,
@@ -25,7 +26,9 @@ export default function RootLayout({
     <html lang="en">
       <body suppressHydrationWarning={true}>
         <div className="dark:bg-boxdark-2 dark:text-bodydark">
-          <AntdRegistry>{children}</AntdRegistry>
+          <StoreProvider>
+            <AntdRegistry>{children}</AntdRegistry>
+          </StoreProvider>
         </div>
       </body>
     </html>

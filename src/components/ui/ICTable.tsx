@@ -39,10 +39,6 @@ const ICTable = ({
 
   return (
     <Table
-      // style={{
-      //   minWidth: "1200px",
-      //   msOverflowX: "scroll",
-      // }}
       loading={loading}
       columns={columns}
       dataSource={dataSource}
