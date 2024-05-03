@@ -7,44 +7,28 @@ const Conversation = () => {
   const [userModal, setUserModal] = useState(false);
   const [statusUser, setStatusUser] = useState("");
   const [showDropManuCall, setShowDropManuCall] = useState(false);
-  const chatData: any = useAppSelector((state) => state.users);
-  const [usersData, setUsersData] = useState(chatData);
-  const requestedUser = chatData.filter(
-    (user: any) => user?.status === "request",
+  const allUsers: any = useAppSelector((state) => state.users.allUsers);
+  const [usersData, setUsersData] = useState(allUsers);
+  const requestedUser = useAppSelector((state) => state.users.requesteUsers);
+  const forwardRequest = useAppSelector(
+    (state) => state.users.forwordRequestUsers,
   );
-  const forwardRequest = chatData.filter(
-    (user: any) => user?.status === "forward-request",
-  );
-  const cancelUser = chatData.filter((user: any) => user?.status === "cancel");
-  const blockUser = chatData.filter((user: any) => user?.status === "block");
 
   useEffect(() => {
     if (statusUser === "request") {
       setUsersData(requestedUser);
-    } else if (statusUser === "cancel") {
-      setUsersData(cancelUser);
-    } else if (statusUser === "block") {
-      setUsersData(blockUser);
     } else if (statusUser === "forward-request") {
       setUsersData(forwardRequest);
     } else if (statusUser === "all") {
-      setUsersData(chatData);
+      setUsersData(allUsers);
     }
-  }, [
-    usersData,
-    statusUser,
-    requestedUser,
-    cancelUser,
-    blockUser,
-    forwardRequest,
-    chatData,
-  ]);
+  }, [allUsers, forwardRequest, requestedUser, statusUser]);
 
   const handleShowDropManuCall = () => {
     setShowDropManuCall(!showDropManuCall);
   };
   return (
-    <div className="col-span-full h-full w-full  dark:bg-black md:col-span-3 ">
+    <div className="col-span-full h-full w-full  dark:bg-black md:col-span-4 ">
       <div className="p-3">
         <span className="flex">
           <form className="mt-2 w-full">
@@ -141,7 +125,7 @@ const Conversation = () => {
             All people
           </div>
           {userModal && (
-            <div className=" absolute -right-56 top-0 z-50  flex size-56 cursor-pointer flex-col gap-2 rounded-xl bg-slate-200 p-2 dark:bg-[#141C2E]">
+            <div className=" absolute -right-56 top-0 z-50  flex w-56 cursor-pointer flex-col gap-2 rounded-xl bg-slate-200 p-3 dark:bg-[#141C2E]">
               <div
                 onClick={() => [setStatusUser("request"), setUserModal(false)]}
                 className=" w-full rounded-xl bg-slate-300 bg-opacity-90 p-2 dark:bg-[#475569]"
@@ -156,18 +140,6 @@ const Conversation = () => {
                 className=" w-full rounded-xl bg-slate-300 bg-opacity-90 p-2 dark:bg-[#475569]"
               >
                 Forward Request {forwardRequest?.length}
-              </div>
-              <div
-                onClick={() => [setStatusUser("cancel"), setUserModal(false)]}
-                className=" w-full rounded-xl bg-slate-300 bg-opacity-90 p-2 dark:bg-[#475569]"
-              >
-                Cancel users {cancelUser?.length}
-              </div>
-              <div
-                onClick={() => [setStatusUser("block"), setUserModal(false)]}
-                className=" w-full rounded-xl bg-slate-300 bg-opacity-90 p-2 dark:bg-[#475569]"
-              >
-                Blocked users {blockUser?.length}
               </div>
             </div>
           )}

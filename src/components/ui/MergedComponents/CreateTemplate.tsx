@@ -1,24 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import { IoIosContact } from "react-icons/io";
-import { RiDeleteBin6Line, RiDragDropFill } from "react-icons/ri";
 import { AiOutlineEdit } from "react-icons/ai";
-import { BiEdit, BiTrash } from "react-icons/bi";
-
 import dynamic from "next/dynamic";
 import CustomSearch from "../CustomSearch";
 import { Button, Modal, Row } from "antd";
 import CustomForm from "@/components/Form/Form";
 import PrimaryButton from "@/components/button/PrimaryButton";
 import CustomInput from "@/components/Form/Input";
-import CustomTextarea from "@/components/Form/Textarea";
 import { MdDelete } from "react-icons/md";
 import SelectSingleOrMultiImg from "@/components/Upload/SelectSingleOrMultiImg";
 const CreateTemplate: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [paymentIcon, setPaymentIcon] = useState(null);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [pageSize, setPageSize] = useState(null);
   const [isChecked, setIsChecked] = useState(false);
   const [showConfirmation, setShowConfirmatin] = useState(false);
   const [draggedRow, setDraggedRow] = useState(null);
@@ -260,7 +252,7 @@ const CreateTemplate: React.FC = () => {
         </div>
       </div>
       <div>
-        <div className="mx-auto mt-20 grid grid-cols-1 place-content-start gap-1  space-y-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 ">
+        <div className="mx-auto mt-20 grid grid-cols-1 place-content-center gap-5 space-y-2  md:grid-cols-3  ">
           {bloagData.map((item, index) => (
             <SingleTemplate item={item} key={index} />
           ))}
@@ -366,9 +358,8 @@ const SingleTemplate = ({ item }: { item: any }) => {
   const [isChecked, setIsChecked] = useState(false);
   return (
     <div className={`font-medium`}>
-      <div className="flex flex-col  px-2 ">
+      <div className="flex flex-col ">
         <div className="flex items-center justify-between gap-1 bg-blue-200 p-2 ">
-          {/* Togale tbn */}
           <label className="flex cursor-pointer select-none items-center">
             <div className="relative">
               <input
@@ -401,27 +392,21 @@ const SingleTemplate = ({ item }: { item: any }) => {
             size={20}
           />
         </div>
-
         <div className="Box1 relative  text-white">
           <div className="bg-[#a86023] p-2 pt-12 text-center">
-            <h3 className="font-semibold">Large Society</h3>
+            <h3 className="font-semibold"></h3>
             <p>
               Et culpa nihil quae corrupti numquam magnam, molestias
               praesentium, perferendis voluptatem, molestiae officiis illo!
-              Eligendi iste asperiores{" "}
+              Eligendi iste asperiores
             </p>
           </div>
-          <div className="bg-black p-2">
-            <h3 className="font-semibold">Title</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure
-              quia praesentium, sapiente tempore impedit officiis accusantium ex
-              quidem recusandae animi officia iusto facilis omnis corrupti cum.
-              Qui nulla eius vel.
-            </p>
+          <div className="bg-black p-3">
+            <h3 className="font-semibold">{title}</h3>
+            <p>{blog}</p>
           </div>
-          <div className="absolute right-2 top-2 rounded-full bg-[#6b21a8] p-2">
-            Save 800$
+          <div className="absolute right-0  top-0 bg-white py-2 pl-2 ">
+            <h1 className="rounded-l-full bg-[#6b21a8] p-1">Save 800$</h1>
           </div>
         </div>
       </div>
