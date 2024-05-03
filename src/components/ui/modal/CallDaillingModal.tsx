@@ -8,11 +8,10 @@ interface ModalProps{
     }
 const CallDaillingModal:React.FC<ModalProps> = ({ isVisible, onClose, children, hideCloseIcon = true }) => {
   if (!isVisible) return null;
-  console.log(isVisible);
   return (
     <div className="absolute flex justify-center items-center inset-0 z-10 top-0 mt-3">
       <div className=" flex flex-col">
-        <div className=" relative bg-[#6bc7db] rounded-xl h-fit w-fit p-5 pt-6 overflow-auto">
+        <div className=" relative bg-slate-300 dark:bg-slate-700 rounded-xl h-fit w-fit p-5 pt-6 overflow-auto">
           {children}
           
         </div>

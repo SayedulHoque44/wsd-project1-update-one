@@ -1,8 +1,5 @@
 "use client";
 import React, { useState } from "react";
-// import { chatData } from "../../../../lib/data/mokeData";
-// import ChatsCard from "../../components/ChatComponents/ChatsCard";
-// import TopChatBar from "../../components/ChatComponents/TopChatBar";
 import { FaPhone, FaRegSmileBeam } from "react-icons/fa";
 import { IoSendSharp } from "react-icons/io5";
 import { FaInfoCircle } from "react-icons/fa";
@@ -240,12 +237,7 @@ export default function Chat() {
         </div>
         <div className="h-[430px] overflow-y-scroll ">
           {chatData.map((item: any, index: number) => (
-            <ChatsCard
-              key={index}
-              item={item}
-              index={index}
-              onClick={chatChange}
-            />
+            <ChatsCard key={index} item={item} />
           ))}
         </div>
       </div>

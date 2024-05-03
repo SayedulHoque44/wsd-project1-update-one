@@ -3,23 +3,17 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { FaCog } from "react-icons/fa";
 import { BiTrash } from "react-icons/bi";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks/hooks";
+import { startChat } from "@/redux/fetures/liveChat/chatPartnerSlice";
 interface ChatCardProps {
   item: any;
-  onClick: (value: number) => void;
-  index: number;
-  onDelete?: (value: number) => void;
 }
-const ChatsCard: React.FC<ChatCardProps> = ({
-  item,
-  onClick,
-  index,
-  onDelete,
-}) => {
+const ChatsCard: React.FC<ChatCardProps> = ({ item }) => {
   const [settingIcon, setSettingIcon] = useState(false);
   const [showSetting, setShowSetting] = useState(false);
   const [deleteItem, setDeleteItem] = useState(null);
   const boxRef = useRef<HTMLDivElement | null>(null);
-
+  const dispatch = useAppDispatch();
   const handleDeleteItem = () => {
     setDeleteItem(deleteItem);
   };
@@ -40,10 +34,10 @@ const ChatsCard: React.FC<ChatCardProps> = ({
   }, []);
   return (
     <div
+      onClick={() => dispatch(startChat(item))}
       onMouseEnter={() => setSettingIcon(true)}
       onMouseLeave={() => setSettingIcon(false)}
-      className="m-2 grid cursor-pointer grid-cols-5 items-center gap-1 rounded-lg bg-[#4ed0e7] p-2 dark:bg-slate-600 "
-      onClick={() => onClick(index)}
+      className="m-2 grid cursor-pointer grid-cols-5 items-center gap-1 rounded-lg bg-slate-200 p-2 dark:bg-slate-800 "
     >
       <div className="relative h-9 w-9 rounded-[50%]">
         <Image src={item.img} alt="" fill className="rounded-[50%]" />
@@ -53,13 +47,13 @@ const ChatsCard: React.FC<ChatCardProps> = ({
       </div>
       <div className=" col-span-3">
         <h1 className="text-slate-950">{item.name}</h1>
-        <h1 className="text-sm text-white">
+        <h1 className="text-sm">
           {item.lastMesg?.length > 15
             ? `${item.lastMesg?.slice(0, 15)}...`
             : item.lastMesg}
         </h1>
       </div>
-      <div className="col-span-1 flex justify-end relative">
+      <div className="relative col-span-1 flex justify-end">
         <h3 className="text-gray-400 text-[12px]">{item.day}</h3>
         <button
           className={`text-gray-400 ml-1 mt-2 text-[14px] ${
