@@ -7,7 +7,7 @@ import { BiEdit, BiTrash } from "react-icons/bi";
 
 import dynamic from "next/dynamic";
 import CustomSearch from "../CustomSearch";
-import { Button, Modal, Row } from "antd";
+import { Button, Divider, Modal, Row } from "antd";
 import CustomForm from "@/components/Form/Form";
 import PrimaryButton from "@/components/button/PrimaryButton";
 import CustomInput from "@/components/Form/Input";
@@ -260,7 +260,7 @@ const CreateTemplate: React.FC = () => {
         </div>
       </div>
       <div>
-        <div className="mx-auto mt-20 grid grid-cols-1 place-content-start gap-1  space-y-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 ">
+        <div className="mx-auto mt-20 flex flex-wrap  items-center  justify-center gap-4 space-y-2">
           {bloagData.map((item, index) => (
             <SingleTemplate item={item} key={index} />
           ))}
@@ -365,9 +365,9 @@ const SingleTemplate = ({ item }: { item: any }) => {
   const { title, blog } = item;
   const [isChecked, setIsChecked] = useState(false);
   return (
-    <div className={`font-medium`}>
-      <div className="flex flex-col  px-2 ">
-        <div className="flex items-center justify-between gap-1 bg-blue-200 p-2 ">
+    <div className={`w-[350px]  font-medium text-slate-800 shadow-lg`}>
+      <div className="flex flex-col  overflow-hidden rounded-lg ">
+        <div className="flex items-center justify-between gap-1 bg-slate-300 p-2 ">
           {/* Togale tbn */}
           <label className="flex cursor-pointer select-none items-center">
             <div className="relative">
@@ -390,37 +390,38 @@ const SingleTemplate = ({ item }: { item: any }) => {
             </div>
           </label>
           <AiOutlineEdit
-            className=" cursor-pointer text-green-500"
+            className=" cursor-pointer text-blue-600"
             // onClick={() => handleUpdate(index)}
             // onClick={() => setIsVisible(true)}
-            size={20}
+            size={30}
           />
           <MdDelete
             // onClick={() => handleRemoveRowFromTable(index)}
-            className="cursor-pointer  text-rose-500"
-            size={20}
+            className="cursor-pointer  text-rose-600"
+            size={30}
           />
         </div>
 
-        <div className="Box1 relative  text-white">
-          <div className="bg-[#a86023] p-2 pt-12 text-center">
-            <h3 className="font-semibold">Large Society</h3>
-            <p>
+        <div className="Box1 relative  bg-white p-2">
+          <div className=" p-2 pt-12 ">
+            <h3 className="text-xl font-semibold">Large Society</h3>
+            <p className="p-2">
               Et culpa nihil quae corrupti numquam magnam, molestias
               praesentium, perferendis voluptatem, molestiae officiis illo!
               Eligendi iste asperiores{" "}
             </p>
           </div>
-          <div className="bg-black p-2">
-            <h3 className="font-semibold">Title</h3>
-            <p>
+          <Divider />
+          <div className=" p-2">
+            <h3 className="text-xl font-semibold">Title</h3>
+            <p className="p-2">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure
               quia praesentium, sapiente tempore impedit officiis accusantium ex
               quidem recusandae animi officia iusto facilis omnis corrupti cum.
               Qui nulla eius vel.
             </p>
           </div>
-          <div className="absolute right-2 top-2 rounded-full bg-[#6b21a8] p-2">
+          <div className="absolute right-2 top-2 rounded-full bg-meta-6 p-2 text-sm font-semibold text-white">
             Save 800$
           </div>
         </div>
