@@ -4,6 +4,7 @@ export type TMessage = {
   id: string;
   sender: string;
   text: string;
+  status: string;
 };
 export type TUser = {
   id: string;
@@ -23,26 +24,35 @@ const initialState: TUser[] = [
     lastMesg: "hello",
     status: "request",
     messages: [
-      { id: "msg1", sender: "John Doe", text: "Hey, how's it going?" },
+      {
+        id: "msg1",
+        sender: "John Doe",
+        text: "Hey, how's it going?",
+        status: "default",
+      },
       {
         id: "msg2",
         sender: "You",
         text: "Hi! I'm doing well, thanks. How about you?",
+        status: "default",
       },
       {
         id: "msg3",
         sender: "John Doe",
         text: "I'm good too. What have you been up to lately?",
+        status: "default",
       },
       {
         id: "msg4",
         sender: "You",
         text: "Just been busy with work and some personal projects.",
+        status: "default",
       },
       {
         id: "msg5",
         sender: "John Doe",
         text: "I might go see a movie with friends. Do you have any movie recommendations?",
+        status: "default",
       },
     ],
   },
@@ -54,36 +64,47 @@ const initialState: TUser[] = [
     status: "request",
     lastMesg: "How are you",
     messages: [
-      { id: "msg6", sender: "John Doe", text: "Hey, how's it going?" },
+      {
+        id: "msg6",
+        sender: "John Doe",
+        text: "Hey, how's it going?",
+        status: "default",
+      },
       {
         id: "msg7",
         sender: "You",
         text: "Hi! I'm doing well, thanks. How about you?",
+        status: "default",
       },
       {
         id: "msg8",
         sender: "John Doe",
         text: "I'm good too. What have you been up to lately?",
+        status: "default",
       },
       {
         id: "msg9",
         sender: "You",
         text: "Just been busy with work and some personal projects.",
+        status: "default",
       },
       {
         id: "msg10",
         sender: "John Doe",
         text: "Sounds productive! Any exciting plans for the weekend?",
+        status: "default",
       },
       {
         id: "msg11",
         sender: "You",
         text: "Not really, just planning to relax at home. How about you?",
+        status: "default",
       },
       {
         id: "msg12",
         sender: "John Doe",
         text: "I might go see a movie with friends. Do you have any movie recommendations?",
+        status: "default",
       },
     ],
   },
@@ -95,26 +116,35 @@ const initialState: TUser[] = [
     status: "block",
     lastMesg: "Emma send 6 Photos",
     messages: [
-      { id: "msg13", sender: "John Doe", text: "Hey, how's it going?" },
+      {
+        id: "msg13",
+        sender: "John Doe",
+        text: "Hey, how's it going?",
+        status: "default",
+      },
       {
         id: "msg14",
         sender: "You",
         text: "Hi! I'm doing well, thanks. How about you?",
+        status: "default",
       },
       {
         id: "msg15",
         sender: "John Doe",
         text: "I'm good too. What have you been up to lately?",
+        status: "default",
       },
       {
         id: "msg16",
         sender: "You",
         text: "Just been busy with work and some personal projects.",
+        status: "default",
       },
       {
         id: "msg17",
         sender: "John Doe",
         text: "Sounds productive! Any exciting plans for the weekend?",
+        status: "default",
       },
     ],
   },
@@ -126,21 +156,29 @@ const initialState: TUser[] = [
     status: "cancel",
     lastMesg: "Emma send 6 Photos",
     messages: [
-      { id: "msg18", sender: "John Doe", text: "Hey, how's it going?" },
+      {
+        id: "msg18",
+        sender: "John Doe",
+        text: "Hey, how's it going?",
+        status: "default",
+      },
       {
         id: "msg19",
         sender: "You",
         text: "Hi! I'm doing well, thanks. How about you?",
+        status: "default",
       },
       {
         id: "msg20",
         sender: "John Doe",
         text: "I'm good too. What have you been up to lately?",
+        status: "default",
       },
       {
         id: "msg21",
         sender: "You",
         text: "Just been busy with work and some personal projects.",
+        status: "default",
       },
     ],
   },
@@ -152,36 +190,47 @@ const initialState: TUser[] = [
     status: "forward-request",
     lastMesg: "Emma send 6 Photos",
     messages: [
-      { id: "msg22", sender: "John Doe", text: "Hey, how's it going?" },
+      {
+        id: "msg22",
+        sender: "John Doe",
+        text: "Hey, how's it going?",
+        status: "default",
+      },
       {
         id: "msg23",
         sender: "You",
         text: "Hi! I'm doing well, thanks. How about you?",
+        status: "default",
       },
       {
         id: "msg24",
         sender: "John Doe",
         text: "I'm good too. What have you been up to lately?",
+        status: "default",
       },
       {
         id: "msg25",
         sender: "You",
         text: "Just been busy with work and some personal projects.",
+        status: "default",
       },
       {
         id: "msg26",
         sender: "John Doe",
         text: "Sounds productive! Any exciting plans for the weekend?",
+        status: "default",
       },
       {
         id: "msg27",
         sender: "You",
         text: "Not really, just planning to relax at home. How about you?",
+        status: "default",
       },
       {
         id: "msg28",
         sender: "John Doe",
         text: "I might go see a movie with friends. Do you have any movie recommendations?",
+        status: "default",
       },
     ],
   },
@@ -193,21 +242,29 @@ const initialState: TUser[] = [
     status: "cancel",
     lastMesg: "Emma send 6 Photos",
     messages: [
-      { id: "msg29", sender: "John Doe", text: "Hey, how's it going?" },
+      {
+        id: "msg29",
+        sender: "John Doe",
+        text: "Hey, how's it going?",
+        status: "default",
+      },
       {
         id: "msg30",
         sender: "You",
         text: "Hi! I'm doing well, thanks. How about you?",
+        status: "default",
       },
       {
         id: "msg31",
         sender: "John Doe",
         text: "I'm good too. What have you been up to lately?",
+        status: "default",
       },
       {
         id: "msg32",
         sender: "You",
         text: "Just been busy with work and some personal projects.",
+        status: "default",
       },
     ],
   },

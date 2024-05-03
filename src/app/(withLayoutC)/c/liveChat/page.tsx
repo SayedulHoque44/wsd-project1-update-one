@@ -18,25 +18,42 @@ import SendMessage from "@/components/Chat/SendMessage";
 import Conversation from "@/components/ui/ChatComponents/Conversation";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks/hooks";
 import { removeMessage } from "@/redux/fetures/liveChat/chatPartnerSlice";
+import { message } from "antd";
 
 export default function Chat() {
-  const [isManuOpen, setIsManuOpen] = useState(false);
-  const [deleted, setIsDeleted] = useState(false);
-  const [deletedme, setIsDeletedme] = useState(false);
-
   const [showDropManu, setShowDropManu] = useState(false);
   const [showForwartManu, setShowForwardManu] = useState(false);
   // call dialing state
   const [isDailed, setIsDailed] = useState(false);
 
   // mute status
-
   const [MuteStatus, setMuteStatus] = useState(false);
   const [SoundStatus, setSoundStatus] = useState(false);
 
   //redux
   const activeChat: any = useAppSelector((state) => state.chatPartner.partner);
   const dispatch = useAppDispatch();
+
+  //copy text
+  const handleCopyMessage = (text: string) => {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        message.open({
+          type: "success",
+          content: "Message copied successfully",
+        });
+      })
+      .catch((error) => {
+        console.error("Failed to copy message:", error);
+        // Handle error if copying fails
+      });
+  };
+
+  //delete message
+  const [deleted, setIsDeleted] = useState(false);
+  const [deletedme, setIsDeletedme] = useState(false);
+
   const handlemuteStatus = () => {
     setMuteStatus(!MuteStatus);
   };
@@ -53,12 +70,6 @@ export default function Chat() {
     setShowForwardManu(!showForwartManu);
   };
 
-  const handledeleteme = () => {
-    setIsDeletedme(true);
-    setIsManuOpen(!isManuOpen);
-  };
-
-  const [isManuOpen2, setIsManuOpen2] = useState(false);
   const [isOpenPopUp, setIsOpenPopUp] = useState<number[]>([]);
   const toggleMenu = (index: any) => {
     if (isOpenPopUp.includes(index)) {
@@ -67,10 +78,6 @@ export default function Chat() {
       setIsOpenPopUp([...isOpenPopUp, index]);
     }
   };
-  const toggoleManu2 = () => {
-    setIsManuOpen2(!isManuOpen2);
-  };
-  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["text"]));
 
   return (
     <div className="grid w-full grid-cols-12 bg-white">
@@ -211,26 +218,23 @@ export default function Chat() {
             </div>
           </div>
         </div>
-        <div className="h-[calc(100vh-211px)] w-full">
-          <div className="max-h-full w-full overflow-y-scroll p-4   dark:bg-[#24303F] dark:text-white ">
-            {activeChat.messages?.map((item: any, index: number) => {
+        <div className="h-[calc(100vh-211px)] w-full overflow-y-scroll dark:bg-[#24303F]">
+          <div className="max-h-full w-full  p-5 dark:text-white ">
+            {activeChat.messages?.map((item: any) => {
               return item.sender === "You" ? (
-                <div
-                  className="flex items-center justify-end gap-x-2"
-                  key={index}
-                >
+                <div className="flex items-center justify-end gap-x-2">
                   <div className="relative inline-block text-left ">
                     <div>
                       <button
                         type="button"
                         id="option-manu"
                         className="roumnded-md inline-flex  w-full  justify-center rounded-full p-1 font-extrabold"
-                        onClick={() => toggleMenu(index)}
+                        onClick={() => toggleMenu(item.id)}
                       >
                         <BsThreeDotsVertical size={20} />
                       </button>
-                      {isOpenPopUp.includes(index) && (
-                        <div className="absolute right-0 mt-2 w-36 origin-top-right  rounded-md bg-white shadow-sm ring-1 ring-black ring-opacity-5">
+                      {isOpenPopUp.includes(item.id) && (
+                        <div className="absolute right-0 z-50 mt-2 w-36  origin-top-right rounded-md bg-white shadow-sm ring-1 ring-black ring-opacity-5">
                           <div
                             role="manu"
                             aria-orientation="vertical"
@@ -238,47 +242,58 @@ export default function Chat() {
                             className="py-1"
                           >
                             <button
+                              onClick={() => [
+                                setIsOpenPopUp([]),
+                                handleCopyMessage(item.text),
+                              ]}
                               role="manuitem"
                               className="block w-full px-4 py-2 text-left  text-sm text-slate-700"
                             >
                               Copy
-                            </button>{" "}
+                            </button>
                             <button
-                              onClick={() =>
+                              onClick={() => [
+                                setIsOpenPopUp([]),
                                 dispatch(
                                   removeMessage({
                                     userId: activeChat.id,
                                     messageId: item.id,
                                   }),
-                                )
-                              }
+                                ),
+                              ]}
                               role="manuitem"
                               className="block w-full px-4 py-2 text-left  text-sm text-slate-700"
                             >
                               Delete
-                            </button>{" "}
+                            </button>
                           </div>{" "}
                         </div>
                       )}
                     </div>
                   </div>
                   <div className="flex gap-1">
-                    <h1 className="flex h-full w-full items-center justify-between gap-2 rounded-es-[2rem] rounded-se-[2rem] rounded-ss-[2rem] bg-blue-500 p-4 text-[14px] text-white ">
-                      {item.text}
-                      <div className="flex ">
-                        <FaClock color="skyBlue" className="" />
-                        <span className="text-xs">10:00</span>
-                      </div>
-                      <div>
-                        <BiCheckDouble color="blue" />
-                      </div>
-                    </h1>
+                    {item.status === "default" ? (
+                      <h1 className="flex h-full w-full items-center justify-between gap-2 rounded-es-[2rem] rounded-se-[2rem] rounded-ss-[2rem] bg-blue-500 p-4 text-[14px] text-white ">
+                        {item.text}
+                        <div className="flex ">
+                          <FaClock color="skyBlue" className="" />
+                          <span className="text-xs">10:00</span>
+                        </div>
+                        <div>
+                          <BiCheckDouble color="blue" />
+                        </div>
+                      </h1>
+                    ) : (
+                      <h1 className="w-full text-sm rounded-es-[2rem] rounded-se-[2rem] border-slate-600 rounded-ss-[2rem] border p-2">
+                        You delete this message
+                      </h1>
+                    )}
                   </div>
                 </div>
               ) : (
                 <div
-                  key={index}
-                  className="my-5 flex items-center justify-start gap-x-2 text-[14px] text-slate-600 "
+                  key={item.id}
+                  className="my-8 flex items-center justify-start gap-x-2 text-[14px] text-slate-600 "
                 >
                   <Image
                     src={activeChat.img}
@@ -288,27 +303,33 @@ export default function Chat() {
                     className="rounded-[50%]"
                   />
                   <div className="flex items-center gap-1">
-                    <h1 className="flex h-full w-full items-center  justify-center  gap-2 rounded-full bg-slate-200 p-4 dark:bg-slate-700 dark:text-white ">
-                      {item.text}
-                      <div className="flex ">
-                        <FaClock color="skyBlue" className="" />
-                        <span className="text-xs">10:00</span>
-                      </div>
-                      <div>
-                        <BiCheckDouble color="green" />
-                      </div>
-                    </h1>
+                    {item.status === "default" ? (
+                      <h1 className="flex h-full w-full items-center  justify-center  gap-2 rounded-full bg-slate-200 p-4 dark:bg-slate-700 dark:text-white ">
+                        {item.text}
+                        <div className="flex ">
+                          <FaClock color="skyBlue" className="" />
+                          <span className="text-xs">10:00</span>
+                        </div>
+                        <div>
+                          <BiCheckDouble color="green" />
+                        </div>
+                      </h1>
+                    ) : (
+                      <h1 className="w-full rounded-es-[2rem] rounded-se-[2rem] rounded-ss-[2rem] border p-2">
+                        this message is deleted
+                      </h1>
+                    )}
                     <div className="relative inline-block text-left ">
                       <div>
                         <button
                           type="button"
                           id="option-manu"
                           className="roumnded-md inline-flex  w-full  justify-center rounded-full p-1 font-extrabold"
-                          onClick={() => toggleMenu(index)}
+                          onClick={() => toggleMenu(item.id)}
                         >
                           <BsThreeDotsVertical size={20} />
                         </button>
-                        {isOpenPopUp.includes(index) && (
+                        {isOpenPopUp.includes(item.id) && (
                           <div className="absolute right-0 mt-2 w-36 origin-top-right  rounded-md bg-white shadow-sm ring-1 ring-black ring-opacity-5">
                             <div
                               role="manu"
@@ -317,6 +338,10 @@ export default function Chat() {
                               className="py-1"
                             >
                               <button
+                                onClick={() => [
+                                  setIsOpenPopUp([]),
+                                  handleCopyMessage(item.text),
+                                ]}
                                 role="manuitem"
                                 className="block w-full px-4 py-2 text-left  text-sm text-slate-700"
                               >
@@ -324,19 +349,20 @@ export default function Chat() {
                               </button>{" "}
                               <button
                                 role="manuitem"
-                                onClick={() =>
+                                onClick={() => [
+                                  setIsOpenPopUp([]),
                                   dispatch(
                                     removeMessage({
                                       userId: activeChat.id,
                                       messageId: item.id,
                                     }),
-                                  )
-                                }
+                                  ),
+                                ]}
                                 className="block w-full px-4 py-2 text-left  text-sm text-slate-700"
                               >
                                 Delete
-                              </button>{" "}
-                            </div>{" "}
+                              </button>
+                            </div>
                           </div>
                         )}
                       </div>
