@@ -51,7 +51,7 @@ const AddNewAdminPage = () => {
                 className="gutter-row"
                 span={8}
                 style={{
-                  marginBottom: "10px",
+                  marginBottom: "10px"
                 }}
               >
                 <CustomInput type="text" name="name" label="Name" />
