@@ -213,7 +213,7 @@ const Category: React.FC = () => {
   };
 
   return (
-    <section>
+    <section className="w-full p-4 md:p-6 2xl:p-10">
       <div className="grid grid-cols-2  gap-2 py-4 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 ">
         <button
           className={`${"tab1"} ${

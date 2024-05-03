@@ -51,12 +51,12 @@ const CompanySupportLogo = ({ file, setFile }: { file: any; setFile: any }) => {
       <div className="mb-3 flex flex-col items-center gap-3">
         {/* ------Select Logo -------- */}
 
-        <SelectSingleOrMultiImg
-          file={file}
-          setFile={setFile}
-          title="Select Logos"
-        />
         <div className="flex items-center justify-center gap-5">
+          <SelectSingleOrMultiImg
+            file={file}
+            setFile={setFile}
+            title="Select Logos"
+          />
           <input
             ref={urlInputRef}
             type="text"

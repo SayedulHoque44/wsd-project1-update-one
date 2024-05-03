@@ -126,7 +126,7 @@ const OfficeAddress: React.FC = () => {
   };
 
   // for input taking file code
-  const homeOptions = ["USA", "UK"];
+  const homeOptions = ["USA"];
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selected, setSelected] = useState(homeOptions?.[0]);
   const [selectedIconUrl, setSlectedIconUrl] = useState(null);
