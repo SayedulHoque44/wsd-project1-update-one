@@ -12,6 +12,7 @@ import { IoClose, IoSearch } from "react-icons/io5";
 import { VscChromeMinimize } from "react-icons/vsc";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { MdDelete } from "react-icons/md";
+import CustomSearch from "@/components/ui/CustomSearch";
 
 const Chats = [
   {
@@ -215,16 +216,7 @@ const AllOrders: React.FC = () => {
       <Breadcrumb pageName="All Orders" />
       <div className="grid w-full grid-cols-1  items-center  justify-between  gap-3 py-4 md:grid-cols-3 xl:grid-cols-6">
         <CustomSelect options={status} placeholder="Status" />
-        <div className="flex w-full items-center rounded-md border border-[#ced0d4] bg-white py-1.5 ">
-          <input
-            className="w-full px-2 text-[#DDDDDD] outline-none "
-            type="text"
-            name=""
-            id=""
-            placeholder="Search"
-          />
-          <IoSearch className="h-6 w-6" />
-        </div>
+        <CustomSearch onSearch={onSearch} />
         <div className="flex items-center gap-1">
           <DatePicker onChange={onStartDate} />
           <span>To</span>
@@ -447,7 +439,7 @@ const CallPopUp = ({
   setMinimise: any;
 }) => {
   return (
-    <div className="absolute -left-125 top-5  rounded-xl bg-blue-300 p-5 z-30">
+    <div className="absolute -left-125 top-5  z-30 rounded-xl bg-blue-300 p-5">
       <div className="relative flex min-h-[250px] min-w-[200px] flex-col items-center justify-between">
         <div className="flex flex-col items-center justify-center gap-2">
           <Image src={UserImg} height={60} width={60} alt="user" />
