@@ -39,7 +39,7 @@ const AllUsers = () => {
     { title: "No", dataIndex: "no" },
     { title: "User Id", dataIndex: "userId" },
     { title: "userName", dataIndex: "userName" },
-    { title: "Email", dataIndex: "email" },
+    // { title: "Email", dataIndex: "email" },
     { title: "Total Order", dataIndex: "totalOrder" },
     { title: "Total Amount", dataIndex: "totalAmount" },
     { title: "Total Paid", dataIndex: "totalPaid" },
@@ -82,7 +82,7 @@ const AllUsers = () => {
   };
 
   return (
-    <div>
+    <div className="w-full p-4 md:p-6 2xl:p-10">
       <Breadcrumb pageName="All User" />
       <div className="grid w-full  grid-cols-1 items-center justify-between gap-3 py-4 md:grid-cols-3">
         <CustomSelect options={country} placeholder="Status" />

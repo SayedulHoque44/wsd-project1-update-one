@@ -125,7 +125,7 @@ const BannerLogoPage: React.FC = () => {
   // for input taking file code
 
   return (
-    <div className="container mx-auto  p-5 shadow-4 md:px-20 md:py-10">
+    <div className="container mx-auto  p-5 py-10 shadow-4 md:px-20">
       {/* LOGO UPLODE */}
       <LogoUplodArea logoFile={logoFile} setLogoFile={setLogoFile} />
       {/* BANNER UPLODE */}

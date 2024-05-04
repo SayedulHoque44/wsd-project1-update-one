@@ -43,24 +43,8 @@ const Footers = () => {
     "Best it & Business solution": "businessSolution",
     Consulting: "consultingDropDown",
   };
-  // function handleFacebookClick() {
-  //   window.location.href = "https://www.facebook.com/";
-  // }
-
-  //   const handleButtonClick = (item:any) => {
-  //     if (item.title === "Consulting") {
-  //       setConsulting(!Consulting);
-  //     }
-  //     setDropdown((prevState:any) => ({
-  //       ...Object.keys(prevState).reduce((acc, key) => {
-  //         acc[key] =
-  //           key === sectionToStateMapping[item.title] ? !prevState[key] : false;
-  //         return acc;
-  //       }, {}),
-  //     }));
-  //   };
   return (
-    <section>
+    <section className="w-full p-4 md:p-6 2xl:p-10">
       <div className="flex items-center justify-center gap-2 py-4 ">
         <button
           className={`${"tab1"} ${

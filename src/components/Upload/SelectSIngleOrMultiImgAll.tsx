@@ -37,7 +37,6 @@ const SelectSingleOrMultiImgOrVideo = ({
       <Button
         className={`flex items-center gap-2  ${file.length > 0 && "bg-green-600 text-white"} p-5 text-2xl`}
       >
-        <LuImagePlus />
         {file.length >= 1
           ? `${multiple ? "Add More" : "Replace"} : ${file.length > 1 ? "Multiple Selected" : file[0]?.name}`
           : title}

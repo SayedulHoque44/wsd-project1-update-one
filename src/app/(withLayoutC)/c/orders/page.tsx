@@ -119,12 +119,32 @@ const AllOrders: React.FC = () => {
       label: "All",
     },
     {
-      value: "pending",
-      label: "pending",
+      value: "Pending",
+      label: "Pending",
     },
     {
-      value: "payment",
-      label: "payment",
+      value: "Payment",
+      label: "Payment",
+    },
+    {
+      value: "Waiting",
+      label: "Waiting",
+    },
+    {
+      value: "Working",
+      label: "Working",
+    },
+    {
+      value: "Complete",
+      label: "Complete",
+    },
+    {
+      value: "Delivery",
+      label: "Delivery",
+    },
+    {
+      value: "Cancel",
+      label: "Cancel",
     },
   ];
   const status = [
