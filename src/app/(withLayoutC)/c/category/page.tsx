@@ -1,5 +1,6 @@
 "use client";
 import AddNewTechnology from "@/components/ui/MergedComponents/CategoryComponents/AddNewTechnology";
+import CreateArchitecture from "@/components/ui/MergedComponents/CreateArchitecture";
 import CreateBlog from "@/components/ui/MergedComponents/CreateBlog";
 import CreateCompanyPolicy from "@/components/ui/MergedComponents/CreateCompanyPolicy";
 import CreateFeatured from "@/components/ui/MergedComponents/CreateFeatured";
@@ -226,7 +227,7 @@ const Category: React.FC = () => {
         </button>
         <button
           className={`${"createFeatured"} ${
-            currentTab === "tab1" ? "activeTab" : ""
+            currentTab === "createFeatured" ? "activeTab" : ""
           }  rounded border-2 bg-blue-600 px-3 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
           onClick={() => handleTabChange("createFeatured")}
         >
@@ -240,6 +241,14 @@ const Category: React.FC = () => {
           onClick={() => handleTabChange("tab2")}
         >
           Service Creator
+        </button>
+        <button
+          className={`${"createArchitecture"} ${
+            currentTab === "createArchitecture" ? "activeTab" : ""
+          }  active:bg rounded border-2 bg-blue-600 px-3 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
+          onClick={() => handleTabChange("createArchitecture")}
+        >
+          Create Architecture
         </button>
         <button
           className={`${"tab3"} ${
@@ -307,6 +316,11 @@ const Category: React.FC = () => {
         {currentTab === "tab2" && (
           <div>
             <CreateService />
+          </div>
+        )}
+        {currentTab === "createArchitecture" && (
+          <div>
+            <CreateArchitecture />
           </div>
         )}
         {currentTab === "tab3" && (
