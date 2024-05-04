@@ -14,6 +14,8 @@ const Conversation = () => {
     (state) => state.users.forwordRequestUsers,
   );
 
+
+
   useEffect(() => {
     if (statusUser === "request") {
       setUsersData(requestedUser);
@@ -60,14 +62,14 @@ const Conversation = () => {
                 <input
                   type="search"
                   id="default-search"
-                  className="placeholdeer-slate-300 block h-8 w-full rounded-lg border border-slate-300 bg-white p-4 ps-10 text-sm outline-none dark:bg-slate-800"
+                  className="placeholdeer-slate-300 block h-8 w-full rounded-lg border  bg-[#414256]  p-4 ps-10 text-sm outline-none dark:bg-slate-800"
                   placeholder="Search messages or users"
                 />
               </div>
             </div>
           </form>
           <div className="relative mt-2">
-            <button className="mx-1 cursor-pointer rounded-lg border border-solid  border-slate-300 bg-slate-200 px-4 py-2 text-blue-500 shadow-lg dark:bg-black dark:text-white">
+            <button className="mx-1 cursor-pointer rounded-lg border border-solid  border-[#343546] px-4 py-2  text-white shadow-lg dark:bg-black">
               <FiSettings onClick={handleShowDropManuCall} />
             </button>
             {showDropManuCall && (
@@ -119,13 +121,13 @@ const Conversation = () => {
         </span>
         <div className=" relative ">
           <div
-            className=" relative my-2 w-full cursor-pointer rounded-xl bg-slate-200 bg-opacity-60 p-2 font-semibold dark:bg-slate-800 dark:text-white"
+            className=" relative my-2 w-full cursor-pointer rounded-xl bg-[#2e303d] bg-opacity-60 p-2 font-semibold text-white dark:bg-slate-800"
             onClick={() => setUserModal(!userModal)}
           >
             All people
           </div>
           {userModal && (
-            <div className=" absolute -right-56 top-0 z-50  flex w-56 cursor-pointer flex-col gap-2 rounded-xl bg-slate-200 p-3 dark:bg-[#141C2E]">
+            <div className=" absolute -right-56 top-0 z-50  flex w-56 cursor-pointer flex-col gap-2 rounded-xl bg-[#2e303d] p-3 dark:bg-[#141C2E]">
               <div
                 onClick={() => [setStatusUser("request"), setUserModal(false)]}
                 className=" w-full rounded-xl bg-slate-300 bg-opacity-90 p-2 dark:bg-[#475569]"
@@ -145,7 +147,7 @@ const Conversation = () => {
           )}
           <div
             onClick={() => [setStatusUser("all"), setUserModal(false)]}
-            className=" w-full cursor-pointer rounded-xl bg-slate-200 bg-opacity-60 p-2 font-semibold dark:bg-slate-800 dark:text-white"
+            className=" w-full cursor-pointer rounded-xl bg-[#2e303d] bg-opacity-60 p-2 font-semibold text-white dark:bg-slate-800"
           >
             All users
           </div>

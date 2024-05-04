@@ -3,18 +3,23 @@ import Image from "next/image";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { useAppDispatch } from "@/redux/hooks/hooks";
 import { startChat } from "@/redux/fetures/liveChat/chatPartnerSlice";
-import { TbPhoneCall } from "react-icons/tb";
+import { TbCloudOff, TbCopyOff, TbPhoneCall, TbPhoneOff } from "react-icons/tb";
 import { HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
+import { useState } from "react";
 interface ChatCardProps {
   item: any;
 }
 const ChatsCard: React.FC<ChatCardProps> = ({ item }) => {
+  //toggle
+  const [uploadOff, setUploadOff] = useState(true);
+  const [phoneOff, setPhoneOff] = useState(true);
+  const [copyOff, setCopyOff] = useState(true);
   const dispatch = useAppDispatch();
 
   return (
     <div
       onClick={() => dispatch(startChat(item))}
-      className="m-2  flex  cursor-pointer  items-center justify-between rounded-lg bg-slate-200 p-2 dark:bg-slate-800 "
+      className="m-2  flex  cursor-pointer  items-center justify-between rounded-lg bg-[#343546] p-2 dark:bg-slate-800 "
     >
       <div className="flex items-center gap-2">
         <div className="relative h-9 w-9 rounded-[50%]">
@@ -26,8 +31,8 @@ const ChatsCard: React.FC<ChatCardProps> = ({ item }) => {
           ></div>
         </div>
         <div>
-          <h1 className="text-slate-950">{item.name}</h1>
-          <h1 className="text-sm">
+          <h1 className="text-white">{item.name}</h1>
+          <h1 className="text-sm text-slate-300">
             {item.lastMesg?.length > 10
               ? `${item.lastMesg?.slice(0, 10)}...`
               : item.lastMesg}
@@ -53,24 +58,35 @@ const ChatsCard: React.FC<ChatCardProps> = ({ item }) => {
               Rejected
             </button>
           </>
-        ) : item.status === "all" ? (
-          <>
-            <FaCloudUploadAlt className="size-5" />
-            <button className="rounded-full bg-cyan-500 p-1 text-white">
-              <HiOutlineChatBubbleLeftRight className="size-3.5" />
-            </button>
-            <button className="rounded-full bg-blue-600 p-1 text-white">
-              <TbPhoneCall className="size-3.5" />
-            </button>
-          </>
         ) : (
           <>
-            <FaCloudUploadAlt className="size-5" />
-            <button className="rounded-full bg-cyan-500 p-1 text-white">
-              <HiOutlineChatBubbleLeftRight className="size-3.5" />
+            <button onClick={() => setUploadOff(!uploadOff)}>
+              {uploadOff ? (
+                <FaCloudUploadAlt className="size-5" />
+              ) : (
+                <TbCloudOff className="size-5" />
+              )}
             </button>
-            <button className="rounded-full bg-blue-600 p-1 text-white">
-              <TbPhoneCall className="size-3.5" />
+
+            <button
+              onClick={() => setCopyOff(!copyOff)}
+              className="rounded-full bg-cyan-500 p-1 text-white"
+            >
+              {copyOff ? (
+                <HiOutlineChatBubbleLeftRight className="size-3.5" />
+              ) : (
+                <TbCopyOff className="size-3.5" />
+              )}
+            </button>
+            <button
+              onClick={() => setPhoneOff(!phoneOff)}
+              className="rounded-full bg-blue-600 p-1 text-white"
+            >
+              {phoneOff ? (
+                <TbPhoneCall className="size-3.5" />
+              ) : (
+                <TbPhoneOff className="size-3.5" />
+              )}
             </button>
           </>
         )}

@@ -76,12 +76,12 @@ export default function Chat() {
   };
 
   return (
-    <div className="grid w-full grid-cols-12 bg-white">
+    <div className="grid w-full grid-cols-12 bg-[#414256]">
       <Conversation />
       <div className="col-span-full h-full w-full  md:col-span-8">
         {/* [#3949ac]  */}
         {/* bg-[#39b7ea] */}
-        <div className="flex items-center justify-between  border-b  border-solid  border-slate-300 px-6 py-2 dark:bg-[#24303F] dark:text-white">
+        <div className="flex items-center justify-between bg-[#363747]  border-b  border-solid  px-6 py-2 dark:bg-[#24303F] dark:text-white">
           <div className="item-center flex justify-between ">
             <div className=" relative mr-3 size-12">
               <Image
@@ -92,25 +92,25 @@ export default function Chat() {
               />
             </div>
             <div>
-              <h1>{activeChat.name}</h1>
-              <h1 className="text-[11px] text-slate-500 dark:text-white">
+              <h1 className="text-white">{activeChat.name}</h1>
+              <h1 className="text-sm text-[#3B82F6]">
                 Active on Chat
               </h1>
             </div>
           </div>
           <div className="flex  gap-x-2">
             <button
-              className="rounded-lg border border-solid border-slate-300 bg-slate-100  px-4 py-2 text-blue-500 shadow-lg dark:bg-black dark:text-white"
+              className="rounded-lg border border-solid border-slate-300  px-4 py-2 text-white shadow-lg dark:bg-black dark:text-white"
               onClick={() => setIsDailed(true)}
             >
               <FaPhone />
             </button>
-            <button className="rounded-lg border border-solid border-slate-300 bg-slate-100  px-4 py-2 text-blue-500 shadow-lg dark:bg-black dark:text-white">
+            <button className="rounded-lg border border-solid border-slate-300  px-4 py-2 text-white shadow-lg dark:bg-black dark:text-white">
               <FaMinus />
             </button>
             <div className="relative flex  gap-x-2">
               <button
-                className="cursor-pointer rounded-lg border border-solid border-slate-300  bg-slate-300 bg-opacity-10 px-4 py-2 text-blue-500 shadow-lg dark:bg-slate-800 dark:text-white"
+                className="cursor-pointer rounded-lg border border-solid border-slate-300  bg-slate-300 bg-opacity-10 px-4 py-2 text-white shadow-lg dark:bg-slate-800 dark:text-white"
                 onClick={handleShowDropManu}
               >
                 <FiSettings />
@@ -214,8 +214,8 @@ export default function Chat() {
             </div>
           </div>
         </div>
-        <div className="h-[calc(100vh-211px)] w-full overflow-y-scroll dark:bg-[#24303F]">
-          <div className="max-h-full w-full  p-5 dark:text-white ">
+        <div className="h-[calc(100vh-211px)] w-full overflow-y-scroll dark:bg-[#2d3a49]">
+          <div className="max-h-full w-full   p-5 dark:text-white ">
             {activeChat.messages?.map((item: any) => {
               return item.sender === "You" ? (
                 <div className="flex items-center justify-end gap-x-2">
@@ -280,7 +280,7 @@ export default function Chat() {
                         </div>
                       </h1>
                     ) : (
-                      <h1 className="w-full text-sm rounded-es-[2rem] rounded-se-[2rem] border-slate-600 rounded-ss-[2rem] border p-2">
+                      <h1 className="w-full rounded-es-[2rem] rounded-se-[2rem] rounded-ss-[2rem] border border-slate-600 p-2 text-sm">
                         You delete this message
                       </h1>
                     )}
@@ -300,7 +300,7 @@ export default function Chat() {
                   />
                   <div className="flex items-center gap-1">
                     {item.status === "default" ? (
-                      <h1 className="flex h-full w-full items-center  justify-center  gap-2 rounded-full bg-slate-200 p-4 dark:bg-slate-700 dark:text-white ">
+                      <h1 className="flex h-full w-full items-center  justify-center  gap-2 rounded-full bg-[#46475e] text-white p-4 dark:bg-slate-700 dark:text-white ">
                         {item.text}
                         <div className="flex ">
                           <FaClock color="skyBlue" className="" />
