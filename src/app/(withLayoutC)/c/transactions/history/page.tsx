@@ -8,7 +8,7 @@ import { DatePicker } from "antd";
 import Link from "next/link";
 import React, { useState } from "react";
 
-const ALLPayments = () => {
+const History = () => {
   const [page, setPage] = useState<number>(1);
   const [size, setSize] = useState<number>(10);
   const [sortBy, setSortBy] = useState<string>("");
@@ -28,7 +28,7 @@ const ALLPayments = () => {
       render: (data: IPayment) => {
         return (
           <span>
-            <Link href={`/c/allpayments/view/${data?.withdrawId}`}>
+            <Link href={`/c/transactions/history/view/${data?.withdrawId}`}>
               <button className="rounded-md bg-blue-500 px-3 py-1 text-[14px] text-white  transition-all hover:bg-white hover:text-blue-600 hover:shadow-md ">
                 View
               </button>
@@ -79,7 +79,7 @@ const ALLPayments = () => {
 
   return (
     <div className="w-full p-4 md:p-6 2xl:p-10">
-      <Breadcrumb pageName="All Payments" />
+      <Breadcrumb pageName="Withdraw  history" />
 
       <div className="grid w-full  grid-cols-1 items-center justify-between gap-3 py-4 md:grid-cols-3">
         <div className="col-span-2 flex items-center gap-2">
@@ -104,4 +104,4 @@ const ALLPayments = () => {
   );
 };
 
-export default ALLPayments;
+export default History;
