@@ -260,126 +260,127 @@ const UpdateConversation = () => {
   const [isSettingOn, setIsSettingOn] = useState(false);
   const [minimise, setMinimise] = useState(false);
   return (
-    <div className="relative">
-      <button
-        onClick={() => setIsShowChats(!isShowChats)}
-        className="rounded-md bg-blue-500 px-3 py-1 text-[14px] text-white  transition-all hover:bg-white hover:text-blue-600 hover:shadow-md "
-      >
-        Update
-      </button>
-      {isShowChats && (
-        <div className="max:h-[500px] absolute right-0 top-0 z-9999 w-[300px] rounded-xl bg-[#9AC4CD] p-2">
-          <div className="relative">
-            {/* close */}
-            <div className="absolute -right-7 -top-7 flex flex-col items-center gap-2 text-xl font-bold">
-              <span className="rounded-full bg-slate-200 p-1">
-                <IoClose
-                  className="cursor-pointer text-meta-1"
-                  onClick={() => setIsShowChats(false)}
-                />
-              </span>
-              <span className="rounded-full bg-slate-200 p-1">
-                <VscChromeMinimize className="cursor-pointer text-meta-5" />
-              </span>
-            </div>
-            {/* top */}
-            <div className="flex items-center justify-between rounded-full bg-blue-300 p-1">
-              <div className="flex items-center gap-1 font-semibold">
-                <Image src={UserImg} height={40} width={40} alt="user" />
-                <span>Md Kazol</span>
+    <>
+      <div className="relative">
+        <button
+          onClick={() => setIsShowChats(!isShowChats)}
+          className="rounded-md bg-blue-500 px-3 py-1 text-[14px] text-white  transition-all hover:bg-white hover:text-blue-600 hover:shadow-md "
+        >
+          Update
+        </button>
+        {isShowChats && (
+          <div className="max:h-[500px] absolute right-0 top-0 z-9999 w-[300px] rounded-xl bg-[#9AC4CD] p-2">
+            <div className="relative">
+              {/* close */}
+              <div className="absolute -right-7 -top-7 flex flex-col items-center gap-2 text-xl font-bold">
+                <span className="rounded-full bg-slate-200 p-1">
+                  <IoClose
+                    className="cursor-pointer text-meta-1"
+                    onClick={() => setIsShowChats(false)}
+                  />
+                </span>
+                <span className="rounded-full bg-slate-200 p-1">
+                  <VscChromeMinimize className="cursor-pointer text-meta-5" />
+                </span>
               </div>
-              <div className="flex items-center gap-1">
+              {/* top */}
+              <div className="flex items-center justify-between rounded-full bg-blue-300 p-1">
+                <div className="flex items-center gap-1 font-semibold">
+                  <Image src={UserImg} height={40} width={40} alt="user" />
+                  <span>Md Kazol</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Image
+                    onClick={() => setICallPopUp(true)}
+                    src={CallImg}
+                    height={30}
+                    width={30}
+                    alt="call"
+                  />
+                  <Image
+                    onClick={() => setIsSettingOn(!isSettingOn)}
+                    src={SettingImg}
+                    height={30}
+                    width={30}
+                    alt="setting"
+                  />
+                </div>
+              </div>
+              {/* chat */}
+              <div className="max-h-[300px] min-h-[250px] space-y-2 overflow-y-scroll px-3 py-5 text-white">
+                {Chats.map((chat, index) =>
+                  chat.role === "you" ? (
+                    <ChatLineYou key={index} chat={chat} />
+                  ) : (
+                    <ChatLineSender chat={chat} key={index} />
+                  ),
+                )}
+                {Chats.map((chat, index) =>
+                  chat.role === "you" ? (
+                    <ChatLineYou key={index} chat={chat} />
+                  ) : (
+                    <ChatLineSender chat={chat} key={index} />
+                  ),
+                )}
+                {Chats.map((chat, index) =>
+                  chat.role === "you" ? (
+                    <ChatLineYou key={index} chat={chat} />
+                  ) : (
+                    <ChatLineSender chat={chat} key={index} />
+                  ),
+                )}
+              </div>
+              {/* Bottom */}
+              <div className="flex items-center gap-1 rounded-full px-3 py-2">
                 <Image
-                  onClick={() => setICallPopUp(true)}
-                  src={CallImg}
-                  height={30}
-                  width={30}
-                  alt="call"
-                />
-                <Image
-                  onClick={() => setIsSettingOn(!isSettingOn)}
-                  src={SettingImg}
+                  src={uplodeImg}
                   height={30}
                   width={30}
                   alt="setting"
+                  className="cursor-pointer"
+                />
+                <Image
+                  src={micImg}
+                  height={30}
+                  width={30}
+                  alt="setting"
+                  className="cursor-pointer"
+                />
+                <input
+                  type="text"
+                  placeholder="Enter a message"
+                  className="w-2/3 rounded-full bg-slate-500 px-2 py-1 text-white outline-none"
+                />
+                <Image
+                  src={sendImg}
+                  height={30}
+                  width={30}
+                  alt="setting"
+                  className="cursor-pointer"
                 />
               </div>
-            </div>
-            {/* chat */}
-            <div className="max-h-[300px] min-h-[250px] space-y-2 overflow-y-scroll px-3 py-5 text-white">
-              {Chats.map((chat, index) =>
-                chat.role === "you" ? (
-                  <ChatLineYou key={index} chat={chat} />
-                ) : (
-                  <ChatLineSender chat={chat} key={index} />
-                ),
-              )}
-              {Chats.map((chat, index) =>
-                chat.role === "you" ? (
-                  <ChatLineYou key={index} chat={chat} />
-                ) : (
-                  <ChatLineSender chat={chat} key={index} />
-                ),
-              )}
-              {Chats.map((chat, index) =>
-                chat.role === "you" ? (
-                  <ChatLineYou key={index} chat={chat} />
-                ) : (
-                  <ChatLineSender chat={chat} key={index} />
-                ),
-              )}
-            </div>
-            {/* Bottom */}
-            <div className="flex items-center gap-1 rounded-full px-3 py-2">
-              <Image
-                src={uplodeImg}
-                height={30}
-                width={30}
-                alt="setting"
-                className="cursor-pointer"
-              />
-              <Image
-                src={micImg}
-                height={30}
-                width={30}
-                alt="setting"
-                className="cursor-pointer"
-              />
-              <input
-                type="text"
-                placeholder="Enter a message"
-                className="w-2/3 rounded-full bg-slate-500 px-2 py-1 text-white outline-none"
-              />
-              <Image
-                src={sendImg}
-                height={30}
-                width={30}
-                alt="setting"
-                className="cursor-pointer"
-              />
-            </div>
 
-            {/* Call */}
-            {isCallPopUp && (
-              <CallPopUp
-                isCallPopUp={isCallPopUp}
-                setICallPopUp={setICallPopUp}
-                setMinimise={setMinimise}
-              />
-            )}
-            {isSettingOn && <ChatSettings />}
+              {isSettingOn && <ChatSettings />}
+            </div>
           </div>
-        </div>
+        )}
+        {minimise && (
+          <div
+            onClick={() => [setICallPopUp(true), setMinimise(false)]}
+            className="fixed bottom-5 right-2 z-40 cursor-pointer"
+          >
+            <Image src={UserImg} height={70} width={70} alt="user" />
+          </div>
+        )}
+      </div>
+      {isCallPopUp && (
+        <CallPopUp
+          isCallPopUp={isCallPopUp}
+          setICallPopUp={setICallPopUp}
+          setMinimise={setMinimise}
+        />
       )}
-      {minimise && (
-        <div
-          onClick={() => [setICallPopUp(true), setMinimise(false)]}
-          className="fixed bottom-5 right-2 z-40 cursor-pointer"
-        >
-          <Image src={UserImg} height={70} width={70} alt="user" />
-        </div>
-      )}
-    </div>
+    </>
   );
 };
 
@@ -446,7 +447,7 @@ const CallPopUp = ({
   setMinimise: any;
 }) => {
   return (
-    <div className="absolute -left-70 top-0  rounded-xl bg-blue-300 p-5">
+    <div className="absolute -left-125 top-5  rounded-xl bg-blue-300 p-5 z-30">
       <div className="relative flex min-h-[250px] min-w-[200px] flex-col items-center justify-between">
         <div className="flex flex-col items-center justify-center gap-2">
           <Image src={UserImg} height={60} width={60} alt="user" />

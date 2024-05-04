@@ -50,10 +50,6 @@ export default function Chat() {
       });
   };
 
-  //delete message
-  const [deleted, setIsDeleted] = useState(false);
-  const [deletedme, setIsDeletedme] = useState(false);
-
   const handlemuteStatus = () => {
     setMuteStatus(!MuteStatus);
   };
@@ -82,7 +78,7 @@ export default function Chat() {
   return (
     <div className="grid w-full grid-cols-12 bg-white">
       <Conversation />
-      <div className="col-span-full h-full w-full  md:col-span-9">
+      <div className="col-span-full h-full w-full  md:col-span-8">
         {/* [#3949ac]  */}
         {/* bg-[#39b7ea] */}
         <div className="flex items-center justify-between  border-b  border-solid  border-slate-300 px-6 py-2 dark:bg-[#24303F] dark:text-white">

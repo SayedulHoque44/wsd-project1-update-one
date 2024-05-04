@@ -80,59 +80,64 @@ export const CNavItem: navItem[] = [
 ];
 export const INavItem: navItem[] = [
   { id: 1, title: "Dashboard", url: "/i/dashboard", icon: BiSolidDashboard },
-  { id: 3, title: "All users", url: "/i/allUsers", icon: GiReceiveMoney },
-  { id: 2, title: "All Orders", url: "/i/orders", icon: BsBorderStyle },
-  { id: 15, title: "All Payments", url: "/i/allpayments", icon: BsBorderStyle },
-
+  { id: 2, title: "All users", url: "/i/allUsers", icon: GiReceiveMoney },
+  { id: 3, title: "All Orders", url: "/i/orders", icon: BsBorderStyle },
   {
-    id: 14,
+    id: 4,
+    title: " Transactions List",
+    url: "/i/transactions",
+    icon: BsBorderStyle,
+  },
+  { id: 5, title: "All Payments", url: "/i/allpayments", icon: BsBorderStyle },
+  {
+    id: 6,
     title: " Online Payment C",
     url: "/i/onlinepayment-checking",
     icon: MdOutlinePayment,
   },
   {
-    id: 13,
+    id: 7,
     title: " Offline Payment C",
     url: "/i/offlinepayment-checking",
     icon: MdOutlinePayment,
   },
   {
-    id: 12,
+    id: 8,
     title: "Online Refund P",
-    url: "/i/payment-checking2",
+    url: "/i/refund-payment-checking",
     icon: MdOutlinePayment,
   },
 
   // { id: 9, title: "Offline Refund P", url: "/pages/notice", icon: BiNotepad },
   {
-    id: 4,
+    id: 9,
     title: "LB342BLI",
     url: "/i/services",
     icon: GrTechnology,
   },
   {
-    id: 5,
+    id: 10,
     title: "TSTBSNOC",
     url: "/i/category",
     icon: BiCategoryAlt,
   },
   {
-    id: 6,
+    id: 11,
     title: "APSLCCB",
     url: "/i/company",
     icon: BiSolidBookContent,
   },
   {
-    id: 7,
+    id: 12,
     title: "Live Chat",
     url: "/i/liveChat",
     icon: BsFillChatLeftTextFill,
   },
   {
-    id: 8,
+    id: 13,
     title: "Create Admin",
     url: "/i/createAdmin",
     icon: RiAdminFill,
   },
-  { id: 9, title: "Setting", url: "/i/setting", icon: AiTwotoneSetting },
+  { id: 14, title: "Setting", url: "/i/setting", icon: AiTwotoneSetting },
 ];

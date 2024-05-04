@@ -2,20 +2,21 @@
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import CustomForm from "@/components/Form/Form";
 import CustomInput from "@/components/Form/Input";
-import { Button, Input, Select } from "antd";
+import { Button, Input, Select, SelectProps, Tag } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FieldValues } from "react-hook-form";
 import { BsCheck } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
+import selectImg from "../../../../../../../public/images/check-mark.png";
 
 export default function OrderDetailsPage({
   params,
 }: {
   params: { orderId: string };
 }) {
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState("pending");
   const [isOpen, setIsOpen] = useState(true);
   const router = useRouter();
 
@@ -24,6 +25,7 @@ export default function OrderDetailsPage({
   const handleChange = (value: string) => {
     setStatus(value);
   };
+
   return (
     <div className="flex min-h-[80vh] w-full flex-col items-center justify-center p-4 md:min-h-[60vh] md:p-6  2xl:p-10 ">
       <div className="mb-4 flex w-full items-center justify-end">
@@ -52,49 +54,56 @@ export default function OrderDetailsPage({
                         ? " Cancelled Order Page View"
                         : "Pending Order Page View"}
         </h1>
-        <div className="mx-auto flex w-full max-w-4xl items-center gap-10">
-          <div className="flex flex-col gap-2">
-            <div
-              onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center justify-center"
-            >
-              <button className="bg-green-500 px-2 py-2 font-semibold text-slate-900">
-                {status === "pending" ? "All sub admin" : "Only me"}
-              </button>
-              <div className="bg-rose-500 p-2 text-white">
-                <BsCheck className="h-6 w-6" />
-              </div>
-            </div>
-            <button
-              className={`bg-cyan-500 font-semibold text-slate-900 ${isOpen ? "block" : "hidden"}`}
-            >
-              {status === "pending" ? "Only me" : "All sub admin"}
-            </button>
+        <div className="flex w-full items-center  justify-center gap-10">
+          <div>
+            {status === "pending" || status === "payment" ? (
+              <Select
+                className="py-2"
+                // style={{ width: 120 }}
+                // onChange={handleChange}
+                defaultValue={"Only me"}
+                options={[
+                  { value: "Only me", label: "Only me" },
+                  { value: "All sub admin", label: "All sub admin" },
+                ]}
+              />
+            ) : (
+              <Select
+                className="py-2"
+                // style={{ width: 120 }}
+                // onChange={handleChange}
+                defaultValue={"All sub admin"}
+                options={[
+                  { value: "All sub admin", label: "All sub admin" },
+                  { value: "Only me", label: "Only me" },
+                ]}
+              />
+            )}
           </div>
-          <div className="flex gap-10">
+
+          <div className="flex items-center gap-10 text-slate-800">
             {status === "pending" ? (
               <>
-                <button className="rounded-md bg-violet-500 px-5 py-1.5 text-white">
-                  Set Project Amount
-                </button>
-                <button className="rounded-md bg-violet-500 px-5 py-1.5 text-white">
-                  minimum pay
-                </button>
+                <div className="flex flex-col gap-2 ">
+                  <span>Set Project Amount :</span>
+                  <Input placeholder="$ Enter Amount" type="number" />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span>Minimum Pay :</span>
+                  <Input placeholder="$ Enter Amount" type="number" />
+                </div>
               </>
             ) : status === "payment" ? (
               ""
             ) : status === "wating" ? (
-              <button className="rounded-md bg-violet-500 px-5 py-1.5 text-white">
-                profit set
-              </button>
+              <div className="flex flex-col gap-2 ">
+                <span>Profile Set :</span>
+                <Input placeholder="Profile Set.." type="text" />
+              </div>
             ) : status === "working" ? (
-              <div className="flex flex-col gap-2">
-                <button className="p-2 rounded-lg bg-orange-500 text-white">Project documentation upload</button>
-                <div className="flex items-center gap-2 bg-lime-100 p-2">
-                  <h1 className="text-sm">Url</h1>
-                  <Input type="text" placeholder="Enter documentaion url"/>
-                  <button className="bg-green-500 text-white px-2 py-1">Save</button>
-                </div>
+              <div className="flex flex-col gap-2 ">
+                <span>Project Documentation Uplode :</span>
+                <Input placeholder="Enter Url.." type="text" />
               </div>
             ) : status === "complete" ? (
               ""
@@ -127,7 +136,7 @@ export default function OrderDetailsPage({
                 { value: "cancelled", label: "Cancelled" },
               ]}
             />
-            <button className="w-24 h-10 rounded-md bg-slate-800 px-5 py-1.5 text-white">
+            <button className="h-10 w-24 rounded-md bg-green-700 px-5 py-1.5 text-white">
               Save
             </button>
           </div>

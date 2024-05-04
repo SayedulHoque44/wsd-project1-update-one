@@ -17,7 +17,6 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
         {children}
       </div>
       <h2 className="font-semibold">{name}</h2>
-
       <div className="mt-4 flex flex-col space-y-3">
         <div>
           <h4 className="text-title-md font-bold text-black dark:text-white">
