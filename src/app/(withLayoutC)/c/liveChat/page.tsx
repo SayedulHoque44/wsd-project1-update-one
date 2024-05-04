@@ -81,7 +81,7 @@ export default function Chat() {
       <div className="col-span-full h-full w-full  md:col-span-8">
         {/* [#3949ac]  */}
         {/* bg-[#39b7ea] */}
-        <div className="flex items-center justify-between bg-[#363747]  border-b  border-solid  px-6 py-2 dark:bg-[#24303F] dark:text-white">
+        <div className="flex items-center justify-between border-b  border-solid  bg-[#363747]  px-6 py-2 dark:bg-[#24303F] dark:text-white">
           <div className="item-center flex justify-between ">
             <div className=" relative mr-3 size-12">
               <Image
@@ -93,9 +93,7 @@ export default function Chat() {
             </div>
             <div>
               <h1 className="text-white">{activeChat.name}</h1>
-              <h1 className="text-sm text-[#3B82F6]">
-                Active on Chat
-              </h1>
+              <h1 className="text-sm text-[#3B82F6]">Active on Chat</h1>
             </div>
           </div>
           <div className="flex  gap-x-2">
@@ -118,7 +116,7 @@ export default function Chat() {
 
               {showDropManu && (
                 <div className="absolute -left-60 top-10 flex items-start justify-end  ">
-                  <div className="w-[300px] space-y-1 rounded-lg bg-slate-400 p-3 text-white dark:bg-slate-800">
+                  <div className="w-[300px] space-y-1 rounded-lg bg-[#46475E]  p-3 text-white dark:bg-slate-800">
                     <div key={""}>
                       <div
                         className="relative mb-1 flex justify-between"
@@ -300,7 +298,7 @@ export default function Chat() {
                   />
                   <div className="flex items-center gap-1">
                     {item.status === "default" ? (
-                      <h1 className="flex h-full w-full items-center  justify-center  gap-2 rounded-full bg-[#46475e] text-white p-4 dark:bg-slate-700 dark:text-white ">
+                      <h1 className="flex h-full w-full items-center  justify-center  gap-2 rounded-full bg-[#46475e] p-4 text-white dark:bg-slate-700 dark:text-white ">
                         {item.text}
                         <div className="flex ">
                           <FaClock color="skyBlue" className="" />

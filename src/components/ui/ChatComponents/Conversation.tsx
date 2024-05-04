@@ -74,7 +74,7 @@ const Conversation = () => {
             </button>
             {showDropManuCall && (
               <div className="absolute left-0 top-10 z-99  flex  items-start ">
-                <div className="texts w-[300px] space-y-1 rounded-lg bg-slate-400  p-4 text-white shadow-1 dark:bg-slate-800">
+                <div className="texts w-[300px] space-y-1 rounded-lg bg-[#46475E]  p-4 text-white shadow-1 dark:bg-slate-800">
                   <div key="" className="flex  justify-between ">
                     <span className="mr-5 font-medium  dark:text-slate-300">
                       OutComming Call
@@ -130,7 +130,7 @@ const Conversation = () => {
             <div className=" absolute -right-56 top-0 z-50  flex w-56 cursor-pointer flex-col gap-2 rounded-xl bg-[#2e303d] p-3 dark:bg-[#141C2E]">
               <div
                 onClick={() => [setStatusUser("request"), setUserModal(false)]}
-                className=" w-full rounded-xl bg-slate-300 bg-opacity-90 p-2 dark:bg-[#475569]"
+                className=" w-full rounded-xl text-white bg-[#414256] bg-opacity-90 p-2 dark:bg-[#475569]"
               >
                 Request help {requestedUser?.length}
               </div>
@@ -139,7 +139,7 @@ const Conversation = () => {
                   setStatusUser("forward-request"),
                   setUserModal(false),
                 ]}
-                className=" w-full rounded-xl bg-slate-300 bg-opacity-90 p-2 dark:bg-[#475569]"
+                className=" w-full rounded-xl bg-[#414256] text-white bg-opacity-90 p-2 dark:bg-[#475569]"
               >
                 Forward Request {forwardRequest?.length}
               </div>
