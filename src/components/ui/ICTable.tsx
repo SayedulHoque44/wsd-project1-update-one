@@ -36,7 +36,12 @@ const ICTable = ({
         onChange: onPaginationChange,
       }
     : false;
-
+  const getRowClassName = (record: unknown, index: number) => {
+    if (index % 2 === 0) {
+      return "even-row";
+    }
+    return "odd-row";
+  };
   return (
     <Table
       loading={loading}
@@ -46,6 +51,7 @@ const ICTable = ({
       onChange={onTableChange}
       rowKey={rowKey}
       expandable={expandable}
+      rowClassName={getRowClassName}
     />
   );
 };

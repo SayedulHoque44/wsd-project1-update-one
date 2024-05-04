@@ -7,7 +7,7 @@ import { BiEdit, BiTrash } from "react-icons/bi";
 
 import dynamic from "next/dynamic";
 import CustomSearch from "../CustomSearch";
-import { Button, Modal, Row } from "antd";
+import { Button, Modal, Pagination, Row } from "antd";
 import CustomForm from "@/components/Form/Form";
 import PrimaryButton from "@/components/button/PrimaryButton";
 import CustomInput from "@/components/Form/Input";
@@ -236,11 +236,6 @@ const CreateService: React.FC = () => {
 
   return (
     <div>
-      {/* <div className="">
-        <Popup trigger={<button>show page size</button>} modal>
-          <h1>page size:{pageSize}</h1>
-        </Popup>
-      </div> */}
       <div className="m-1  flex w-full place-items-end justify-center">
         <div>
           <p className="my-3 text-center text-2xl font-bold">Service</p>
@@ -291,6 +286,9 @@ const CreateService: React.FC = () => {
           </div>
         </div>
       )}
+      <div className="flex justify-end mt-12">
+        <Pagination  defaultCurrent={3} total={bloagData.length} />
+      </div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import SelectSingleOrMultiImg from "@/components/Upload/SelectSingleOrMultiImg";
 import PrimaryButton from "@/components/button/PrimaryButton";
-import { Button, Checkbox, Input } from "antd";
+import { Button, Checkbox, Input, Pagination } from "antd";
 import { tree } from "next/dist/build/templates/app-page";
 import Image from "next/image";
 import { ReactNode, useRef, useState } from "react";
@@ -78,6 +78,9 @@ const CreateFeatured = () => {
             {[1, 2, 3, 4, 5, 6].map((item, index) => (
               <SingleFeatured item={item} key={index} />
             ))}
+          </div>
+          <div className="mt-12 flex justify-end">
+            <Pagination defaultCurrent={3} total={3} />
           </div>
         </div>
       </div>

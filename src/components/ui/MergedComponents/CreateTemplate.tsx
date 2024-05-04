@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { AiOutlineEdit } from "react-icons/ai";
 import dynamic from "next/dynamic";
 import CustomSearch from "../CustomSearch";
-import { Button, Divider, Modal, Row } from "antd";
+import { Button, Divider, Modal, Pagination, Row } from "antd";
 import CustomForm from "@/components/Form/Form";
 import PrimaryButton from "@/components/button/PrimaryButton";
 import CustomInput from "@/components/Form/Input";
@@ -183,11 +183,6 @@ const CreateTemplate: React.FC = () => {
     setDeleteIndex(index); //this is for now temporary use when data store in db this ilne
     setConfirmationPopUpate(true);
   };
-  // const handleDeleteFileBaner = () => {
-  //   setDeleteIndex(null);
-
-  // };
-
   const handleDeleteUplod = () => {
     //   const updatedFiles = [...uploadedFile];
     //   updatedFiles.splice(deleteIndex, 1);
@@ -221,7 +216,6 @@ const CreateTemplate: React.FC = () => {
   const onSearch = (value: any) => {
     console.log(value);
   };
-  // for input taking file code
 
   return (
     <div>
@@ -280,6 +274,9 @@ const CreateTemplate: React.FC = () => {
           </div>
         </div>
       )}
+      <div className="mt-12 flex justify-end">
+        <Pagination defaultCurrent={3} total={bloagData.length} />
+      </div>
     </div>
   );
 };

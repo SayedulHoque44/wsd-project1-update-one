@@ -4,7 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   body {
     @apply relative z-1 bg-whiten font-satoshi text-base font-normal text-body;
@@ -32,6 +31,14 @@
   .inbox-height {
     @apply h-[calc(100vh_-_8.125rem)] lg:h-[calc(100vh_-_5.625rem)];
   }
+}
+
+.even-row {
+  background-color: #E1AFD1; /* Row color for index 0 */
+}
+
+.odd-row {
+  background-color: #FFE6E6; /* Row color for index 1 */
 }
 
 /* third-party libraries CSS */
