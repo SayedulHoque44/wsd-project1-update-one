@@ -1,24 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import { IoIosContact } from "react-icons/io";
-import { RiDeleteBin6Line, RiDragDropFill } from "react-icons/ri";
 import { AiOutlineEdit } from "react-icons/ai";
-import { BiEdit, BiTrash } from "react-icons/bi";
-
 import dynamic from "next/dynamic";
 import CustomSearch from "../CustomSearch";
 import { Button, Divider, Modal, Row } from "antd";
 import CustomForm from "@/components/Form/Form";
 import PrimaryButton from "@/components/button/PrimaryButton";
 import CustomInput from "@/components/Form/Input";
-import CustomTextarea from "@/components/Form/Textarea";
 import { MdDelete } from "react-icons/md";
 import SelectSingleOrMultiImg from "@/components/Upload/SelectSingleOrMultiImg";
 const CreateTemplate: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [paymentIcon, setPaymentIcon] = useState(null);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [pageSize, setPageSize] = useState(null);
   const [isChecked, setIsChecked] = useState(false);
   const [showConfirmation, setShowConfirmatin] = useState(false);
   const [draggedRow, setDraggedRow] = useState(null);
@@ -401,14 +393,13 @@ const SingleTemplate = ({ item }: { item: any }) => {
             size={30}
           />
         </div>
-
         <div className="Box1 relative  bg-white p-2">
           <div className=" p-2 pt-12 ">
             <h3 className="text-xl font-semibold">Large Society</h3>
             <p className="p-2">
               Et culpa nihil quae corrupti numquam magnam, molestias
               praesentium, perferendis voluptatem, molestiae officiis illo!
-              Eligendi iste asperiores{" "}
+              Eligendi iste asperiores
             </p>
           </div>
           <Divider />
