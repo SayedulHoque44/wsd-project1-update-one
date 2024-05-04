@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "../modal/Modal";
 import CompanyProfile from "../temp/CompanyProfile";
 import NoticeProfile from "../temp/NoticeProfile";
+import { Pagination } from "antd";
 export interface ProfilesData {
   sl?: number;
   id?: number;
@@ -106,6 +107,9 @@ const CreateNotice: React.FC = () => {
   return (
     <div>
       <NoticeProfile />
+      <div className="flex justify-end mt-12">
+        <Pagination  defaultCurrent={3} total={3} />
+      </div>
     </div>
   );
 };

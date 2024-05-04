@@ -7,7 +7,7 @@ import { BiEdit, BiTrash } from "react-icons/bi";
 
 import dynamic from "next/dynamic";
 import CustomSearch from "../CustomSearch";
-import { Button, Modal, Row } from "antd";
+import { Button, Modal, Pagination, Row } from "antd";
 import CustomForm from "@/components/Form/Form";
 import PrimaryButton from "@/components/button/PrimaryButton";
 import CustomInput from "@/components/Form/Input";
@@ -291,6 +291,9 @@ const CreateBlog: React.FC = () => {
           </div>
         </div>
       )}
+      <div className="mt-12 flex justify-end">
+        <Pagination defaultCurrent={3} total={bloagData.length} />
+      </div>
     </div>
   );
 };

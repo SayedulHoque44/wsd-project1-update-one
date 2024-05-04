@@ -1,16 +1,11 @@
 "use client";
-
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import DatePickerOne from "@/components/FormElements/DatePicker/DatePickerOne";
-import SelectGroupTwo from "@/components/SelectGroup/SelectGroupTwo";
 import ICTable from "@/components/ui/ICTable";
-import BleuButton from "@/components/ui/button/BleuButton";
 import CustomSearch from "@/components/ui/CustomSearch";
 import CustomSelect from "@/components/ui/CustomSelect";
 import { users } from "@/constants/userData";
 import { IUser } from "@/types/user";
 import { DatePicker } from "antd";
-
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -63,7 +58,6 @@ const AllUsers = () => {
   ];
 
   const onPaginationChange = (page: number, pageSize: number) => {
-    // console.log("Page:", page, "PageSize:", pageSize);
     setPage(page);
     setSize(pageSize);
   };
@@ -82,34 +76,28 @@ const AllUsers = () => {
   };
 
   return (
-    <div className="w-full p-4 md:p-6 2xl:p-10">
-      <Breadcrumb pageName="All User" />
-      <div className="grid w-full  grid-cols-1 items-center justify-between gap-3 py-4 md:grid-cols-3">
-        <CustomSelect options={country} placeholder="Status" />
-        <CustomSearch onSearch={onSearch} />
-        <DatePicker onChange={onStartDate} />
-      </div>
+    <>
+      <div className="w-full p-4 md:p-6 2xl:p-10">
+        <Breadcrumb pageName="All User" />
+        <div className="grid w-full  grid-cols-1 items-center justify-between gap-3 py-4 md:grid-cols-3">
+          <CustomSelect options={country} placeholder="Status" />
+          <CustomSearch onSearch={onSearch} />
+          <DatePicker onChange={onStartDate} />
+        </div>
 
-      <ICTable
-        loading={false}
-        columns={columns}
-        dataSource={users}
-        pageSize={size}
-        totalPages={users?.length}
-        // showSizeChanger={true}
-        onPaginationChange={onPaginationChange}
-        onTableChange={onTableChange}
-        showPagination={true}
-        // rowKey="id"
-        // expandable={{
-        //   expandedRowRender: (record: any) => (
-        //     <p style={{margin: 0}}>{record.truckDescription}</p>
-        //   ),
-        //   rowExpandable: (record: any) =>
-        //     record.truckDescription !== "Not Expandable",
-        // }}
-      />
-    </div>
+        <ICTable
+          loading={false}
+          columns={columns}
+          dataSource={users}
+          pageSize={size}
+          totalPages={users?.length}
+          // showSizeChanger={true}
+          onPaginationChange={onPaginationChange}
+          onTableChange={onTableChange}
+          showPagination={true}
+        />
+      </div>
+    </>
   );
 };
 

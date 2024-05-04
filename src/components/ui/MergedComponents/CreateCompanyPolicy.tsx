@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "../modal/Modal";
 import CompanyProfile from "../temp/CompanyProfile";
+import { Pagination } from "antd";
 export interface ProfilesData {
   sl?: number;
   id?: number;
@@ -106,6 +107,9 @@ const CreateCompanyPolicy: React.FC = () => {
     <div>
       <div>
         <CompanyProfile />
+      </div>
+      <div className="mt-12 flex justify-end">
+        <Pagination defaultCurrent={3} total={3} />
       </div>
     </div>
   );
