@@ -402,7 +402,7 @@ const SingleTemplate = ({ item }: { item: any }) => {
               Eligendi iste asperiores
             </p>
           </div>
-          <Divider />
+          {/* <Divider />
           <div className=" p-2">
             <h3 className="text-xl font-semibold">Title</h3>
             <p className="p-2">
@@ -411,7 +411,7 @@ const SingleTemplate = ({ item }: { item: any }) => {
               quidem recusandae animi officia iusto facilis omnis corrupti cum.
               Qui nulla eius vel.
             </p>
-          </div>
+          </div> */}
           <div className="absolute right-2 top-2 rounded-full bg-meta-6 p-2 text-sm font-semibold text-white">
             Save 800$
           </div>

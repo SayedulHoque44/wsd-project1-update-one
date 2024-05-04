@@ -263,7 +263,7 @@ const CreateBlog: React.FC = () => {
         </div>
       </div>
       <div>
-        <div className="mt-20 grid grid-cols-6 place-content-start gap-1 px-3 pl-20 pr-20 ">
+        <div className="mx-auto mt-20 flex flex-wrap  items-center  justify-center gap-4 space-y-2">
           {bloagData.map((item, index) => (
             <SingleBlog item={item} key={index} />
           ))}
@@ -373,9 +373,9 @@ const SingleBlog = ({ item }: { item: any }) => {
   const { title, blog } = item;
   const [isChecked, setIsChecked] = useState(false);
   return (
-    <div className={`text-center font-medium`}>
+    <div className={`w-[350px] text-center font-medium`}>
       <div className="flex flex-col  px-2 ">
-        <div className="flex items-center justify-between gap-1 bg-blue-200 p-2 ">
+        <div className="flex items-center justify-between gap-1 bg-slate-300 p-2 ">
           {/* Togale tbn */}
           <label className="flex cursor-pointer select-none items-center">
             <div className="relative">
@@ -398,15 +398,15 @@ const SingleBlog = ({ item }: { item: any }) => {
             </div>
           </label>
           <AiOutlineEdit
-            className=" cursor-pointer text-green-500"
+            className=" cursor-pointer text-blue-600"
             // onClick={() => handleUpdate(index)}
             // onClick={() => setIsVisible(true)}
-            size={20}
+            size={30}
           />
           <MdDelete
             // onClick={() => handleRemoveRowFromTable(index)}
-            className="cursor-pointer  text-rose-500"
-            size={20}
+            className="cursor-pointer  text-rose-600"
+            size={30}
           />
         </div>
 

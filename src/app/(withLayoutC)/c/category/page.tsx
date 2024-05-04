@@ -2,6 +2,7 @@
 import AddNewTechnology from "@/components/ui/MergedComponents/CategoryComponents/AddNewTechnology";
 import CreateBlog from "@/components/ui/MergedComponents/CreateBlog";
 import CreateCompanyPolicy from "@/components/ui/MergedComponents/CreateCompanyPolicy";
+import CreateFeatured from "@/components/ui/MergedComponents/CreateFeatured";
 import CreateNotice from "@/components/ui/MergedComponents/CreateNotice";
 import CreateOrder from "@/components/ui/MergedComponents/CreateOrder";
 import CreateService from "@/components/ui/MergedComponents/CreateService";
@@ -214,20 +215,28 @@ const Category: React.FC = () => {
 
   return (
     <section className="w-full p-4 md:p-6 2xl:p-10">
-      <div className="grid grid-cols-2  gap-2 py-4 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 ">
+      <div className="flex flex-wrap items-center justify-center gap-3">
         <button
           className={`${"tab1"} ${
             currentTab === "tab1" ? "activeTab" : ""
-          }  rounded border-2 bg-blue-600 px-1 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
+          }  rounded border-2 bg-blue-600 px-3 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
           onClick={() => handleTabChange("tab1")}
         >
           Create Technology
+        </button>
+        <button
+          className={`${"createFeatured"} ${
+            currentTab === "tab1" ? "activeTab" : ""
+          }  rounded border-2 bg-blue-600 px-3 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
+          onClick={() => handleTabChange("createFeatured")}
+        >
+          Create Featured
         </button>
 
         <button
           className={`${"tab2"} ${
             currentTab === "tab2" ? "activeTab" : ""
-          }  rounded border-2 bg-blue-600 px-1 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
+          }  rounded border-2 bg-blue-600 px-3 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
           onClick={() => handleTabChange("tab2")}
         >
           Service Creator
@@ -235,7 +244,7 @@ const Category: React.FC = () => {
         <button
           className={`${"tab3"} ${
             currentTab === "tab3" ? "activeTab" : ""
-          }  active:bg rounded border-2 bg-blue-600 px-1 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
+          }  active:bg rounded border-2 bg-blue-600 px-3 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
           onClick={() => handleTabChange("tab3")}
         >
           Create templated
@@ -243,7 +252,7 @@ const Category: React.FC = () => {
         <button
           className={`${"tab4"} ${
             currentTab === "tab4" ? "activeTab" : ""
-          }  rounded border-2 bg-blue-600 px-1 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
+          }  rounded border-2 bg-blue-600 px-3 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
           onClick={() => handleTabChange("tab4")}
         >
           Create Blog
@@ -251,7 +260,7 @@ const Category: React.FC = () => {
         <button
           className={`${"tab5"} ${
             currentTab === "tab5" ? "activeTab" : ""
-          }  rounded border-2 bg-blue-600 px-1 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
+          }  rounded border-2 bg-blue-600 px-3 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
           onClick={() => handleTabChange("tab5")}
         >
           Update Security
@@ -259,7 +268,7 @@ const Category: React.FC = () => {
         <button
           className={`${"tab6"} ${
             currentTab === "tab6" ? "activeTab" : ""
-          }  rounded border-2 bg-blue-600 px-1 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
+          }  rounded border-2 bg-blue-600 px-3 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
           onClick={() => handleTabChange("tab6")}
         >
           Create Notice
@@ -267,7 +276,7 @@ const Category: React.FC = () => {
         <button
           className={`${"tab7"} ${
             currentTab === "tab7" ? "activeTab" : ""
-          }  rounded border-2 bg-blue-600 px-1 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
+          }  rounded border-2 bg-blue-600 px-3 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
           onClick={() => handleTabChange("tab7")}
         >
           Create Order
@@ -275,7 +284,7 @@ const Category: React.FC = () => {
         <button
           className={`${"tab8"} ${
             currentTab === "tab8" ? "activeTab" : ""
-          }  rounded border-2 bg-blue-600 px-1 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
+          }  rounded border-2 bg-blue-600 px-3 py-2 text-white hover:bg-blue-400 active:border-white  active:bg-blue-400 `}
           onClick={() => handleTabChange("tab8")}
         >
           Company Employee Profile
@@ -287,6 +296,12 @@ const Category: React.FC = () => {
           <div>
             {" "}
             <AddNewTechnology />{" "}
+          </div>
+        )}
+        {currentTab === "createFeatured" && (
+          <div>
+            {" "}
+            <CreateFeatured />{" "}
           </div>
         )}
         {currentTab === "tab2" && (
