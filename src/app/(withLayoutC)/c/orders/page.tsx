@@ -261,7 +261,7 @@ const UpdateConversation = () => {
           Update
         </button>
         {isShowChats && (
-          <div className="max:h-[500px] absolute right-0 top-0 z-9999 w-[300px] rounded-xl bg-[#9AC4CD] p-2">
+          <div className="max:h-[500px] absolute right-0 top-0 z-9999 w-[300px] rounded-xl bg-[#363747] p-2">
             <div className="relative">
               {/* close */}
               <div className="absolute -right-7 -top-7 flex flex-col items-center gap-2 text-xl font-bold">
@@ -276,10 +276,10 @@ const UpdateConversation = () => {
                 </span>
               </div>
               {/* top */}
-              <div className="flex items-center justify-between rounded-full bg-blue-300 p-1">
+              <div className="flex items-center justify-between rounded-full bg-[#414256] p-1 text-white">
                 <div className="flex items-center gap-1 font-semibold">
                   <Image src={UserImg} height={40} width={40} alt="user" />
-                  <span>Md Kazol</span>
+                  <span className="text-white">Md Kazol</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <Image
@@ -299,7 +299,7 @@ const UpdateConversation = () => {
                 </div>
               </div>
               {/* chat */}
-              <div className="max-h-[300px] min-h-[250px] space-y-2 overflow-y-scroll px-3 py-5 text-white">
+              <div className="max-h-[300px] min-h-[250px]  space-y-2 overflow-y-scroll px-3 py-5 text-white">
                 {Chats.map((chat, index) =>
                   chat.role === "you" ? (
                     <ChatLineYou key={index} chat={chat} />
@@ -359,7 +359,7 @@ const UpdateConversation = () => {
         {minimise && (
           <div
             onClick={() => [setICallPopUp(true), setMinimise(false)]}
-            className="fixed bottom-5 right-2 z-40 cursor-pointer"
+            className="fixed bottom-20 right-2 z-40 cursor-pointer"
           >
             <Image src={UserImg} height={70} width={70} alt="user" />
           </div>
@@ -382,7 +382,7 @@ const ChatLineYou = ({ chat }: { chat: { role: string; message: string } }) => {
     <div className=" flex items-center justify-end gap-1">
       <span className="relative">
         <HiOutlineDotsVertical
-          className="text-slate-600 "
+          className="text-slate-600 cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         />
         {isOpen && (
@@ -395,7 +395,7 @@ const ChatLineYou = ({ chat }: { chat: { role: string; message: string } }) => {
           </div>
         )}
       </span>
-      <span className="rounded-md bg-blue-600 p-1">{chat.message}</span>
+      <span className="rounded-md bg-blue-600 px-2 py-1">{chat.message}</span>
     </div>
   );
 };
@@ -409,11 +409,11 @@ const ChatLineSender = ({
   return (
     <div className="flex items-center justify-start gap-1">
       <Image src={UserImg} height={30} width={30} alt="user" />
-      <span className="rounded-md bg-blue-600 p-1">{chat.message}</span>
+      <span className="rounded-md bg-[#46475E] px-2 py-1">{chat.message}</span>
       <span className="relative">
         <HiOutlineDotsVertical
           onClick={() => setIsOpen(!isOpen)}
-          className="text-slate-600"
+          className="text-slate-600 cursor-pointer"
         />
         {isOpen && (
           <div
@@ -439,11 +439,12 @@ const CallPopUp = ({
   setMinimise: any;
 }) => {
   return (
-    <div className="absolute -left-125 top-5  z-30 rounded-xl bg-blue-300 p-5">
+
+    <div className="absolute -left-125 top-5  rounded-xl bg-[#46475E] p-5 z-30">
       <div className="relative flex min-h-[250px] min-w-[200px] flex-col items-center justify-between">
         <div className="flex flex-col items-center justify-center gap-2">
           <Image src={UserImg} height={60} width={60} alt="user" />
-          <h2 className="text-xl font-semibold">Md Kazol</h2>
+          <h2 className="text-xl font-semibold text-white">Md Kazol</h2>
         </div>
         <div className="flex items-center justify-center gap-2">
           <Image src={micImg} height={40} width={40} alt="user" />
@@ -471,7 +472,7 @@ const CallPopUp = ({
 const ChatSettings = () => {
   const [isDeletePopUp, setIsDeletePopUp] = useState(false);
   return (
-    <div className="absolute right-0 top-10 z-9999 rounded-xl bg-white px-5 py-2 text-slate-400 dark:bg-black">
+    <div className="absolute right-0 top-10 z-9999 rounded-xl bg-[#46475E] px-5 py-2 text-slate-400 dark:bg-black">
       <div className="flex items-center justify-between gap-4">
         <span>Can&apos;t Message</span>
         <label className="relative inline-flex cursor-pointer items-center">
