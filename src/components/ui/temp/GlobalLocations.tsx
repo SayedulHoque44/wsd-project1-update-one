@@ -304,7 +304,7 @@ const GlobalLocations: React.FC<GlobProps> = ({
                 type="text"
                 value={inputValue.feild}
                 onChange={(e) => handleInputChange("feild", e.target.value)}
-                className="h-8 border-none   "
+                className="h-8 border-none  p-2 "
                 placeholder="Enter Contry Name...."
               />
             </td>
@@ -313,7 +313,7 @@ const GlobalLocations: React.FC<GlobProps> = ({
                 type="text"
                 value={inputValue.feild2}
                 onChange={(e) => handleInputChange("feild2", e.target.value)}
-                className="h-8 border-none "
+                className="h-8 border-none p-2"
                 placeholder="Enter Office Address...."
               />
             </td>
@@ -322,7 +322,7 @@ const GlobalLocations: React.FC<GlobProps> = ({
                 type="text"
                 value={inputValue.feild3}
                 onChange={(e) => handleInputChange("feild3", e.target.value)}
-                className="h-8 border-none hover:border-none focus:border-none "
+                className="h-8 border-none p-2 hover:border-none focus:border-none"
                 placeholder="Enter Contact Detalis..."
               />
             </td>
@@ -347,7 +347,7 @@ const GlobalLocations: React.FC<GlobProps> = ({
               onDragOver={(e) => handleDragOver(e, index)}
               onDrop={(e) => handleDrop(e, index)}
             >
-              <td className="border border-slate-300 text-sm  ">
+              <td className="border border-slate-300 text-center  text-sm">
                 {index + 1 + indexOfFirstItem}
               </td>
 
